@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Colophon and technical documentation explaining how the Tary Ethno Cafe website was constructed using strict semantic HTML5.">
+  <meta name="author" content="Jasulan">
+  <!-- Author: Jasulan -->
+  <title>Colophon &amp; Technical Architecture - Tary Ethno Cafe</title>
+</head>
+<body id="top">
+  <header>
+    <h1>Tary Coffee &amp; Ethno Cafe</h1>
+    <p>Website Colophon and Technical Architecture Report.</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="booking.html">Reservations</a></li>
+        <li><a href="colophon.html">Colophon</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Technical Standards and Methodology</h2>
+      <p>This website was authored by Jasulan as Assignment 1 for the Introduction to Web Technologies course. Every page is hand-crafted in valid semantic HTML5 without any CSS formatting, JavaScript scripting, or external frameworks.</p>
+      <!-- Why: I used <pre> and <code> to show sample HTML code while preserving indentation and brackets. -->
+      <article>
+        <h3>Core Page Structural Pattern</h3>
+        <p>The site relies on a uniform semantic skeleton ensuring accessibility across all devices:</p>
+        <pre><code>&lt;header&gt;
+  &lt;h1&gt;Tary Coffee &amp;amp; Ethno Cafe&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;article&gt;...&lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+      </article>
+      <!-- Why: I used <kbd> for keyboard shortcuts and <samp> for sample validator output. -->
+      <article>
+        <h3>Source Code Inspection and Validation</h3>
+        <p>To view the underlying unstyled markup in your web browser, press <kbd>Ctrl</kbd> + <kbd>U</kbd> on Windows or <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>U</kbd> on macOS.</p>
+        <p>All four documents were submitted to the official W3C Nu HTML Validator, producing the following clean response:</p>
+        <pre><samp>Document checking completed. No errors or warnings to show.</samp></pre>
+        <!-- Note: Using span here just to hold the status badge text since there is no semantic tag for a simple inline badge. -->
+        <p>Current production validation status: <span>Valid HTML5 (0 errors)</span>.</p>
+        <hr>
+        <p>The development workflow prioritized strict semantic tag hierarchy over generic division containers.<br>Every element was selected based on its intrinsic structural role.</p>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <p>Contact our reception at <a href="tel:+77172795555">+7 (7172) 79-55-55</a> or send inquiries to <a href="mailto:info@tary.kz">info@tary.kz</a>.</p>
+    <p>&copy; 2026 Tary Ethno Cafe. All rights reserved.</p>
+  </footer>
+</body>
+</html>
