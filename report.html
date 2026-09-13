@@ -19,12 +19,15 @@
   h1 { font-size: 20px; margin-bottom: 6px; color: #111; }
   h2 { font-size: 16px; margin-top: 18px; margin-bottom: 8px; color: #222; border-bottom: 1px solid #ccc; padding-bottom: 3px; }
   h3 { font-size: 14px; margin-top: 14px; margin-bottom: 6px; color: #333; }
+  h4 { font-size: 13px; margin-top: 12px; margin-bottom: 4px; color: #111; }
   p { margin: 6px 0; }
   ul { margin: 6px 0; padding-left: 20px; }
+  ol { margin: 6px 0; padding-left: 20px; }
   li { margin-bottom: 3px; }
   .header-meta { margin-bottom: 14px; font-size: 13px; color: #444; }
   .header-meta a { color: #0366d6; text-decoration: none; }
-  .author { font-size: 15px; font-weight: bold; color: #111; margin: 8px 0; }
+  .team-block { font-size: 14px; font-weight: bold; color: #111; margin: 8px 0 14px 0; }
+  .team-block span { font-weight: normal; color: #333; display: block; margin-top: 2px; }
   
   table.audit-table {
     width: 100%;
@@ -45,13 +48,24 @@
     page-break-before: always;
   }
   .screenshot-box {
-    margin: 10px 0;
+    margin: 12px 0;
     text-align: center;
   }
   .screenshot-box img {
     max-width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid #bbb;
     border-radius: 4px;
+  }
+  .sketch-box {
+    margin: 10px 0;
+    text-align: center;
+  }
+  .sketch-box img {
+    max-height: 520px;
+    max-width: 100%;
+    border: 1px solid #999;
+    border-radius: 4px;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.15);
   }
   .val-grid {
     margin-top: 8px;
@@ -80,13 +94,15 @@
     Repository URL: <a href="https://github.com/jasulansam/web">https://github.com/jasulansam/web</a>
   </div>
 
-  <div class="author">
-    Student: Jasulan
+  <div class="team-block">
+    Team Members:
+    <span>• Zamrat Zhasulan</span>
+    <span>• Zhaksylyk Adilet</span>
   </div>
 
   <h2>1. Project Overview</h2>
   <ul>
-    <li><b>Objective:</b> Development of a multi-page website for the Tary Ethno Cafe branch (Kabanbay Batyr 15/1, Astana) adhering strictly to semantic HTML5 standards without external styling or client-side scripting frameworks.</li>
+    <li><b>Objective:</b> Development of a multi-page website for the Tary Ethno Cafe flagship branch (Kabanbay Batyr 15/1, Astana) adhering strictly to semantic HTML5 standards without external styling or client-side scripting frameworks.</li>
     <li><b>Core Architectural Rules:</b>
       <ul>
         <li>Strict landmark hierarchy (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>).</li>
@@ -197,33 +213,46 @@
   </ul>
 
   <h2>4. Hand-Drawn Page Structure Sketch</h2>
-  <p>As required by Assignment 1, the page structure of the audited competitor website was analyzed and sketched on paper, noting semantic mistakes, structural landmarks, and signed by the student.</p>
+  <p>As required by Assignment 1, the page structure of the audited reference website was analyzed and hand-drawn on paper with pen by the students, highlighting semantic errors, landmark structure, and signed by both authors.</p>
   
-  <div class="screenshot-box">
-    <img src="report-assets/sketch.png" alt="Hand-drawn page structure sketch" style="max-height: 480px;">
+  <div class="sketch-box">
+    <img src="report-assets/sketch.png" alt="Hand-drawn page structure sketch on paper">
   </div>
 
   <!-- PAGE 3 -->
   <div class="page-break"></div>
-  <h2>5. Task B — Reflective Essay</h2>
-  <div class="author">Reflective Essay: Jasulan</div>
+  <h2>5. Task B — Reflective Essays</h2>
   
+  <h4>Reflective Essay: Zamrat Zhasulan</h4>
   <p>A web page is fundamentally a plain-text document structured with HyperText Markup Language (HTML). At its core, an HTML file consists of human-readable elements demarcated by tags, attributes, text nodes, and entities. When a user navigates to a local HTML file or web address, the browser receives a continuous stream of raw bytes.</p>
   
   <p>The rendering engine decodes these bytes into characters using the declared character encoding (<code>UTF-8</code>), tokenizes the stream into distinct start tags, end tags, and content, and constructs the Document Object Model (DOM) tree. Concurrently, the engine parses external stylesheets to generate the CSSOM (CSS Object Model). The browser merges DOM and CSSOM into a Render Tree, filtering out non-rendered nodes (such as <code>&lt;head&gt;</code> or elements with <code>display: none</code>). Next, the layout engine executes geometry calculations to determine the precise size and coordinates of each element on the viewport. Finally, the painting stage rasterizes vectors, text, borders, and colors onto physical pixels displayed on the screen. Because our assignment strictly excludes CSS and JavaScript, the browser renders directly using its default User-Agent stylesheet.</p>
 
-  <p><b>In my codebase, I strictly prioritized semantic markup over generic <code>&lt;div&gt;</code> containers:</b></p>
+  <p>In my codebase, I strictly prioritized semantic markup over generic <code>&lt;div&gt;</code> containers:</p>
   <ol>
     <li>In <code>menu.html</code>, I wrapped our pricing data inside an accessible <code>&lt;table&gt;</code> with <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> instead of styled grid divs, giving assistive screen readers clear tabular data relationships.</li>
-    <li>In <code>booking.html</code>, I utilized <code>&lt;fieldset&gt;</code> paired with <code>&lt;legend&gt;</code> rather than wrapper divs to logically group reservation preferences, ensuring screen readers announce category contexts.</li>
-    <li>In <code>index.html</code>, I chose <code>&lt;article&gt;</code> instead of <code>&lt;div&gt;</code> for the cafe heritage section because it forms an independent, self-contained guide that can stand on its own.</li>
+    <li>In <code>menu.html</code>, I utilized a definition list (<code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code>) instead of divs to define traditional ingredients (Tary, Balkaymak, Kurt) as term-and-description semantic pairs.</li>
+    <li>In <code>index.html</code>, I chose <code>&lt;article&gt;</code> instead of <code>&lt;div&gt;</code> for the cafe heritage section because it forms an independent, self-contained story that can stand on its own.</li>
   </ol>
 
-  <p>When a visitor clicks the submit button on <code>booking.html</code> today, the browser triggers native client-side constraint validation against attributes like <code>required</code>, <code>type="email"</code>, <code>type="number"</code>, and <code>type="tel"</code>. Because no server-side backend script processes the request, the browser attempts an HTTP POST request to <code>action="#"</code>, serializing form values and reloading the static page with fragment anchor.</p>
+  <h4>Reflective Essay: Zhaksylyk Adilet</h4>
+  <p>A web page is a structured text document containing semantic tags that define document landmarks, interactive forms, and content hierarchies. When a browser opens our <code>booking.html</code> file, it parses the markup from top to bottom, building an in-memory tree representation known as the DOM (Document Object Model). Without external CSS, the browser applies its built-in user-agent style sheet to compute font sizes, element margins, and form control layouts before painting pixels to the display.</p>
+
+  <p>In my codebase, I strictly chose semantic elements over non-semantic <code>&lt;div&gt;</code> tags:</p>
+  <ol>
+    <li>In <code>booking.html</code>, I grouped personal contact details and dining preferences inside <code>&lt;fieldset&gt;</code> elements with <code>&lt;legend&gt;</code> rather than wrapper divs, ensuring screen readers announce logical category contexts.</li>
+    <li>In <code>booking.html</code>, I explicitly connected each <code>&lt;label for="..."&gt;</code> with its corresponding input <code>id</code> instead of using generic divs with text, ensuring clicking labels activates input focus.</li>
+    <li>In <code>colophon.html</code>, I used <code>&lt;pre&gt;</code> and <code>&lt;code&gt;</code> instead of a div container to display sample HTML code while preserving whitespace and formatting.</li>
+  </ol>
+
+  <p>When a visitor clicks the submit button on <code>booking.html</code> today, the browser triggers native client-side constraint validation against attributes like <code>required</code>, <code>type="email"</code>, <code>type="number"</code>, and <code>type="tel"</code>. If any input fails validation, the browser blocks submission and displays a native alert. Because no server-side backend script processes the request, the browser attempts an HTTP POST request to <code>action="#"</code>, reloading the static page with query fragment without transmitting data over the network.</p>
 
   <h2>6. AI Assistance &amp; Usage Logs</h2>
   <p>Interactive logs documenting prompt history, academic integrity declarations, and AI-assisted workflow iterations are maintained in the GitHub repository:</p>
-  <p>Jasulan — AI Usage Log: <a href="https://github.com/jasulansam/web/blob/main/ai-log.md">https://github.com/jasulansam/web/blob/main/ai-log.md</a></p>
+  <ul>
+    <li>Zamrat Zhasulan — AI Usage Log: <a href="https://github.com/jasulansam/web/blob/main/ai-log.md">https://github.com/jasulansam/web/blob/main/ai-log.md</a></li>
+    <li>Zhaksylyk Adilet — AI Usage Log: <a href="https://github.com/jasulansam/web/blob/main/ai-log.md">https://github.com/jasulansam/web/blob/main/ai-log.md</a></li>
+  </ul>
 
   <!-- PAGE 4 -->
   <div class="page-break"></div>
@@ -255,7 +284,7 @@
   </div>
 
   <h2>8. HTML5 Semantic Elements Checklist</h2>
-  <p>The comprehensive line-by-line checklist of every required HTML5 semantic tag, attribute, list, and table structure is documented in the repository:</p>
+  <p>The comprehensive line-by-line checklist of every required HTML5 semantic tag, attribute, list, and table structure with student attributions is documented in the repository:</p>
   <p>URL: <a href="https://github.com/jasulansam/web/blob/main/tag-checklist.md">https://github.com/jasulansam/web/blob/main/tag-checklist.md</a></p>
 
 </body>
