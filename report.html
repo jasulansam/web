@@ -113,19 +113,19 @@
     </li>
   </ul>
 
-  <h2>2. Task A — Anatomy of a Real Page (Reference Audit: coffeeboom.kz)</h2>
+  <h2>2. Task A — Anatomy of a Real Page (Reference Audit: tary.kz)</h2>
   <h3>2.1 Head Elements and Metadata Inspection</h3>
   <ul>
     <li><b>DOCTYPE:</b> <code>&lt;!DOCTYPE html&gt;</code></li>
     <li><b>Language:</b> <code>lang="kk"</code> in <code>&lt;html class="html" lang="kk"&gt;</code></li>
     <li><b>Charset:</b> Legacy HTTP-EQUIV syntax <code>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;</code></li>
     <li><b>Viewport:</b> <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></li>
-    <li><b>Title:</b> <code>Coffee Boom — Қазақстан, Ресей және Өзбекстандағы кофеханалар желісі.</code></li>
+    <li><b>Title:</b> <code>Tary Ethno Cafe — Дәстүрлі қазақ тағамдары мен авторлық кофе, Астана.</code></li>
     <li><b>Three Key Meta Tags:</b>
       <ol>
-        <li><code>&lt;meta name="Description" content="Coffee Boom — 2010 жылдан бері жұмыс істеп келе жатқан, 130-дан астам кофеханасы бар халықаралық желі..."&gt;</code></li>
+        <li><code>&lt;meta name="Description" content="Tary Ethno Cafe — қазақтың ұлттық дәмі мен заманауи кофейня мәдениетін тоғыстырған мейрамханалар желісі..."&gt;</code></li>
         <li><code>&lt;meta name="theme-color" content="whitesmoke"&gt;</code></li>
-        <li><code>&lt;meta property="og:image" content="https://coffeeboom.kz/wa-data/public/wcms/images/07/04/00/461/461.0x0.png"&gt;</code></li>
+        <li><code>&lt;meta property="og:image" content="https://tary.kz/wa-data/public/wcms/images/07/04/00/461/461.0x0.png"&gt;</code></li>
       </ol>
     </li>
   </ul>
@@ -184,7 +184,7 @@
       <tr>
         <td>Generic Containers</td>
         <td><code>&lt;div&gt;</code></td>
-        <td>570</td>
+        <td>480</td>
         <td>Excessive div-soup throughout entire layout</td>
       </tr>
     </tbody>
@@ -196,7 +196,7 @@
   
   <p><b>1. Extreme "Div-Soup" and Missing Navigation Landmarks:</b></p>
   <ul>
-    <li><i>Mistake:</i> On <code>coffeeboom.kz</code>, the main navigation bar containing over 20 links is wrapped in generic <code>&lt;div&gt;</code> tags rather than a semantic <code>&lt;nav&gt;</code>. Screen readers and search engine crawlers cannot identify navigation landmarks.</li>
+    <li><i>Mistake:</i> On <code>tary.kz</code>, the main navigation bar containing over 20 links is wrapped in generic <code>&lt;div&gt;</code> tags rather than a semantic <code>&lt;nav&gt;</code>. Screen readers and search engine crawlers cannot identify navigation landmarks.</li>
     <li><i>Our Solution:</i> On all our pages (<code>index.html</code>, <code>menu.html</code>, <code>booking.html</code>, <code>colophon.html</code>), site navigation is strictly encapsulated in a semantic <code>&lt;nav&gt;</code> tag holding a structured <code>&lt;ul&gt;</code> list.</li>
   </ul>
 

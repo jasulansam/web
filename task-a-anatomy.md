@@ -2,7 +2,7 @@
 
 **Student**: Jasulan  
 **Course**: Introduction to Web Technologies — Assignment 1  
-**Analyzed Website**: Costa Coffee Kazakhstan (`https://costacoffee.kz`) & Starbucks Kazakhstan (`https://starbucks.com.kz`)
+**Analyzed Website**: Tary Ethno Cafe Commercial Portal (`https://tary.kz`)
 
 ---
 
