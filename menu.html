@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the full menu and pricing at Coffi Astana, featuring specialty espresso, cold bumble drinks, matcha, and fresh pastries.">
+  <meta name="author" content="Zamrat Zhasulan">
+  <!-- Author: Zamrat Zhasulan -->
+  <title>Menu &amp; Price List - Coffi Coffee Shop Astana</title>
+</head>
+<body id="top">
+  <header>
+    <h1>Coffi Coffee Shop</h1>
+    <p>Artisan Beverages, Specialty Teas, and Fresh Morning Pastries.</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="booking.html">Reservations</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="colophon.html">Colophon</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <p><a href="#brewing-guide">Jump directly to our manual brewing method</a></p>
+    <!-- Why: I used <table> with thead, tbody, and scope because menu prices are tabular relational data requiring accessible headers. -->
+    <section id="price-table-section">
+      <h2>Beverage and Pastry Price List</h2>
+      <table>
+        <caption>Specialty Offerings and Current Dine-In Prices in Astana</caption>
+        <thead>
+          <tr>
+            <th scope="col">Item Description</th>
+            <th scope="col">Serving Size</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price (<abbr title="Kazakhstani Tenge">KZT</abbr>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Americano Single-Origin</th>
+            <td>250 ml</td>
+            <td>Hot Coffee</td>
+            <td>950 &#8376;</td>
+          </tr>
+          <tr>
+            <th scope="row">Classic Flat White</th>
+            <td>220 ml</td>
+            <td>Milk Coffee</td>
+            <td>1,400 &#8376;</td>
+          </tr>
+          <tr>
+            <th scope="row">Signature Bumble Coffee</th>
+            <td>350 ml</td>
+            <td>Cold Special</td>
+            <td>1,600 &#8376;</td>
+          </tr>
+          <tr>
+            <th scope="row">Japanese Matcha Latte</th>
+            <td>300 ml</td>
+            <td>Specialty Tea</td>
+            <td>1,500 &#8376;</td>
+          </tr>
+          <tr>
+            <th scope="row">Fresh Butter Croissant</th>
+            <td>110 g</td>
+            <td>Pastry</td>
+            <td>1,100 &#8376;</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Note: Using div here just to group the price disclaimer text, because no semantic tag fits for a simple notice without a heading. -->
+      <div>
+        <p>Prices include tax. Payment via card, cash, or mobile QR.</p>
+      </div>
+      <figure>
+        <img src="images/croissant.jpg" alt="Golden flaky baked butter croissant served on a ceramic plate at Coffi" width="400" height="300">
+        <figcaption>Flaky butter croissants baked fresh every morning by our pastry team.</figcaption>
+      </figure>
+    </section>
+    <section id="customizations">
+      <h2>Dairy and Plant Milk Alternatives</h2>
+      <ul>
+        <li>Milk Varieties
+          <ul>
+            <li>Farm Fresh Whole Milk (default)</li>
+            <li>Barista Oat Milk for vegan diets</li>
+            <li>Almond and Coconut Milk upon request</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section id="brewing-guide">
+      <h2>Manual Pour-Over Extraction Process</h2>
+      <ol type="1" start="1">
+        <li>Grinding 18g of fresh medium-roast beans.</li>
+        <li>Rinsing paper filter with clean hot water.</li>
+        <li>Blooming grounds for 40 seconds.</li>
+        <li>Pouring filtered water until 300ml.</li>
+      </ol>
+      <p>Our extraction water maintains optimal mineral balance with pure H<sub>2</sub>O and magnesium.</p>
+    </section>
+    <!-- Why: I used a definition list (dl) because coffee terms are term-and-description pairs, not an ordered list. -->
+    <section id="glossary">
+      <h2>Coffee Glossary</h2>
+      <dl>
+        <dt>Single-Origin</dt>
+        <dd>Beans sourced exclusively from a single farm or region.</dd>
+        <dt>Bumble Coffee</dt>
+        <dd>Chilled beverage made with rich double espresso, sweet orange juice, and ice.</dd>
+        <dt>Micro-foam</dt>
+        <dd>Steamed milk aerated with tiny bubbles for silky texture.</dd>
+      </dl>
+      <p>View our local reviews and customer photos on <a href="https://2gis.kz" target="_blank" rel="noopener noreferrer">2GIS Astana City Guide</a>.</p>
+      <p><a href="#top">Back to top of page</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
+    <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
+  </footer>
+</body>
+</html>
