@@ -22,7 +22,7 @@ The website consists of 6 unstyled semantic HTML5 pages:
 ## Submission Documents
 - **`report.pdf`** — Official comprehensive project report matching course format (competitor audit, hand-drawn paper sketch, reflective essays, and W3C validation screenshots).
 - **`tag-checklist.md`** — Line-by-line checklist of every required HTML5 element with exact line numbers and student attribution.
-- **`task-a-anatomy.md`** — Source code audit of competitor website (`coffeeboom.kz`).
+- **`task-a-anatomy.md`** — Source code architecture and semantic analysis for Coffi Coffee Shop.
 - **`task-b-written.md`** — Reflective essays by Samrat Zhasulan and Zhaksylyk Adilet.
 - **`ai-log.md`** — Log of conceptual questions asked to AI per course academic integrity policy.
 - **`images/`** — Photography of cafe interior, bumble coffee, and croissant.
