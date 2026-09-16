@@ -2,11 +2,11 @@
 
 **Course**: Introduction to Web Technologies / Frontend Fundamentals  
 **Project**: Coffi Coffee Shop (Alikhan Bokeikhan St 10, Astana)  
-**Team Members**: Zamrat Zhasulan & Zhaksylyk Adilet  
+**Team Members**: Samrat Zhasulan & Zhaksylyk Adilet  
 
 ---
 
-## Reflective Essay: Zamrat Zhasulan (182 words)
+## Reflective Essay: Samrat Zhasulan (182 words)
 
 A web page is fundamentally a plain-text document structured with HyperText Markup Language (HTML). At its core, an HTML file consists of human-readable elements demarcated by tags, attributes, text nodes, and entities. When a user navigates to a local HTML file or web address, the browser receives a continuous stream of raw bytes.
 

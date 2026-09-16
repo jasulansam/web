@@ -2,10 +2,10 @@
 
 **Course**: Introduction to Web Technologies / Frontend Fundamentals  
 **Project**: Coffi Coffee Shop (Alikhan Bokeikhan St 10, Astana)  
-**Team Members**: Zamrat Zhasulan & Zhaksylyk Adilet  
+**Team Members**: Samrat Zhasulan & Zhaksylyk Adilet  
 **Compliance**: Fully adheres to course AI Policy ("You may ask AI to explain concepts. You may not use it to write your pages, your text, your report or your images, and every question you ask must be recorded in the AI log.")
 
-### AI Usage Log: Zamrat Zhasulan
+### AI Usage Log: Samrat Zhasulan
 | Date & Time | Query Asked to AI | Purpose / Concept Explored | AI Explanation Summary & Application |
 | :--- | :--- | :--- | :--- |
 | 2026-09-12 14:15 | "What is the difference between `<section>` and `<article>` in HTML5, and when should each be used?" | Understanding document landmarks | AI explained that `<article>` represents self-contained content that can stand alone, while `<section>` groups thematic content with a heading. Applied by choosing `<article>` for cafe heritage in `index.html`. |

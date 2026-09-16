@@ -2,62 +2,62 @@
 
 **Course**: Introduction to Web Technologies / Frontend Fundamentals  
 **Project**: Coffi Coffee Shop (Alikhan Bokeikhan St 10, Astana)  
-**Team Members**: Zamrat Zhasulan & Zhaksylyk Adilet  
+**Team Members**: Samrat Zhasulan & Zhaksylyk Adilet  
 
 | Tag / Feature | File Name | Exact Line Number | Author | Context Snippet |
 | :--- | :--- | :--- | :--- | :--- |
-| `<!DOCTYPE html>` | `index.html` | Line 1 | Zamrat Zhasulan | `<!DOCTYPE html>` |
-| `<html lang>` | `index.html` | Line 2 | Zamrat Zhasulan | `<html lang="en">` |
-| `<meta charset>` | `index.html` | Line 4 | Zamrat Zhasulan | `<meta charset="UTF-8">` |
-| `<meta name="viewport">` | `index.html` | Line 5 | Zamrat Zhasulan | `<meta name="viewport" content="width=d` |
-| `<meta name="description">` | `index.html` | Line 6 | Zamrat Zhasulan | `<meta name="description" content="Welc` |
-| `<meta name="author">` | `index.html` | Line 7 | Zamrat Zhasulan | `<meta name="author" content="Zamrat Zh` |
-| `<!-- Author: Zamrat Zhasulan -->` | `index.html` | Line 8 | Zamrat Zhasulan | `<!-- Author: Zamrat Zhasulan -->` |
-| `<title>` | `index.html` | Line 9 | Zamrat Zhasulan | `<title>Coffi Coffee Shop Astana - Neig` |
-| `<h1>` | `index.html` | Line 13 | Zamrat Zhasulan | `<h1>Coffi Coffee Shop</h1>` |
-| `<header>` | `index.html` | Line 12 | Zamrat Zhasulan | `<header>` |
-| `<nav>` | `index.html` | Line 15 | Zamrat Zhasulan | `<nav>` |
-| `<main>` | `index.html` | Line 26 | Zamrat Zhasulan | `<main>` |
-| `<footer>` | `index.html` | Line 52 | Zamrat Zhasulan | `<footer>` |
-| `&copy;` | `index.html` | Line 54 | Zamrat Zhasulan | `<p>&copy; 2026 Coffi Coffee Shop. All ` |
-| `<article>` | `index.html` | Line 28 | Zamrat Zhasulan | `<!-- Why: I used <article> instead of ` |
-| `<aside>` | `index.html` | Line 42 | Zamrat Zhasulan | `<aside>` |
-| `<section>` | `index.html` | Line 28 | Zamrat Zhasulan | `<!-- Why: I used <article> instead of ` |
-| `<figure>` | `index.html` | Line 32 | Zamrat Zhasulan | `<figure>` |
-| `<figcaption>` | `index.html` | Line 34 | Zamrat Zhasulan | `<figcaption>The welcoming front lounge` |
-| `<img> (image 1)` | `index.html` | Line 33 | Zamrat Zhasulan | `<img src="images/interior.jpg" alt="Co` |
-| `<blockquote>` | `index.html` | Line 36 | Zamrat Zhasulan | `<!-- Why: I used <blockquote> with cit` |
-| `<q>` | `index.html` | Line 38 | Zamrat Zhasulan | `<p><q>Our goal is brewing balanced spe` |
-| `<cite>` | `index.html` | Line 38 | Zamrat Zhasulan | `<p><q>Our goal is brewing balanced spe` |
-| `<strong>` | `index.html` | Line 31 | Zamrat Zhasulan | `<p>Located at Alikhan Bokeikhan Street` |
-| `<em>` | `index.html` | Line None | Zamrat Zhasulan | `N/A` |
-| `<b>` | `index.html` | Line 44 | Zamrat Zhasulan | `<p>Enjoy our special breakfast pairing` |
-| `<i>` | `index.html` | Line 44 | Zamrat Zhasulan | `<p>Enjoy our special breakfast pairing` |
-| `<mark>` | `index.html` | Line 40 | Zamrat Zhasulan | `<p>Every single espresso shot is pulle` |
-| `<small>` | `index.html` | Line 44 | Zamrat Zhasulan | `<p>Enjoy our special breakfast pairing` |
-| `<sup>` | `index.html` | Line 40 | Zamrat Zhasulan | `<p>Every single espresso shot is pulle` |
-| `<abbr> (1st)` | `index.html` | Line 48 | Zamrat Zhasulan | `<p>Find us at Alikhan Bokeikhan Street` |
-| `In-page ID link 1` | `index.html` | Line 27 | Zamrat Zhasulan | `<p><a href="#visiting-hours">Jump dire` |
-| `In-page ID link 2` | `index.html` | Line 49 | Zamrat Zhasulan | `<p><a href="#top">Back to top of page<` |
-| `<a href="tel:...">` | `index.html` | Line 53 | Zamrat Zhasulan | `<p>Direct inquiries: <a href="tel:+770` |
-| `<a href="mailto:...">` | `index.html` | Line 53 | Zamrat Zhasulan | `<p>Direct inquiries: <a href="tel:+770` |
-| `<img> (image 2)` | `about.html` | Line 33 | Zamrat Zhasulan | `<img src="images/bumble-coffee.jpg" al` |
-| `<table>` | `menu.html` | Line 28 | Zamrat Zhasulan | `<!-- Why: I used <table> with thead, t` |
-| `<caption>` | `menu.html` | Line 32 | Zamrat Zhasulan | `<caption>Specialty Offerings and Curre` |
-| `<thead>` | `menu.html` | Line 33 | Zamrat Zhasulan | `<thead>` |
-| `<tbody>` | `menu.html` | Line 41 | Zamrat Zhasulan | `<tbody>` |
-| `<th scope="col">` | `menu.html` | Line 35 | Zamrat Zhasulan | `<th scope="col">Item Description</th>` |
-| `<th scope="row">` | `menu.html` | Line 43 | Zamrat Zhasulan | `<th scope="row">Americano Single-Origi` |
-| `<tr>` | `menu.html` | Line 34 | Zamrat Zhasulan | `<tr>` |
-| `<td>` | `menu.html` | Line 44 | Zamrat Zhasulan | `<td>250 ml</td>` |
-| `<div> (with comment)` | `menu.html` | Line 75 | Zamrat Zhasulan | `<div>` |
-| `<img> (image 3)` | `menu.html` | Line 79 | Zamrat Zhasulan | `<img src="images/croissant.jpg" alt="G` |
-| `Nested list (<ul> in <ul>)` | `menu.html` | Line 86 | Zamrat Zhasulan | `<li>Milk Varieties` |
-| `<ol type='1' start='1'>` | `menu.html` | Line 97 | Zamrat Zhasulan | `<ol type="1" start="1">` |
-| `<dl>, <dt>, <dd>` | `menu.html` | Line 108 | Zamrat Zhasulan | `<dl>` |
-| `<sub>` | `menu.html` | Line 103 | Zamrat Zhasulan | `<p>Our extraction water maintains opti` |
-| `<abbr> (2nd)` | `menu.html` | Line 38 | Zamrat Zhasulan | `<th scope="col">Price (<abbr title="Ka` |
-| `External link with target and rel` | `menu.html` | Line 116 | Zamrat Zhasulan | `<p>View our local reviews and customer` |
+| `<!DOCTYPE html>` | `index.html` | Line 1 | Samrat Zhasulan | `<!DOCTYPE html>` |
+| `<html lang>` | `index.html` | Line 2 | Samrat Zhasulan | `<html lang="en">` |
+| `<meta charset>` | `index.html` | Line 4 | Samrat Zhasulan | `<meta charset="UTF-8">` |
+| `<meta name="viewport">` | `index.html` | Line 5 | Samrat Zhasulan | `<meta name="viewport" content="width=d` |
+| `<meta name="description">` | `index.html` | Line 6 | Samrat Zhasulan | `<meta name="description" content="Welc` |
+| `<meta name="author">` | `index.html` | Line 7 | Samrat Zhasulan | `<meta name="author" content="Samrat Zh` |
+| `<!-- Author: Samrat Zhasulan -->` | `index.html` | Line 8 | Samrat Zhasulan | `<!-- Author: Samrat Zhasulan -->` |
+| `<title>` | `index.html` | Line 9 | Samrat Zhasulan | `<title>Coffi Coffee Shop Astana - Neig` |
+| `<h1>` | `index.html` | Line 13 | Samrat Zhasulan | `<h1>Coffi Coffee Shop</h1>` |
+| `<header>` | `index.html` | Line 12 | Samrat Zhasulan | `<header>` |
+| `<nav>` | `index.html` | Line 15 | Samrat Zhasulan | `<nav>` |
+| `<main>` | `index.html` | Line 26 | Samrat Zhasulan | `<main>` |
+| `<footer>` | `index.html` | Line 52 | Samrat Zhasulan | `<footer>` |
+| `&copy;` | `index.html` | Line 54 | Samrat Zhasulan | `<p>&copy; 2026 Coffi Coffee Shop. All ` |
+| `<article>` | `index.html` | Line 28 | Samrat Zhasulan | `<!-- Why: I used <article> instead of ` |
+| `<aside>` | `index.html` | Line 42 | Samrat Zhasulan | `<aside>` |
+| `<section>` | `index.html` | Line 28 | Samrat Zhasulan | `<!-- Why: I used <article> instead of ` |
+| `<figure>` | `index.html` | Line 32 | Samrat Zhasulan | `<figure>` |
+| `<figcaption>` | `index.html` | Line 34 | Samrat Zhasulan | `<figcaption>The welcoming front lounge` |
+| `<img> (image 1)` | `index.html` | Line 33 | Samrat Zhasulan | `<img src="images/interior.jpg" alt="Co` |
+| `<blockquote>` | `index.html` | Line 36 | Samrat Zhasulan | `<!-- Why: I used <blockquote> with cit` |
+| `<q>` | `index.html` | Line 38 | Samrat Zhasulan | `<p><q>Our goal is brewing balanced spe` |
+| `<cite>` | `index.html` | Line 38 | Samrat Zhasulan | `<p><q>Our goal is brewing balanced spe` |
+| `<strong>` | `index.html` | Line 31 | Samrat Zhasulan | `<p>Located at Alikhan Bokeikhan Street` |
+| `<em>` | `index.html` | Line None | Samrat Zhasulan | `N/A` |
+| `<b>` | `index.html` | Line 44 | Samrat Zhasulan | `<p>Enjoy our special breakfast pairing` |
+| `<i>` | `index.html` | Line 44 | Samrat Zhasulan | `<p>Enjoy our special breakfast pairing` |
+| `<mark>` | `index.html` | Line 40 | Samrat Zhasulan | `<p>Every single espresso shot is pulle` |
+| `<small>` | `index.html` | Line 44 | Samrat Zhasulan | `<p>Enjoy our special breakfast pairing` |
+| `<sup>` | `index.html` | Line 40 | Samrat Zhasulan | `<p>Every single espresso shot is pulle` |
+| `<abbr> (1st)` | `index.html` | Line 48 | Samrat Zhasulan | `<p>Find us at Alikhan Bokeikhan Street` |
+| `In-page ID link 1` | `index.html` | Line 27 | Samrat Zhasulan | `<p><a href="#visiting-hours">Jump dire` |
+| `In-page ID link 2` | `index.html` | Line 49 | Samrat Zhasulan | `<p><a href="#top">Back to top of page<` |
+| `<a href="tel:...">` | `index.html` | Line 53 | Samrat Zhasulan | `<p>Direct inquiries: <a href="tel:+770` |
+| `<a href="mailto:...">` | `index.html` | Line 53 | Samrat Zhasulan | `<p>Direct inquiries: <a href="tel:+770` |
+| `<img> (image 2)` | `about.html` | Line 33 | Samrat Zhasulan | `<img src="images/bumble-coffee.jpg" al` |
+| `<table>` | `menu.html` | Line 28 | Samrat Zhasulan | `<!-- Why: I used <table> with thead, t` |
+| `<caption>` | `menu.html` | Line 32 | Samrat Zhasulan | `<caption>Specialty Offerings and Curre` |
+| `<thead>` | `menu.html` | Line 33 | Samrat Zhasulan | `<thead>` |
+| `<tbody>` | `menu.html` | Line 41 | Samrat Zhasulan | `<tbody>` |
+| `<th scope="col">` | `menu.html` | Line 35 | Samrat Zhasulan | `<th scope="col">Item Description</th>` |
+| `<th scope="row">` | `menu.html` | Line 43 | Samrat Zhasulan | `<th scope="row">Americano Single-Origi` |
+| `<tr>` | `menu.html` | Line 34 | Samrat Zhasulan | `<tr>` |
+| `<td>` | `menu.html` | Line 44 | Samrat Zhasulan | `<td>250 ml</td>` |
+| `<div> (with comment)` | `menu.html` | Line 75 | Samrat Zhasulan | `<div>` |
+| `<img> (image 3)` | `menu.html` | Line 79 | Samrat Zhasulan | `<img src="images/croissant.jpg" alt="G` |
+| `Nested list (<ul> in <ul>)` | `menu.html` | Line 86 | Samrat Zhasulan | `<li>Milk Varieties` |
+| `<ol type='1' start='1'>` | `menu.html` | Line 97 | Samrat Zhasulan | `<ol type="1" start="1">` |
+| `<dl>, <dt>, <dd>` | `menu.html` | Line 108 | Samrat Zhasulan | `<dl>` |
+| `<sub>` | `menu.html` | Line 103 | Samrat Zhasulan | `<p>Our extraction water maintains opti` |
+| `<abbr> (2nd)` | `menu.html` | Line 38 | Samrat Zhasulan | `<th scope="col">Price (<abbr title="Ka` |
+| `External link with target and rel` | `menu.html` | Line 116 | Samrat Zhasulan | `<p>View our local reviews and customer` |
 | `<form method='post' action='#'>` | `booking.html` | Line 31 | Zhaksylyk Adilet | `<form method="post" action="#">` |
 | `Form comment (no server yet)` | `booking.html` | Line 30 | Zhaksylyk Adilet | `<!-- The form does not send anything y` |
 | `<fieldset>` | `booking.html` | Line 33 | Zhaksylyk Adilet | `<fieldset>` |

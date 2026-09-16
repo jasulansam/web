@@ -2,7 +2,7 @@
 
 **Course**: Introduction to Web Technologies / Frontend Fundamentals  
 **Project**: Coffi Coffee Shop (Alikhan Bokeikhan St 10, Astana)  
-**Team Members**: Zamrat Zhasulan & Zhaksylyk Adilet  
+**Team Members**: Samrat Zhasulan & Zhaksylyk Adilet  
 **Audited Competitor Website**: Coffee Boom Kazakhstan (`https://coffeeboom.kz`)
 
 ---
