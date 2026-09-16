@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Colophon documenting technical architecture, markup rules, and validation details for Coffi website.">
+  <meta name="author" content="Zhaksylyk Adilet">
+  <!-- Author: Zhaksylyk Adilet -->
+  <title>Colophon &amp; Technical Architecture - Coffi Website</title>
+</head>
+<body id="top">
+  <header>
+    <h1>Coffi Coffee Shop</h1>
+    <p>Technical Architecture and Standards Documentation.</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="booking.html">Reservations</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="colophon.html">Colophon</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Technical Standards and Methodology</h2>
+      <p>This website was created by Zamrat Zhasulan and Zhaksylyk Adilet as Assignment 1 for the Introduction to Web Technologies course. Every page is hand-crafted in valid semantic HTML5 without any CSS styling, JavaScript scripting, or external templates.</p>
+      <!-- Why: I used <pre> and <code> to show sample HTML code while preserving indentation and brackets. -->
+      <article>
+        <h3>Document Structural Skeleton</h3>
+        <p>The site relies on a uniform semantic hierarchy ensuring universal access across all devices:</p>
+        <pre><code>&lt;header&gt;
+  &lt;h1&gt;Coffi Coffee Shop&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;article&gt;...&lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+      </article>
+      <!-- Why: I used <kbd> for keyboard shortcuts and <samp> for sample validator output. -->
+      <article>
+        <h3>Source Code Inspection and Validation</h3>
+        <p>To inspect the raw unstyled markup in your browser, press <kbd>Ctrl</kbd> + <kbd>U</kbd> on Windows or <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>U</kbd> on macOS.</p>
+        <p>All six documents were submitted to the official W3C Nu HTML Validator, producing zero errors:</p>
+        <pre><samp>Document checking completed. No errors or warnings to show.</samp></pre>
+        <!-- Note: Using span here just to hold the status badge text since there is no semantic tag for a simple inline badge. -->
+        <p>Current validation status: <span>Valid HTML5 (0 errors)</span>.</p>
+        <hr>
+        <p>Every element was chosen based on its true structural role.<br>We completely avoided non-semantic division containers where semantic tags belong.</p>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
+    <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
+  </footer>
+</body>
+</html>
