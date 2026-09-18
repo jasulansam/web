@@ -7,9 +7,14 @@
   <meta name="author" content="Zhaksylyk Adilet">
   <!-- Author: Zhaksylyk Adilet -->
   <title>Table &amp; Workspace Reservation - Coffi Coffee Shop</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/adilet.css">
+  <!-- Cascade demonstration: this internal rule overrides the external intro color. -->
+  <style>.booking-page .page-intro { color: #885238; }</style>
 </head>
-<body id="top">
-  <header>
+<!-- The top id is a unique destination for the back-to-top link. -->
+<body id="top" class="booking-page">
+  <header class="site-header">
     <h1>Coffi Coffee Shop</h1>
     <p>Desk and Table Reservation for Focused Study and Friendly Meetings.</p>
     <nav>
@@ -17,52 +22,53 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="menu.html">Menu</a></li>
-        <li><a href="booking.html">Reservations</a></li>
+        <li><a href="booking.html" aria-current="page">Reservations</a></li>
         <li><a href="feedback.html">Feedback</a></li>
         <li><a href="colophon.html">Colophon</a></li>
       </ul>
     </nav>
   </header>
-  <main>
-    <section>
+  <main class="site-main">
+    <section class="content-section">
       <h2>Reserve a Table or Study Workspace</h2>
-      <p>Guarantee your seat during busy afternoon hours. Please fill out the booking form below to secure your place for academic study, remote office work, or casual social coffee.</p>
-      <!-- Form submission without server backend -->
-      <form method="post" action="#">
-        <!-- Contact details group -->
+      <!-- Cascade demonstration: inline color overrides the internal intro color above. -->
+      <p class="page-intro" style="color: #30271f;">Guarantee your seat during busy afternoon hours. Please fill out the booking form below to secure your place for academic study, remote office work, or casual social coffee.</p>
+      <!-- The form does not send anything yet - there is no server behind it. Server-side handling comes later in the course. -->
+      <form class="guest-form" method="post" action="#">
+        <!-- Why: I used fieldset and legend to separate personal info from reservation details to make the form clean and accessible. -->
         <fieldset>
           <legend>Guest Contact Information</legend>
-          <!-- Inputs with explicit labels -->
-          <p>
+          <!-- Why: I linked label "for" with input "id" so clicking the text label puts focus directly into the field. -->
+          <p class="form-field">
             <label for="book-name">Full Name (required):</label>
             <input type="text" id="book-name" name="book_name" placeholder="e.g. Askar Zhumabayev" required>
           </p>
-          <p>
+          <p class="form-field">
             <label for="book-email">Email Address (required):</label>
             <input type="email" id="book-email" name="book_email" placeholder="student@example.kz" required>
           </p>
-          <p>
+          <p class="form-field">
             <label for="book-phone">Phone Number (required):</label>
             <input type="tel" id="book-phone" name="book_phone" placeholder="+7 (7XX) XXX-XX-XX" required>
           </p>
         </fieldset>
         <fieldset>
           <legend>Booking Specifics</legend>
-          <p>
+          <p class="form-field">
             <label for="book-date">Date of Visit (required):</label>
             <input type="date" id="book-date" name="book_date" required>
           </p>
-          <p>
+          <p class="form-field">
             <label for="book-guests">Party Size (1 to 8 guests):</label>
             <input type="number" id="book-guests" name="book_guests" min="1" max="8" placeholder="2" required>
           </p>
-          <p>Preferred Seating Zone:</p>
-          <p>
+          <p class="form-field form-wide">Preferred Seating Zone:</p>
+          <p class="form-field form-wide radio-group">
             <label><input type="radio" name="zone_preference" value="quiet" checked> Quiet Study Desk</label>
             <label><input type="radio" name="zone_preference" value="window"> Sunlit Window Table</label>
             <label><input type="radio" name="zone_preference" value="bar"> Espresso Bar Counter</label>
           </p>
-          <p>
+          <p class="form-field form-wide">
             <label for="book-purpose">Visit Purpose:</label>
             <select id="book-purpose" name="book_purpose">
               <option value="study">University Study / Laptop</option>
@@ -71,31 +77,32 @@
               <option value="reading">Solo Book Reading</option>
             </select>
           </p>
-          <p>
+          <p class="form-field form-wide">
             <label for="book-notes">Special Requests or Power Socket Needs:</label>
             <textarea id="book-notes" name="book_notes" rows="4" cols="45" placeholder="Mention if you require access to a dedicated power outlet or a high-chair..."></textarea>
           </p>
-          <p>
+          <p class="form-field form-wide consent-field">
             <label for="book-agreement">
               <input type="checkbox" id="book-agreement" name="book_agreement" required>
               I agree to the reservation terms and understand tables are held for 15 minutes.
             </label>
           </p>
-          <p>
+          <p class="form-field form-wide form-actions">
             <button type="submit">Confirm Reservation</button>
             <button type="reset">Clear Form</button>
           </p>
         </fieldset>
       </form>
     </section>
-    <section>
+    <section class="content-section">
       <h2>Booking Policy</h2>
       <p>We review and confirm bookings within two hours. For parties exceeding eight people, please call our manager directly at <a href="tel:+77018804104">+7 (701) 880-41-04</a>.</p>
     </section>
   </main>
-  <footer>
+  <footer class="site-footer">
     <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
     <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
   </footer>
+  <a class="back-top" href="#top">Back to top ↑</a>
 </body>
 </html>

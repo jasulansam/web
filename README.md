@@ -1,31 +1,36 @@
-# Web Technologies — Assignment 1
+# Coffi - Web Technologies Assignment 2
 
-**Course**: Introduction to Web Technologies / Frontend Fundamentals  
-**Theme**: Coffi Coffee Shop (Astana)  
-**Location**: Alikhan Bokeikhan St 10, Yesil District, Astana  
-**Team Members**:  
-- Samrat Zhasulan (`about.html`, `menu.html`)  
-- Zhaksylyk Adilet (`booking.html`, `feedback.html`, `colophon.html`)  
+Team: Samrat Zhasulan and Zhaksylyk Adilet. Group: SE-2537.
 
-## About the Project
-This repository contains our team submission for Assignment 1 of the Introduction to Web Technologies course. For our semester project, we selected **Coffi**, a real neighborhood specialty coffee shop located at Alikhan Bokeikhan St 10 in Astana. It has 30 seats, high-speed Wi-Fi, accessible ramp access, and is a popular study and laptop workspace for university students in the neighborhood. Coffi does not have an official website (only 2GIS and Instagram), making it an ideal candidate for building an accessible web presence.
+Repository: https://github.com/jasulansam/web
 
-## Website Pages (6 Pages for 2 Students)
-The website consists of 6 unstyled semantic HTML5 pages:
-- **`index.html`** — Homepage introducing Coffi, coffee philosophy, quote from lead barista Madina Serikova, and visiting hours.
-- **`about.html`** (by Samrat Zhasulan) — Community workspace concept, accessible laptop environment, and single-origin bean sourcing.
-- **`menu.html`** (by Samrat Zhasulan) — Menu price list with relational data table, milk alternatives nested list, manual pour-over steps, and coffee glossary.
-- **`booking.html`** (by Zhaksylyk Adilet) — Table and study-desk booking form with contact details, seating zones, and visit purpose.
-- **`feedback.html`** (by Zhaksylyk Adilet) — Customer satisfaction survey and beverage review form.
-- **`colophon.html`** (by Zhaksylyk Adilet) — Technical documentation of HTML5 markup structure, validator status, and technical tags (`code`, `pre`, `kbd`, `samp`).
+## Open the website
 
-## Submission Documents
-- **`report.pdf`** — Official comprehensive project report matching course format (competitor audit, hand-drawn paper sketch, reflective essays, and W3C validation screenshots).
-- **`tag-checklist.md`** — Line-by-line checklist of every required HTML5 element with exact line numbers and student attribution.
-- **`task-a-anatomy.md`** — Source code architecture and semantic analysis for Coffi Coffee Shop.
-- **`task-b-written.md`** — Reflective essays by Samrat Zhasulan and Zhaksylyk Adilet.
-- **`images/`** — Photography of cafe interior, bumble coffee, and croissant.
+Download and extract the repository, then open `index.html` in a desktop browser. No server or installation is needed. The six existing Assignment 1 pages are retained. Forms are demonstrations without a backend.
 
-## Notes
-- As strictly required for Assignment 1, no CSS or JavaScript was used. The site relies entirely on semantic HTML5 hierarchy and default browser user-agent styling.
-- All 6 pages have been tested with the W3C Nu HTML Validator and passed with 0 errors.
+## Assignment 2 files
+
+- `css/base.css`: shared palette, typography, navigation and footer.
+- `css/zhasulan.css`: index, about and menu pages.
+- `css/adilet.css`: booking, feedback and colophon pages.
+- `css-checklist.md`: required techniques and source line numbers.
+- `assignment2-assets/sketches/booking-paper.png`: supplied booking sketch.
+- `assignment2-assets/sketches/feedback-paper.png`: supplied feedback sketch.
+- `assignment2-assets/before/`: six unstyled page screenshots.
+- `assignment2-assets/after/`: six styled page screenshots.
+- `assignment2-assets/validation/`: W3C responses.
+- `ai-log.md`: assistance disclosure.
+
+## Verification
+
+All six site HTML files passed W3C Nu without messages. All three stylesheets passed W3C CSS validation with zero errors. The personal CSS files have static CSS-variable checking warnings (29 Adilet, 9 Zhasulan). Browser checks at 1440px verified image loading, absence of horizontal page overflow, required form fields and form reset.
+
+## Submission status
+
+The two supplied paper sketches show names and group, but drawing dates are not visible. Other student-page sketches and pre-CSS drawing timing are not established. Actual individual commits over the required days and the class defense remain separate requirements. AI assistance is disclosed in `ai-log.md`; the course restriction on AI-written submission code still applies.
+
+`report.pdf`, `report.html`, `report-assets/`, `task-a-anatomy.md`, `task-b-written.md` and `tag-checklist.md` are historical Assignment 1 materials. Assignment 2 does not require a written report.
+
+## PDF link sheet
+Assignment2_Zhaksylyk_Adilet_SE-2537.pdf contains only the two names and the repository URL.
+

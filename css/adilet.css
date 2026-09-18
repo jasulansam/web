@@ -1,0 +1,282 @@
+/* Adilet's pages: reservation, feedback, and technical colophon.
+   AI-assisted draft; student review pending, see ai-log.md. */
+.page-intro { color: var(--ink); }
+
+.booking-page .site-main,
+.feedback-page .site-main,
+.colophon-page .site-main {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.booking-page .site-main > section:first-child,
+.feedback-page .site-main > section:first-child {
+  padding: 2.5rem;
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  background: var(--white);
+}
+
+.booking-page .site-main > section:first-child > h2,
+.feedback-page .site-main > section:first-child > h2,
+.colophon-page .technical-grid > h2 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 48px;
+  line-height: 1.05;
+}
+
+.booking-page .site-main > section:first-child > p,
+.feedback-page .site-main > section:first-child > p {
+  max-width: 66ch;
+  margin-bottom: 2rem;
+}
+
+/* Grid suits the form better than flex: aligned columns retain consistent
+   widths while long questions span both inner columns. */
+.guest-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 1.5rem;
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
+.guest-form fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--paper);
+}
+
+.guest-form legend {
+  padding-inline: 0.6rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.guest-form > fieldset:first-of-type {
+  align-self: start;
+}
+
+.guest-form > fieldset:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0 0 1.1rem;
+}
+
+.guest-form > fieldset:nth-of-type(2) .form-field {
+  margin: 0;
+}
+
+.form-field > label,
+.guest-form .form-wide > label {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.guest-form input:not([type="radio"]):not([type="checkbox"]),
+.guest-form select,
+.guest-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.78rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+.guest-form textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.guest-form input:focus,
+.guest-form select:focus,
+.guest-form textarea:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+.guest-form input[type="radio"],
+.guest-form input[type="checkbox"] {
+  accent-color: var(--accent);
+}
+
+/* Wide questions span both detail columns, as shown in the page sketch. */
+.guest-form .form-wide {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.radio-group label {
+  flex: 1 1 12rem;
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--white);
+  cursor: pointer;
+}
+
+.consent-field > label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.9rem;
+  border-left: 4px solid var(--accent);
+  background: var(--white);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* Centering 3: flex aligns the action group in its row. */
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.guest-form button {
+  flex: 0 1 13rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.2rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--white);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.guest-form button[type="reset"] {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.guest-form button:hover,
+.guest-form button:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* Experiment A: (0,3,1). Ties with B, so loses to B on booking by source order. */
+.guest-form .form-actions button[type="submit"] {
+  background: var(--ink);
+}
+
+/* Experiment B: (0,3,1). Wins over A on booking because it appears later. */
+.booking-page .form-actions button[type="submit"] {
+  background: var(--paper);
+}
+
+/* Resolution: (1,3,1) wins over both without important. */
+#top .guest-form .form-actions button[type="submit"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--white);
+}
+
+.booking-page .site-main > section:last-child,
+.feedback-page .site-main > section:last-child {
+  max-width: 780px;
+  margin: 2rem auto 0;
+  padding: 1.4rem 1.7rem;
+  border-left: 5px solid var(--accent);
+  background: var(--white);
+}
+
+/* Two equal columns make the technical notes easy to compare. */
+.technical-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.technical-grid > h2,
+.technical-grid > p {
+  grid-column: 1 / -1;
+}
+
+.technical-grid > p {
+  max-width: 72ch;
+  margin: -0.4rem 0 0;
+}
+
+.technical-card {
+  padding: 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--white);
+}
+
+.technical-card h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.technical-card pre {
+  max-width: 100%;
+  padding: 1rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border-left: 4px solid var(--accent);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.technical-card kbd {
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  background: var(--paper);
+}
+
+/* Relative makes the validation card the containing block for its badge.
+   Bottom padding reserves space for the absolutely positioned status. */
+.technical-card:nth-of-type(2) {
+  position: relative;
+  padding-bottom: 6rem;
+}
+
+.validation-status {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 1.6rem;
+  left: 1.6rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--white);
+  text-align: center;
+  font-weight: 700;
+}
+
+/* The resolved submit style has high specificity; match it for visible hover feedback. */
+#top .guest-form .form-actions button[type="submit"]:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}

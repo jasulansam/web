@@ -7,9 +7,12 @@
   <meta name="author" content="Zhaksylyk Adilet">
   <!-- Author: Zhaksylyk Adilet -->
   <title>Customer Feedback &amp; Reviews - Coffi Coffee Shop</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/adilet.css">
 </head>
-<body id="top">
-  <header>
+<!-- The top id is a unique destination for the back-to-top link. -->
+<body id="top" class="feedback-page">
+  <header class="site-header">
     <h1>Coffi Coffee Shop</h1>
     <p>Guest Feedback and Customer Experience Survey.</p>
     <nav>
@@ -18,51 +21,51 @@
         <li><a href="about.html">About</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="booking.html">Reservations</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="feedback.html" aria-current="page">Feedback</a></li>
         <li><a href="colophon.html">Colophon</a></li>
       </ul>
     </nav>
   </header>
-  <main>
-    <section>
+  <main class="site-main">
+    <section class="content-section">
       <h2>We Value Your Experience</h2>
-      <p>Your honest reviews help our baristas refine roast recipes, improve hospitality, and maintain a pleasant workspace. Please take two minutes to tell us about your recent visit.</p>
-      <!-- Form submission without server backend -->
-      <form method="post" action="#">
-        <!-- Customer profile group -->
+      <p class="page-intro">Your honest reviews help our baristas refine roast recipes, improve hospitality, and maintain a pleasant workspace. Please take two minutes to tell us about your recent visit.</p>
+      <!-- The form does not send anything yet - there is no server behind it. Server-side handling comes later in the course. -->
+      <form class="guest-form" method="post" action="#">
+        <!-- Why: I used fieldset and legend to organize feedback questions into clean logical groups for screen readers. -->
         <fieldset>
           <legend>Customer Profile</legend>
-          <!-- Inputs with explicit labels -->
-          <p>
+          <!-- Why: I linked label "for" with input "id" so clicking the text label puts focus directly into the field. -->
+          <p class="form-field">
             <label for="client-name">Your Name (required):</label>
             <input type="text" id="client-name" name="client_name" placeholder="e.g. Dana Kassymova" required>
           </p>
-          <p>
+          <p class="form-field">
             <label for="client-email">Email Address (required):</label>
             <input type="email" id="client-email" name="client_email" placeholder="dana@example.kz" required>
           </p>
-          <p>
+          <p class="form-field">
             <label for="client-phone">Phone Number (optional):</label>
             <input type="tel" id="client-phone" name="client_phone" placeholder="+7 (7XX) XXX-XX-XX">
           </p>
         </fieldset>
         <fieldset>
           <legend>Visit Evaluation</legend>
-          <p>
+          <p class="form-field">
             <label for="visit-date">Date of Visit (required):</label>
             <input type="date" id="visit-date" name="visit_date" required>
           </p>
-          <p>
+          <p class="form-field">
             <label for="rating-score">Overall Satisfaction (1 to 5):</label>
             <input type="number" id="rating-score" name="rating_score" min="1" max="5" placeholder="5" required>
           </p>
-          <p>Would you recommend Coffi to fellow students?</p>
-          <p>
+          <p class="form-field form-wide">Would you recommend Coffi to fellow students?</p>
+          <p class="form-field form-wide radio-group">
             <label><input type="radio" name="recommendation" value="yes" checked> Yes, definitely</label>
             <label><input type="radio" name="recommendation" value="maybe"> Maybe</label>
             <label><input type="radio" name="recommendation" value="no"> Needs improvement</label>
           </p>
-          <p>
+          <p class="form-field form-wide">
             <label for="favorite-beverage">Favorite Beverage Tried:</label>
             <select id="favorite-beverage" name="favorite_beverage">
               <option value="bumble">Bumble Coffee</option>
@@ -71,17 +74,17 @@
               <option value="americano">Americano</option>
             </select>
           </p>
-          <p>
+          <p class="form-field form-wide">
             <label for="review-comments">Comments and Suggestions for Our Baristas:</label>
             <textarea id="review-comments" name="review_comments" rows="4" cols="45" placeholder="Tell us how we can make your study sessions even better..."></textarea>
           </p>
-          <p>
+          <p class="form-field form-wide consent-field">
             <label for="news-optin">
               <input type="checkbox" id="news-optin" name="news_optin">
               Keep me updated about upcoming student coffee tastings and discounts.
             </label>
           </p>
-          <p>
+          <p class="form-field form-wide form-actions">
             <button type="submit">Submit Feedback</button>
             <button type="reset">Reset Form</button>
           </p>
@@ -89,14 +92,15 @@
       </form>
     </section>
 
-    <section>
+    <section class="content-section">
       <h2>Why Your Opinion Matters</h2>
       <p>As an independent local cafe on Alikhan Bokeikhan Street, we rely on word-of-mouth recommendations rather than aggressive commercial advertising. Every review submitted through this form is discussed at our weekly staff meetings so our baristas can enhance drink consistency, pastry freshness, and table cleanliness.</p>
     </section>
   </main>
-  <footer>
+  <footer class="site-footer">
     <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
     <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
   </footer>
+  <a class="back-top" href="#top">Back to top ↑</a>
 </body>
 </html>

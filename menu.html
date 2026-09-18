@@ -7,25 +7,28 @@
   <meta name="author" content="Samrat Zhasulan">
   <!-- Author: Samrat Zhasulan -->
   <title>Menu &amp; Price List - Coffi Coffee Shop Astana</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/zhasulan.css">
 </head>
-<body id="top">
-  <header>
+<!-- The top id is a unique destination for the back-to-top link. -->
+<body id="top" class="menu-page">
+  <header class="site-header">
     <h1>Coffi Coffee Shop</h1>
     <p>Artisan Beverages, Specialty Teas, and Fresh Morning Pastries.</p>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
+        <li><a href="menu.html" aria-current="page">Menu</a></li>
         <li><a href="booking.html">Reservations</a></li>
         <li><a href="feedback.html">Feedback</a></li>
         <li><a href="colophon.html">Colophon</a></li>
       </ul>
     </nav>
   </header>
-  <main>
-    <p><a href="#brewing-guide">Jump directly to our manual brewing method</a></p>
-    <!-- Price list table -->
+  <main class="site-main menu-layout">
+    <p class="jump-link"><a href="#brewing-guide">Jump directly to our manual brewing method</a></p>
+    <!-- Why: I used <table> with thead, tbody, and scope because menu prices are tabular relational data requiring accessible headers. -->
     <section id="price-table-section">
       <h2>Beverage and Pastry Price List</h2>
       <table>
@@ -71,8 +74,8 @@
           </tr>
         </tbody>
       </table>
-      <!-- Using div here just to group tax disclaimer text without header -->
-      <div>
+      <!-- Note: Using div here just to group the price disclaimer text, because no semantic tag fits for a simple notice without a heading. -->
+      <div class="price-note">
         <p>Prices include tax. Payment via card, cash, or mobile QR.</p>
       </div>
       <figure>
@@ -102,7 +105,7 @@
       </ol>
       <p>Our extraction water maintains optimal mineral balance with pure H<sub>2</sub>O and magnesium.</p>
     </section>
-    <!-- Coffee glossary -->
+    <!-- Why: I used a definition list (dl) because coffee terms are term-and-description pairs, not an ordered list. -->
     <section id="glossary">
       <h2>Coffee Glossary</h2>
       <dl>
@@ -114,12 +117,13 @@
         <dd>Steamed milk aerated with tiny bubbles for silky texture.</dd>
       </dl>
       <p>View our local reviews and customer photos on <a href="https://2gis.kz" target="_blank" rel="noopener noreferrer">2GIS Astana City Guide</a>.</p>
-      <p><a href="#top">Back to top of page</a></p>
+      <p class="jump-link"><a href="#top">Back to top of page</a></p>
     </section>
   </main>
-  <footer>
+  <footer class="site-footer">
     <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
     <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
   </footer>
+  <a class="back-top" href="#top">Back to top ↑</a>
 </body>
 </html>
