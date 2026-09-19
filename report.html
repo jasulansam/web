@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Web Technologies Project Report</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 15mm;
+  }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #222;
+    line-height: 1.42;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+  }
+  h1 { font-size: 20px; margin-bottom: 6px; color: #111; }
+  h2 { font-size: 16px; margin-top: 16px; margin-bottom: 8px; color: #222; border-bottom: 1px solid #ccc; padding-bottom: 3px; }
+  h3 { font-size: 14px; margin-top: 12px; margin-bottom: 6px; color: #333; }
+  h4 { font-size: 13px; margin-top: 10px; margin-bottom: 4px; color: #111; }
+  p { margin: 5px 0; }
+  ul { margin: 5px 0; padding-left: 20px; }
+  ol { margin: 5px 0; padding-left: 20px; }
+  li { margin-bottom: 3px; }
+  .header-meta { margin-bottom: 12px; font-size: 13px; color: #444; }
+  .header-meta a { color: #0366d6; text-decoration: none; }
+  .team-block { font-size: 14px; font-weight: bold; color: #111; margin: 8px 0 12px 0; }
+  .team-block span { font-weight: normal; color: #333; display: block; margin-top: 2px; }
+  
+  table.audit-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 12px;
+  }
+  table.audit-table th, table.audit-table td {
+    border: 1px solid #bbb;
+    padding: 6px 10px;
+    text-align: left;
+  }
+  table.audit-table th {
+    background-color: #f2f4f6;
+    font-weight: 600;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+  .screenshot-box {
+    margin: 10px 0;
+    text-align: center;
+  }
+  .screenshot-box img {
+    max-width: 100%;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+  }
+  .sketch-box {
+    margin: 8px 0;
+    text-align: center;
+  }
+  .sketch-box img {
+    max-height: 520px;
+    max-width: 100%;
+    border: 1px solid #999;
+    border-radius: 4px;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.15);
+  }
+  .val-grid {
+    margin-top: 8px;
+  }
+  .val-item {
+    margin-bottom: 12px;
+  }
+  .val-item h4 {
+    margin: 4px 0;
+    font-size: 12px;
+    color: #444;
+  }
+  .val-item img {
+    max-width: 100%;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <h1>Web Technologies Project Report: Coffi Coffee Shop (Alikhan Bokeikhan Branch)</h1>
+  <div class="header-meta">
+    Course: Web Technologies / Frontend Fundamentals<br>
+    Repository URL: <a href="https://github.com/jasulansam/web">https://github.com/jasulansam/web</a>
+  </div>
+
+  <div class="team-block">
+    Team Members:
+    <span>• Samrat Zhasulan</span>
+    <span>• Zhaksylyk Adilet</span>
+  </div>
+
+  <h2>1. Project Overview</h2>
+  <ul>
+    <li><b>Objective:</b> Development of a 6-page accessible website for the Coffi coffeehouse (Alikhan Bokeikhan St 10, Astana) adhering strictly to semantic HTML5 standards without external styling or client-side scripting frameworks.</li>
+    <li><b>Core Architectural Rules:</b>
+      <ul>
+        <li>Strict landmark hierarchy (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>).</li>
+        <li>Pure semantic structure (no inline styling, zero presentation attributes like <code>border="1"</code> or <code>align</code>).</li>
+        <li>Tabular data formatting using accessible table structures (<code>&lt;table&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and <code>th scope</code>).</li>
+        <li>Form inputs configured with explicit label associations, logical field grouping (<code>&lt;fieldset&gt;</code>, <code>&lt;legend&gt;</code>), and native HTML5 validation constraints across two functional forms.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>2. Task A — Anatomy of Coffi Web Architecture &amp; Semantic Planning</h2>
+  <h3>2.1 Head Elements and Metadata Inspection (Coffi Coffee Shop)</h3>
+  <ul>
+    <li><b>DOCTYPE:</b> <code>&lt;!DOCTYPE html&gt;</code> (HTML5 doctype ensuring modern standard rendering mode)</li>
+    <li><b>Language:</b> <code>lang="en"</code> in <code>&lt;html lang="en"&gt;</code> (specifying document language for assistive technologies)</li>
+    <li><b>Charset:</b> Modern HTML5 standard <code>&lt;meta charset="UTF-8"&gt;</code> (universal Unicode character encoding)</li>
+    <li><b>Viewport:</b> <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> (responsive viewport definition)</li>
+    <li><b>Title:</b> <code>Coffi Coffee Shop Astana - Neighborhood Specialty Coffee</code></li>
+    <li><b>Three Key Meta Tags:</b>
+      <ol>
+        <li><code>&lt;meta name="description" content="Welcome to Coffi, a cozy neighborhood coffee shop on Alikhan Bokeikhan Street 10 in Astana, serving artisan espresso and fresh pastries."&gt;</code></li>
+        <li><code>&lt;meta name="author" content="Samrat Zhasulan"&gt;</code></li>
+        <li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></li>
+      </ol>
+    </li>
+  </ul>
+
+  <h3>2.2 DevTools Source Inspection (Semantic Landmark Structure)</h3>
+  <div class="screenshot-box">
+    <img src="report-assets/devtools-source.png" alt="DevTools Source inspection showing clean semantic HTML5 hierarchy in Coffi">
+  </div>
+
+  <table class="audit-table">
+    <thead>
+      <tr>
+        <th>Element Type</th>
+        <th>Tag Name</th>
+        <th>Occurrence Count</th>
+        <th>Implementation Purpose in Coffi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Semantic Header</td>
+        <td><code>&lt;header&gt;</code></td>
+        <td>6</td>
+        <td>Present on all 6 pages for branding and page title</td>
+      </tr>
+      <tr>
+        <td>Semantic Navigation</td>
+        <td><code>&lt;nav&gt;</code></td>
+        <td>6</td>
+        <td>Encapsulates 6-page site navigation list on every document</td>
+      </tr>
+      <tr>
+        <td>Sectional Grouping</td>
+        <td><code>&lt;section&gt;</code></td>
+        <td>7</td>
+        <td>Thematic sectioning for visiting hours, categories, standards</td>
+      </tr>
+      <tr>
+        <td>Independent Article</td>
+        <td><code>&lt;article&gt;</code></td>
+        <td>5</td>
+        <td>Self-contained stories, bean sourcing, and code skeleton</td>
+      </tr>
+      <tr>
+        <td>Complementary Aside</td>
+        <td><code>&lt;aside&gt;</code></td>
+        <td>2</td>
+        <td>Peripheral info: visiting hours and breakfast pairing special</td>
+      </tr>
+      <tr>
+        <td>Data Tables</td>
+        <td><code>&lt;table&gt;</code></td>
+        <td>1</td>
+        <td>Relational pricing table in menu.html with caption, thead, tbody</td>
+      </tr>
+      <tr>
+        <td>Generic Containers</td>
+        <td><code>&lt;div&gt;</code></td>
+        <td>1</td>
+        <td>Strictly limited to 1 instance on menu.html:61 (legal tax note)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PAGE 2 -->
+  <div class="page-break"></div>
+  <h2>3. Three Structural Principles of Coffi Architecture</h2>
+  
+  <p><b>1. Semantic Navigation Landmarks Over Generic Containers:</b></p>
+  <ul>
+    <li><i>Principle:</i> Instead of unsemantic wrapper divs, our Coffi site strictly encapsulates navigation links inside a semantic <code>&lt;nav&gt;</code> tag containing a structured <code>&lt;ul&gt;</code> list across all 6 pages (<code>index.html</code>, <code>about.html</code>, <code>menu.html</code>, <code>booking.html</code>, <code>feedback.html</code>, <code>colophon.html</code>).</li>
+    <li><i>Benefit:</i> Screen readers and search engine crawlers immediately identify navigation landmarks and jump directly between pages.</li>
+  </ul>
+
+  <p><b>2. Explicit Label Associations and Logical Grouping in Forms:</b></p>
+  <ul>
+    <li><i>Principle:</i> In both <code>booking.html</code> and <code>feedback.html</code>, every single input is explicitly bound to a <code>&lt;label for="..."&gt;</code> matching the input <code>id</code>. Inputs are categorized into logical <code>&lt;fieldset&gt;</code> containers with descriptive <code>&lt;legend&gt;</code> headings.</li>
+    <li><i>Benefit:</i> Tapping or clicking any label immediately activates input focus, and assistive tools read field legends before requesting input.</li>
+  </ul>
+
+  <p><b>3. Accessible Tabular Structure for Menu Data:</b></p>
+  <ul>
+    <li><i>Principle:</i> In <code>menu.html</code>, beverage prices, cup sizes, and descriptions are structured in a true semantic <code>&lt;table&gt;</code>, featuring <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and accessible header scopes (<code>scope="col"</code>, <code>scope="row"</code>).</li>
+    <li><i>Benefit:</i> Screen readers announce tabular relationships, linking every drink name to its exact volume and price in tenge.</li>
+  </ul>
+
+  <h2>4. Hand-Drawn Page Structure Sketch</h2>
+  <p>As required by Assignment 1, the website wireframe and semantic HTML5 hierarchy for Coffi Coffee Shop was planned and hand-drawn on paper with a blue ballpoint pen, detailing landmarks, section IDs, navigation flow, and signed by both students.</p>
+  
+  <div class="sketch-box">
+    <img src="report-assets/sketch.png" alt="Hand-drawn page structure sketch on paper">
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page-break"></div>
+  <h2>5. Task B — Reflective Essays</h2>
+  
+  <h4>Reflective Essay: Samrat Zhasulan</h4>
+  <p>A web page is fundamentally a plain-text document structured with HyperText Markup Language (HTML). At its core, an HTML file consists of human-readable elements demarcated by tags, attributes, text nodes, and entities. When a user navigates to a local HTML file or web address, the browser receives a continuous stream of raw bytes.</p>
+  
+  <p>The rendering engine decodes these bytes into characters using the declared character encoding (<code>UTF-8</code>), tokenizes the stream into distinct start tags, end tags, and content, and constructs the Document Object Model (DOM) tree. Concurrently, the engine parses external stylesheets to generate the CSSOM (CSS Object Model). The browser merges DOM and CSSOM into a Render Tree, filtering out non-rendered nodes (such as <code>&lt;head&gt;</code> or elements with <code>display: none</code>). Next, the layout engine executes geometry calculations to determine the precise size and coordinates of each element on the viewport. Finally, the painting stage rasterizes vectors, text, borders, and colors onto physical pixels displayed on the screen. Because our assignment strictly excludes CSS and JavaScript, the browser renders directly using its default User-Agent stylesheet.</p>
+
+  <p>In my codebase, I strictly prioritized semantic markup over generic <code>&lt;div&gt;</code> containers:</p>
+  <ol>
+    <li>In <code>menu.html</code>, I wrapped our pricing data inside an accessible <code>&lt;table&gt;</code> with <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> instead of styled grid divs, giving assistive screen readers clear tabular data relationships.</li>
+    <li>In <code>menu.html</code>, I utilized a definition list (<code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code>) instead of divs to define specialty coffee terms (Single-Origin, Bumble Coffee, Micro-foam) as term-and-description semantic pairs.</li>
+    <li>In <code>about.html</code>, I chose <code>&lt;article&gt;</code> instead of <code>&lt;div&gt;</code> for the community workspace narrative because it forms an independent, self-contained story that can stand on its own.</li>
+  </ol>
+
+  <h4>Reflective Essay: Zhaksylyk Adilet</h4>
+  <p>A web page is a structured text document containing semantic tags that define document landmarks, interactive forms, and content hierarchies. When a browser opens our <code>booking.html</code> file, it parses the markup from top to bottom, building an in-memory tree representation known as the DOM (Document Object Model). Without external CSS, the browser applies its built-in user-agent style sheet to compute font sizes, element margins, and form control layouts before painting pixels to the display.</p>
+
+  <p>In my codebase, I strictly chose semantic elements over non-semantic <code>&lt;div&gt;</code> tags:</p>
+  <ol>
+    <li>In <code>booking.html</code>, I grouped personal contact details and dining preferences inside <code>&lt;fieldset&gt;</code> elements with <code>&lt;legend&gt;</code> rather than wrapper divs, ensuring screen readers announce logical category contexts.</li>
+    <li>In <code>feedback.html</code>, I explicitly connected each <code>&lt;label for="..."&gt;</code> with its corresponding input <code>id</code> instead of using generic divs with text, ensuring clicking labels activates input focus.</li>
+    <li>In <code>colophon.html</code>, I used <code>&lt;pre&gt;</code> and <code>&lt;code&gt;</code> instead of a div container to display sample HTML code while preserving whitespace and formatting.</li>
+  </ol>
+
+  <p>When a visitor clicks the submit button on <code>booking.html</code> today, the browser triggers native client-side constraint validation against attributes like <code>required</code>, <code>type="email"</code>, <code>type="number"</code>, and <code>type="tel"</code>. If any input fails validation, the browser blocks submission and displays a native alert. Because no server-side backend script processes the request, the browser attempts an HTTP POST request to <code>action="#"</code>, reloading the static page with query fragment without transmitting data over the network.</p>
+
+  <!-- PAGE 4 -->
+  <div class="page-break"></div>
+  <h2>6. W3C Validation Evidence</h2>
+  <p>All six project documents were submitted to the official W3C Nu HTML Validator, passing with zero errors and zero warnings.</p>
+
+  <div class="val-grid">
+    <div class="val-item">
+      <h4>1. val-index (index.html — Passed, 0 Errors)</h4>
+      <img src="report-assets/val-index.png" alt="W3C Nu Validator for index.html">
+    </div>
+    <div class="val-item">
+      <h4>2. val-about (about.html — Passed, 0 Errors)</h4>
+      <img src="report-assets/val-about.png" alt="W3C Nu Validator for about.html">
+    </div>
+  </div>
+
+  <!-- PAGE 5 -->
+  <div class="page-break"></div>
+  <div class="val-grid">
+    <div class="val-item">
+      <h4>3. val-menu (menu.html — Passed, 0 Errors)</h4>
+      <img src="report-assets/val-menu.png" alt="W3C Nu Validator for menu.html">
+    </div>
+    <div class="val-item">
+      <h4>4. val-booking (booking.html — Passed, 0 Errors)</h4>
+      <img src="report-assets/val-booking.png" alt="W3C Nu Validator for booking.html">
+    </div>
+  </div>
+
+  <!-- PAGE 6 -->
+  <div class="page-break"></div>
+  <div class="val-grid">
+    <div class="val-item">
+      <h4>5. val-feedback (feedback.html — Passed, 0 Errors)</h4>
+      <img src="report-assets/val-feedback.png" alt="W3C Nu Validator for feedback.html">
+    </div>
+    <div class="val-item">
+      <h4>6. val-colophon (colophon.html — Passed, 0 Errors)</h4>
+      <img src="report-assets/val-colophon.png" alt="W3C Nu Validator for colophon.html">
+    </div>
+  </div>
+
+  <h2>7. HTML5 Semantic Elements Checklist</h2>
+  <p>The comprehensive line-by-line checklist of every required HTML5 semantic tag, attribute, list, and table structure with student attributions is documented in the repository:</p>
+  <p>URL: <a href="https://github.com/jasulansam/web/blob/main/tag-checklist.md">https://github.com/jasulansam/web/blob/main/tag-checklist.md</a></p>
+
+</body>
+</html>
