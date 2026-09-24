@@ -1,0 +1,181 @@
+{
+  "version": "26.9.27 (0788818)",
+  "messages": [
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 4,
+      "lastColumn": 28,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "head>\n    <meta charset=\"UTF-8\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 24
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 5,
+      "lastColumn": 76,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 72
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 9,
+      "firstLine": 6,
+      "lastColumn": 6,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "0\" />\n    <meta\n      name=\"description\"\n      content=\"Share your thoughts and feedback about your coffee and workspace experience at Coffi on Alikhan Bokeikhan Street 10.\"\n    />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 170
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 10,
+      "lastColumn": 53,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "   />\n    <meta name=\"author\" content=\"Zhaksylyk Adilet\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 49
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 16,
+      "firstLine": 13,
+      "lastColumn": 6,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": ". -->\n    <link\n      href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css\"\n      rel=\"stylesheet\"\n    />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 120
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 17,
+      "lastColumn": 61,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "   />\n    <link rel=\"stylesheet\" href=\"css/bootstrap-custom.css\" />\n  </h",
+      "hiliteStart": 10,
+      "hiliteLength": 57
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 99,
+      "firstLine": 92,
+      "lastColumn": 20,
+      "firstColumn": 19,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <input\n                    class=\"form-control\"\n                    type=\"text\"\n                    id=\"client-name\"\n                    name=\"client_name\"\n                    placeholder=\"e.g. Dana Kassymova\"\n                    required\n                  />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 259
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 110,
+      "firstLine": 103,
+      "lastColumn": 20,
+      "firstColumn": 19,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <input\n                    class=\"form-control\"\n                    type=\"email\"\n                    id=\"client-email\"\n                    name=\"client_email\"\n                    placeholder=\"dana@example.kz\"\n                    required\n                  />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 258
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 120,
+      "firstLine": 114,
+      "lastColumn": 20,
+      "firstColumn": 19,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <input\n                    class=\"form-control\"\n                    type=\"tel\"\n                    id=\"client-phone\"\n                    name=\"client_phone\"\n                    placeholder=\"+7 (7XX) XXX-XX-XX\"\n                  />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 230
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 137,
+      "firstLine": 131,
+      "lastColumn": 20,
+      "firstColumn": 19,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <input\n                    class=\"form-control\"\n                    type=\"date\"\n                    id=\"visit-date\"\n                    name=\"visit_date\"\n                    required\n                  />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 203
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 152,
+      "firstLine": 143,
+      "lastColumn": 20,
+      "firstColumn": 19,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <input\n                    class=\"form-control\"\n                    type=\"number\"\n                    id=\"rating-score\"\n                    name=\"rating_score\"\n                    min=\"1\"\n                    max=\"5\"\n                    placeholder=\"5\"\n                    required\n                  />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 301
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 165,
+      "firstLine": 159,
+      "lastColumn": 22,
+      "firstColumn": 21,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <input\n                      class=\"form-check-input me-2\"\n                      type=\"radio\"\n                      name=\"recommendation\"\n                      value=\"yes\"\n                      checked\n                    />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 224
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 174,
+      "firstLine": 169,
+      "lastColumn": 22,
+      "firstColumn": 21,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <input\n                      class=\"form-check-input me-2\"\n                      type=\"radio\"\n                      name=\"recommendation\"\n                      value=\"maybe\"\n                    />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 196
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 183,
+      "firstLine": 178,
+      "lastColumn": 22,
+      "firstColumn": 21,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <input\n                      class=\"form-check-input me-2\"\n                      type=\"radio\"\n                      name=\"recommendation\"\n                      value=\"no\"\n                    />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 193
+    },
+    {
+      "type": "info",
+      "url": "file:/C:/Users/Adlet/OneDrive/Documents/ChatGPT/web/assignment-review/feedback.html",
+      "lastLine": 216,
+      "firstLine": 211,
+      "lastColumn": 22,
+      "firstColumn": 21,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <input\n                      class=\"form-check-input me-2\"\n                      type=\"checkbox\"\n                      id=\"news-optin\"\n                      name=\"news_optin\"\n                    />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 197
+    }
+  ]
+}
