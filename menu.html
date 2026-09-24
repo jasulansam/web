@@ -7,31 +7,41 @@
   <meta name="author" content="Samrat Zhasulan">
   <!-- Author: Samrat Zhasulan -->
   <title>Menu &amp; Price List - Coffi Coffee Shop Astana</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/zhasulan.css">
+  <!-- Bootstrap 5.3.8: official CDN version used for Assignment 3. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap-custom.css">
 </head>
 <!-- The top id is a unique destination for the back-to-top link. -->
-<body id="top" class="menu-page">
+<body id="top" class="bg-light menu-page">
   <header class="site-header">
     <h1>Coffi Coffee Shop</h1>
     <p>Artisan Beverages, Specialty Teas, and Fresh Morning Pastries.</p>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html" aria-current="page">Menu</a></li>
-        <li><a href="booking.html">Reservations</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
-        <li><a href="colophon.html">Colophon</a></li>
-      </ul>
+<!-- container-fluid keeps the navigation full-width while the content below uses a constrained container. -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom" aria-label="Primary navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-semibold" href="index.html">Coffi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="siteNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
+            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          </ul>
+          <a class="btn btn-outline-dark btn-sm" href="https://2gis.kz/astana/geo/70000001093393499" target="_blank" rel="noopener noreferrer">Find us</a>
+        </div>
+      </div>
     </nav>
   </header>
-  <main class="site-main menu-layout">
-    <p class="jump-link"><a href="#brewing-guide">Jump directly to our manual brewing method</a></p>
-    <!-- Why: I used <table> with thead, tbody, and scope because menu prices are tabular relational data requiring accessible headers. -->
-    <section id="price-table-section">
-      <h2>Beverage and Pastry Price List</h2>
-      <table>
+  <main class="site-main container py-5">
+    <p class="jump-link small mb-4"><a href="#brewing-guide">Jump directly to our manual brewing method</a></p>
+    <!-- Why: I used <div class="col-12 col-lg-8 table-responsive"><table class="table table-striped table-hover align-middle"> with thead, tbody, and scope because menu prices are tabular relational data requiring accessible headers. -->
+    <section id="price-table-section" class="row g-4">
+      <h2 class="col-12">Beverage and Pastry Price List</h2>
+      <div class="col-12 col-lg-8 table-responsive"><table class="table table-striped table-hover align-middle">
         <caption>Specialty Offerings and Current Dine-In Prices in Astana</caption>
         <thead>
           <tr>
@@ -73,17 +83,17 @@
             <td>1,100 &#8376;</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <!-- Note: Using div here just to group the price disclaimer text, because no semantic tag fits for a simple notice without a heading. -->
-      <div class="price-note">
+      <div class="col-12 col-lg-4 price-note alert alert-warning" role="alert">
         <p>Prices include tax. Payment via card, cash, or mobile QR.</p>
       </div>
-      <figure>
+      <figure class="col-12 col-lg-4">
         <img src="images/croissant.jpg" alt="Golden flaky baked butter croissant served on a ceramic plate at Coffi" width="400" height="300">
         <figcaption>Flaky butter croissants baked fresh every morning by our pastry team.</figcaption>
       </figure>
     </section>
-    <section id="customizations">
+    <section id="customizations" class="row g-3 border-top pt-4 mt-5">
       <h2>Dairy and Plant Milk Alternatives</h2>
       <ul>
         <li>Milk Varieties
@@ -95,7 +105,7 @@
         </li>
       </ul>
     </section>
-    <section id="brewing-guide">
+    <section id="brewing-guide" class="row g-3 border-top pt-4 mt-5">
       <h2>Manual Pour-Over Extraction Process</h2>
       <ol type="1" start="1">
         <li>Grinding 18g of fresh medium-roast beans.</li>
@@ -106,7 +116,7 @@
       <p>Our extraction water maintains optimal mineral balance with pure H<sub>2</sub>O and magnesium.</p>
     </section>
     <!-- Why: I used a definition list (dl) because coffee terms are term-and-description pairs, not an ordered list. -->
-    <section id="glossary">
+    <section id="glossary" class="row g-3 border-top pt-4 mt-5">
       <h2>Coffee Glossary</h2>
       <dl>
         <dt>Single-Origin</dt>
@@ -117,13 +127,14 @@
         <dd>Steamed milk aerated with tiny bubbles for silky texture.</dd>
       </dl>
       <p>View our local reviews and customer photos on <a href="https://2gis.kz" target="_blank" rel="noopener noreferrer">2GIS Astana City Guide</a>.</p>
-      <p class="jump-link"><a href="#top">Back to top of page</a></p>
+      <p class="jump-link small mb-4"><a href="#top">Back to top of page</a></p>
     </section>
   </main>
-  <footer class="site-footer">
+  <footer class="site-footer container py-4 border-top d-flex flex-column flex-md-row justify-content-between gap-3 small text-center text-md-start">
     <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
     <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
   </footer>
-  <a class="back-top" href="#top">Back to top ↑</a>
+  <a class="back-top btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3" href="#top">Back to top ↑</a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -7,56 +7,67 @@
   <meta name="author" content="Samrat Zhasulan">
   <!-- Author: Samrat Zhasulan -->
   <title>Coffi Coffee Shop Astana - Neighborhood Specialty Coffee</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/zhasulan.css">
+  <!-- Bootstrap 5.3.8: official CDN version used for Assignment 3. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap-custom.css">
 </head>
 <!-- The top id is a unique destination for the back-to-top link. -->
-<body id="top" class="home-page">
+<body id="top" class="bg-light home-page">
   <header class="site-header">
     <h1>Coffi Coffee Shop</h1>
-    <p>Fresh specialty roasts and quiet workspace on the Left Bank of Astana.</p>
-    <nav>
-      <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="booking.html">Reservations</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
-        <li><a href="colophon.html">Colophon</a></li>
-      </ul>
+    <p class="text-center text-md-start">Fresh specialty roasts and quiet workspace on the Left Bank of Astana.</p>
+<!-- container-fluid keeps the navigation full-width while the content below uses a constrained container. -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom" aria-label="Primary navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-semibold" href="index.html">Coffi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="siteNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
+            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          </ul>
+          <a class="btn btn-outline-dark btn-sm" href="https://2gis.kz/astana/geo/70000001093393499" target="_blank" rel="noopener noreferrer">Find us</a>
+        </div>
+      </div>
     </nav>
   </header>
-  <main class="site-main">
-    <p class="jump-link"><a href="#visiting-hours">Jump directly to visiting hours and location</a></p>
+  <main class="site-main container py-5">
+    <p class="jump-link small mb-4"><a href="#visiting-hours">Jump directly to visiting hours and location</a></p>
     <!-- Why: I used <article> instead of <section class="content-section"> because this narrative introduces our coffee shop as a standalone story. -->
-    <article class="cafe-story">
-      <h2>Artisan Coffee Culture on Alikhan Bokeikhan Street</h2>
+    <article class="cafe-story row g-4 align-items-center">
+      <h2 class="col-12 display-4">Artisan Coffee Culture on Alikhan Bokeikhan Street</h2>
       <p>Located at Alikhan Bokeikhan Street 10 in Astana, <strong>Coffi</strong> is an independent neighborhood coffeehouse founded to serve freshly roasted beans and homemade pastries. We provide a peaceful haven with thirty comfortable seats designed for university students, remote professionals, and neighborhood residents who appreciate genuine hospitality.</p>
-      <figure>
+      <figure class="col-12 col-lg-6 order-lg-2">
         <img src="images/interior.jpg" alt="Cozy wooden interior of Coffi coffee shop in Astana with natural daylight and work tables" width="400" height="300">
         <figcaption>The welcoming front lounge of Coffi featuring warm timber seating and quiet study corners.</figcaption>
       </figure>
-      <!-- Why: I used <blockquote> with cite because this is an in-person quote from our interview with the barista. -->
-      <blockquote cite="https://2gis.kz">
+      <!-- Why: I used <blockquote class="col-12 col-lg-6 order-lg-1 p-4">> with cite because this is an in-person quote from our interview with the barista. -->
+      <blockquote class="col-12 col-lg-6 order-lg-1 p-4" cite="https://2gis.kz">
         <p><q>Our goal is brewing balanced specialty coffee at honest prices while maintaining a warm space where people can read and work,</q> shared lead barista <cite>Madina Serikova</cite> on September 12, 2026.</p>
       </blockquote>
       <p>Every single espresso shot is pulled at 93<sup>&deg;</sup>C using fresh beans roasted in Kazakhstan. We pair our coffee with <mark>handmade bakery treats</mark> baked every morning before opening hours.</p>
     </article>
-    <aside>
-      <h2>Daily Morning Special</h2>
-      <p>Enjoy our special breakfast pairing from 07:30 to 11:00: order any <b>cappuccino</b> or <i>flat white</i> and receive a warm <small>croissant at half price</small>.</p>
+    <aside class="row align-items-center g-3 bg-dark text-light p-4 my-5 rounded">
+      <h2 class="col-12 col-md-5">Daily Morning Special</h2>
+      <p class="col-12 col-md-7 mb-0">Enjoy our special breakfast pairing from 07:30 to 11:00: order any <b>cappuccino</b> or <i>flat white</i> and receive a warm <small>croissant at half price</small>.</p>
     </aside>
     <!-- This unique id is the destination of the opening-hours navigation link. -->
-    <section id="visiting-hours" class="opening-hours">
+    <section id="visiting-hours" class="opening-hours border-top pt-4 mt-5">
       <h2>Location &amp; Opening Hours</h2>
       <p>Find us at Alikhan Bokeikhan Street 10, Yesil District, Astana, <abbr title="Republic of Kazakhstan">KZ</abbr>. We welcome guests daily from 07:30 to 23:00.</p>
-      <p class="jump-link"><a href="#top">Back to top of page</a></p>
+      <p class="jump-link small mb-4"><a href="#top">Back to top of page</a></p>
     </section>
   </main>
-  <footer class="site-footer">
+  <footer class="site-footer container py-4 border-top d-flex flex-column flex-md-row justify-content-between gap-3 small text-center text-md-start">
     <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
     <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
   </footer>
-  <a class="back-top" href="#top">Back to top ↑</a>
+  <a class="back-top btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3" href="#top">Back to top ↑</a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

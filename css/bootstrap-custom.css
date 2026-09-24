@@ -1,0 +1,17 @@
+/* Assignment 3 correction layer: Bootstrap 5.3.8 does the layout, spacing and responsive work. */
+:root { --coffi-ink: #30271f; --coffi-accent: #885238; --coffi-paper: #f7f3eb; }
+body { background: var(--coffi-paper); color: var(--coffi-ink); font-family: Arial, Helvetica, sans-serif; }
+.site-header h1, h1, h2, h3, legend { font-family: Georgia, "Times New Roman", serif; color: var(--coffi-ink); }
+.site-header h1 { letter-spacing: -0.04em; }
+.site-header > p { letter-spacing: 0.08em; }
+.site-header nav a { color: var(--coffi-ink); }
+.site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--coffi-accent); }
+.site-main img { object-fit: cover; }
+.site-main figure img { width: 100%; max-height: 420px; }
+blockquote { border-left: 3px solid var(--coffi-accent); }
+.site-footer a, a { color: var(--coffi-accent); }
+.decorative-circle { width: 180px; height: 180px; border-radius: 50%; background: rgba(136,82,56,.15); }
+.guest-form fieldset { background: var(--coffi-paper); }
+.guest-form textarea { min-height: 8rem; }
+.technical-card pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 575.98px) { .site-header h1 { font-size: 2.25rem; } .site-header > p { font-size: .8rem; } }

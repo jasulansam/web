@@ -34,3 +34,14 @@ The two supplied paper sketches show names and group, but drawing dates are not 
 ## PDF link sheet
 Assignment2_Zhaksylyk_Adilet_SE-2537.pdf contains only the two names and the repository URL.
 
+
+## Assignment 3 — Bootstrap
+
+The Coffi pages now use Bootstrap 5.3.8 from the official jsDelivr CDN for layout, responsive navigation, grid columns, utilities, buttons and the responsive menu table. `css/bootstrap-custom.css` is a small correction layer for the Coffi palette, typography and image treatment. The public navigation omits the optional colophon page, while `colophon.html` remains available as a technical reference.
+
+- `css/bootstrap-custom.css`: Bootstrap correction layer (kept under the assignment limit).
+- `bootstrap-removals.md`: mapping from removed Assignment 2 rules to Bootstrap classes.
+- `assignment3-assets/home-375.png`, `home-768.png`, `home-1440.png`: responsive evidence.
+- `assignment3-assets/home-nav-collapsed.png`: mobile navbar evidence after opening the toggle.
+
+The pages were checked at 375px, 768px and 1440px with no horizontal overflow. The mobile navbar opens through Bootstrap's collapse component. Assignment 3 does not require a written report.

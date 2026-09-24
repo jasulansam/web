@@ -7,65 +7,75 @@
   <meta name="author" content="Zhaksylyk Adilet">
   <!-- Author: Zhaksylyk Adilet -->
   <title>Customer Feedback &amp; Reviews - Coffi Coffee Shop</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/adilet.css">
+  <!-- Bootstrap 5.3.8: official CDN version used for Assignment 3. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap-custom.css">
 </head>
 <!-- The top id is a unique destination for the back-to-top link. -->
-<body id="top" class="feedback-page">
+<body id="top" class="bg-light feedback-page">
   <header class="site-header">
     <h1>Coffi Coffee Shop</h1>
-    <p>Guest Feedback and Customer Experience Survey.</p>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="booking.html">Reservations</a></li>
-        <li><a href="feedback.html" aria-current="page">Feedback</a></li>
-        <li><a href="colophon.html">Colophon</a></li>
-      </ul>
+    <p class="text-center text-md-start">Guest Feedback and Customer Experience Survey.</p>
+<!-- container-fluid keeps the navigation full-width while the content below uses a constrained container. -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom" aria-label="Primary navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-semibold" href="index.html">Coffi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="siteNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
+            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          </ul>
+          <a class="btn btn-outline-dark btn-sm" href="https://2gis.kz/astana/geo/70000001093393499" target="_blank" rel="noopener noreferrer">Find us</a>
+        </div>
+      </div>
     </nav>
   </header>
-  <main class="site-main">
+  <main class="site-main container py-5">
     <section class="content-section">
       <h2>We Value Your Experience</h2>
       <p class="page-intro">Your honest reviews help our baristas refine roast recipes, improve hospitality, and maintain a pleasant workspace. Please take two minutes to tell us about your recent visit.</p>
       <!-- The form does not send anything yet - there is no server behind it. Server-side handling comes later in the course. -->
-      <form class="guest-form" method="post" action="#">
+      <form class="guest-form row g-4" method="post" action="#">
         <!-- Why: I used fieldset and legend to organize feedback questions into clean logical groups for screen readers. -->
-        <fieldset>
+        <fieldset class="col-12 col-lg-4 p-4 border rounded">
           <legend>Customer Profile</legend>
           <!-- Why: I linked label "for" with input "id" so clicking the text label puts focus directly into the field. -->
-          <p class="form-field">
+          <p class="form-field col-12">
             <label for="client-name">Your Name (required):</label>
             <input type="text" id="client-name" name="client_name" placeholder="e.g. Dana Kassymova" required>
           </p>
-          <p class="form-field">
+          <p class="form-field col-12">
             <label for="client-email">Email Address (required):</label>
             <input type="email" id="client-email" name="client_email" placeholder="dana@example.kz" required>
           </p>
-          <p class="form-field">
+          <p class="form-field col-12">
             <label for="client-phone">Phone Number (optional):</label>
             <input type="tel" id="client-phone" name="client_phone" placeholder="+7 (7XX) XXX-XX-XX">
           </p>
         </fieldset>
-        <fieldset>
+        <fieldset class="col-12 col-lg-8 p-4 border rounded row g-3">
           <legend>Visit Evaluation</legend>
-          <p class="form-field">
+          <p class="form-field col-12">
             <label for="visit-date">Date of Visit (required):</label>
             <input type="date" id="visit-date" name="visit_date" required>
           </p>
-          <p class="form-field">
+          <p class="form-field col-12">
             <label for="rating-score">Overall Satisfaction (1 to 5):</label>
             <input type="number" id="rating-score" name="rating_score" min="1" max="5" placeholder="5" required>
           </p>
-          <p class="form-field form-wide">Would you recommend Coffi to fellow students?</p>
+          <p class="form-field form-wide col-12">Would you recommend Coffi to fellow students?</p>
           <p class="form-field form-wide radio-group">
             <label><input type="radio" name="recommendation" value="yes" checked> Yes, definitely</label>
             <label><input type="radio" name="recommendation" value="maybe"> Maybe</label>
             <label><input type="radio" name="recommendation" value="no"> Needs improvement</label>
           </p>
-          <p class="form-field form-wide">
+          <p class="form-field form-wide col-12">
             <label for="favorite-beverage">Favorite Beverage Tried:</label>
             <select id="favorite-beverage" name="favorite_beverage">
               <option value="bumble">Bumble Coffee</option>
@@ -74,7 +84,7 @@
               <option value="americano">Americano</option>
             </select>
           </p>
-          <p class="form-field form-wide">
+          <p class="form-field form-wide col-12">
             <label for="review-comments">Comments and Suggestions for Our Baristas:</label>
             <textarea id="review-comments" name="review_comments" rows="4" cols="45" placeholder="Tell us how we can make your study sessions even better..."></textarea>
           </p>
@@ -85,8 +95,8 @@
             </label>
           </p>
           <p class="form-field form-wide form-actions">
-            <button type="submit">Submit Feedback</button>
-            <button type="reset">Reset Form</button>
+            <button class="btn btn-primary" type="submit">Submit Feedback</button>
+            <button class="btn btn-outline-secondary btn-sm" type="reset">Reset Form</button>
           </p>
         </fieldset>
       </form>
@@ -97,10 +107,11 @@
       <p>As an independent local cafe on Alikhan Bokeikhan Street, we rely on word-of-mouth recommendations rather than aggressive commercial advertising. Every review submitted through this form is discussed at our weekly staff meetings so our baristas can enhance drink consistency, pastry freshness, and table cleanliness.</p>
     </section>
   </main>
-  <footer class="site-footer">
+  <footer class="site-footer container py-4 border-top d-flex flex-column flex-md-row justify-content-between gap-3 small text-center text-md-start">
     <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
     <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
   </footer>
-  <a class="back-top" href="#top">Back to top ↑</a>
+  <a class="back-top btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3" href="#top">Back to top ↑</a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

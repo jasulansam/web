@@ -7,26 +7,35 @@
   <meta name="author" content="Zhaksylyk Adilet">
   <!-- Author: Zhaksylyk Adilet -->
   <title>Colophon &amp; Technical Architecture - Coffi Website</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/adilet.css">
+  <!-- Bootstrap 5.3.8: official CDN version used for Assignment 3. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap-custom.css">
 </head>
-<!-- The top id is a unique destination for the back-to-top link. -->
-<body id="top" class="colophon-page">
+<body id="top" class="bg-light colophon-page">
   <header class="site-header">
     <h1>Coffi Coffee Shop</h1>
-    <p>Technical Architecture and Standards Documentation.</p>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="booking.html">Reservations</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
-        <li><a href="colophon.html" aria-current="page">Colophon</a></li>
-      </ul>
+    <p class="text-center text-md-start">Technical Architecture and Standards Documentation.</p>
+<!-- container-fluid keeps the navigation full-width while the content below uses a constrained container. -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom" aria-label="Primary navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-semibold" href="index.html">Coffi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="siteNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
+            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          </ul>
+          <a class="btn btn-outline-dark btn-sm" href="https://2gis.kz/astana/geo/70000001093393499" target="_blank" rel="noopener noreferrer">Find us</a>
+        </div>
+      </div>
     </nav>
   </header>
-  <main class="site-main">
+  <main class="site-main container py-5">
     <section class="content-section technical-grid">
       <h2>Technical Standards and Methodology</h2>
       <p>This website was created by Samrat Zhasulan and Zhaksylyk Adilet as Assignment 1 for the Introduction to Web Technologies course. The original semantic HTML5 pages are now extended with external CSS for Assignment 2, without JavaScript or external templates.</p>
@@ -42,6 +51,7 @@
   &lt;article&gt;...&lt;/article&gt;
 &lt;/main&gt;
 &lt;footer&gt;...&lt;/footer&gt;</code></pre>
+      <button class="btn btn-secondary btn-sm" type="button" disabled>Technical mode unavailable</button>
       </article>
       <!-- Why: I used <kbd> for keyboard shortcuts and <samp> for sample validator output. -->
       <article class="technical-card">
@@ -56,10 +66,11 @@
       </article>
     </section>
   </main>
-  <footer class="site-footer">
+  <footer class="site-footer container py-4 border-top d-flex flex-column flex-md-row justify-content-between gap-3 small text-center text-md-start">
     <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
     <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
   </footer>
-  <a class="back-top" href="#top">Back to top ↑</a>
+  <a class="back-top btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3" href="#top">Back to top ↑</a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
