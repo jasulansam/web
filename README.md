@@ -1,47 +1,32 @@
-# Coffi - Web Technologies Assignment 2
+# Coffi - Assignment 3
 
-Team: Samrat Zhasulan and Zhaksylyk Adilet. Group: SE-2537.
+Introduction to Web Technologies | SE-2537
 
-Repository: https://github.com/jasulansam/web
+Zhaksylyk Adilet and Samrat Zhasulan
 
-## Open the website
+A coffee shop website using Bootstrap 5.3.8. Open `index.html` in a browser; internet access is needed for the Bootstrap CDN. No installation or build step is required.
 
-Download and extract the repository, then open `index.html` in a desktop browser. No server or installation is needed. The six existing Assignment 1 pages are retained. Forms are demonstrations without a backend.
+## Files
 
-## Assignment 2 files
+- `index.html`, `about.html`, `menu.html`: introduction, cafe information and menu.
+- `booking.html`, `feedback.html`: demonstration forms. Submission is disabled because no backend is connected; inputs and reset buttons remain usable.
+- `colophon.html`: retained technical page, omitted from visitor navigation.
+- `css/bootstrap-custom.css`: brand colors, typography and small corrections.
+- `images/`: images used by the pages.
+- `assignment3-assets/`: three Home screenshots, a collapsed mobile navbar screenshot, HTML validation results and menu sources.
+- `bootstrap-removals.md`: old CSS rules and their Bootstrap replacements.
+- `ai-log.md`: recorded assistance and image-generation disclosure.
 
-- `css/base.css`: shared palette, typography, navigation and footer.
-- `css/zhasulan.css`: index, about and menu pages.
-- `css/adilet.css`: booking, feedback and colophon pages.
-- `css-checklist.md`: required techniques and source line numbers.
-- `assignment2-assets/sketches/booking-paper.png`: supplied booking sketch.
-- `assignment2-assets/sketches/feedback-paper.png`: supplied feedback sketch.
-- `assignment2-assets/before/`: six unstyled page screenshots.
-- `assignment2-assets/after/`: six styled page screenshots.
-- `assignment2-assets/validation/`: W3C responses.
-- `ai-log.md`: assistance disclosure.
+## Implementation
 
-## Verification
+Bootstrap handles containers, the grid, spacing, forms, buttons and collapsing navigation. The menu keeps its semantic table and adds a responsive photo group. There is no custom JavaScript, inline CSS or hand-built grid.
 
-All six site HTML files passed W3C Nu without messages. All three stylesheets passed W3C CSS validation with zero errors. The personal CSS files have static CSS-variable checking warnings (29 Adilet, 9 Zhasulan). Browser checks at 1440px verified image loading, absence of horizontal page overflow, required form fields and form reset.
+The menu contains 20 selected drinks from [Coffi on 2GIS](https://2gis.kz/astana/firm/70000001093393499/tab/prices), checked on 24 September 2026. Prices may change. Image provenance and the generation prompt are recorded in `assignment3-assets/menu-sources.md`.
 
-## Submission status
+## Checks
 
-The two supplied paper sketches show names and group, but drawing dates are not visible. Other student-page sketches and pre-CSS drawing timing are not established. Actual individual commits over the required days and the class defense remain separate requirements. AI assistance is disclosed in `ai-log.md`; the course restriction on AI-written submission code still applies.
+All six HTML pages and the custom stylesheet passed the local Nu Html Checker on 27 September 2026. Local regression checks cover IDs, anchor links, image paths, form labels and controls, Bootstrap links and the menu rows. Formatting was checked against a semantic snapshot before the separately documented content fixes.
 
-`report.pdf`, `report.html`, `report-assets/`, `task-a-anatomy.md`, `task-b-written.md` and `tag-checklist.md` are historical Assignment 1 materials. Assignment 2 does not require a written report.
+The four screenshots show the September 24 visual revision at 375, 768 and 1440 px; they predate the September 27 text and form-state corrections. Fresh browser verification remains pending because the browser tool blocked local file navigation.
 
-## PDF link sheet
-Assignment2_Zhaksylyk_Adilet_SE-2537.pdf contains only the two names and the repository URL.
-
-
-## Assignment 3 — Bootstrap
-
-The Coffi pages now use Bootstrap 5.3.8 from the official jsDelivr CDN for layout, responsive navigation, grid columns, utilities, buttons and the responsive menu table. `css/bootstrap-custom.css` is a small correction layer for the Coffi palette, typography and image treatment. The public navigation omits the optional colophon page, while `colophon.html` remains available as a technical reference.
-
-- `css/bootstrap-custom.css`: Bootstrap correction layer (kept under the assignment limit).
-- `bootstrap-removals.md`: mapping from removed Assignment 2 rules to Bootstrap classes.
-- `assignment3-assets/home-375.png`, `home-768.png`, `home-1440.png`: responsive evidence.
-- `assignment3-assets/home-nav-collapsed.png`: mobile navbar evidence after opening the toggle.
-
-The pages were checked at 375px, 768px and 1440px with no horizontal overflow. The mobile navbar opens through Bootstrap's collapse component. Assignment 3 does not require a written report.
+Assignment 3 requires each team member's own commits, at least four commits across three days, and an individual defense. These requirements are separate from code validation. Earlier assignment reports and sketches remain in Git history.

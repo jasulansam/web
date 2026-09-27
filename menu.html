@@ -1,140 +1,544 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore the full menu and pricing at Coffi Astana, featuring specialty espresso, cold bumble drinks, matcha, and fresh pastries.">
-  <meta name="author" content="Samrat Zhasulan">
-  <!-- Author: Samrat Zhasulan -->
-  <title>Menu &amp; Price List - Coffi Coffee Shop Astana</title>
-  <!-- Bootstrap 5.3.8: official CDN version used for Assignment 3. -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/bootstrap-custom.css">
-</head>
-<!-- The top id is a unique destination for the back-to-top link. -->
-<body id="top" class="bg-light menu-page">
-  <header class="site-header">
-    <h1>Coffi Coffee Shop</h1>
-    <p>Artisan Beverages, Specialty Teas, and Fresh Morning Pastries.</p>
-<!-- container-fluid keeps the navigation full-width while the content below uses a constrained container. -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom" aria-label="Primary navigation">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-semibold" href="index.html">Coffi</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="siteNav">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-            <li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
-            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
-          </ul>
-          <a class="btn btn-outline-dark btn-sm" href="https://2gis.kz/astana/geo/70000001093393499" target="_blank" rel="noopener noreferrer">Find us</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore selected Coffi drinks and published 2GIS prices: coffee, iced drinks, teas and fruit drinks in Astana."
+    />
+    <meta name="author" content="Samrat Zhasulan" />
+    <title>Menu &amp; Price List - Coffi Coffee Shop Astana</title>
+    <!-- Bootstrap 5.3.8 via CDN. -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/bootstrap-custom.css" />
+  </head>
+  <body id="top" class="menu-page">
+    <header class="site-header pt-4 pt-md-5">
+      <h1 class="container text-center mb-3">
+        <span class="brand-wordmark display-1 fw-bold d-block">
+          Coffi<span class="brand-dot" aria-hidden="true">.</span>
+        </span>
+        <span class="brand-caption d-block text-uppercase small mt-2">Coffee Shop</span>
+      </h1>
+      <p class="container text-center text-body-secondary small mb-4 px-4">
+        Artisan Beverages, Specialty Teas, and Fresh Morning Pastries.
+      </p>
+      <!-- Fluid navigation uses the full screen width. -->
+      <nav
+        class="navbar navbar-expand-lg border-top border-bottom py-3"
+        aria-label="Primary navigation"
+      >
+        <div class="container-fluid px-3 px-lg-5">
+          <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html">Coffi</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#siteNav"
+            aria-controls="siteNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="siteNav">
+            <ul class="navbar-nav mx-auto gap-lg-3 mb-3 mb-lg-0 mt-3 mt-lg-0">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item">
+                <a class="nav-link active fw-semibold" aria-current="page" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
+              <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+            </ul>
+            <a
+              class="btn btn-outline-dark btn-sm rounded-pill px-4"
+              href="https://2gis.kz/astana/geo/70000001093393499"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Find us
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <main class="site-main container py-5">
-    <p class="jump-link small mb-4"><a href="#brewing-guide">Jump directly to our manual brewing method</a></p>
-    <!-- Why: I used <div class="col-12 col-lg-8 table-responsive"><table class="table table-striped table-hover align-middle"> with thead, tbody, and scope because menu prices are tabular relational data requiring accessible headers. -->
-    <section id="price-table-section" class="row g-4">
-      <h2 class="col-12">Beverage and Pastry Price List</h2>
-      <div class="col-12 col-lg-8 table-responsive"><table class="table table-striped table-hover align-middle">
-        <caption>Specialty Offerings and Current Dine-In Prices in Astana</caption>
-        <thead>
-          <tr>
-            <th scope="col">Item Description</th>
-            <th scope="col">Serving Size</th>
-            <th scope="col">Category</th>
-            <th scope="col">Price (<abbr title="Kazakhstani Tenge">KZT</abbr>)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Americano Single-Origin</th>
-            <td>250 ml</td>
-            <td>Hot Coffee</td>
-            <td>950 &#8376;</td>
-          </tr>
-          <tr>
-            <th scope="row">Classic Flat White</th>
-            <td>220 ml</td>
-            <td>Milk Coffee</td>
-            <td>1,400 &#8376;</td>
-          </tr>
-          <tr>
-            <th scope="row">Signature Bumble Coffee</th>
-            <td>350 ml</td>
-            <td>Cold Special</td>
-            <td>1,600 &#8376;</td>
-          </tr>
-          <tr>
-            <th scope="row">Japanese Matcha Latte</th>
-            <td>300 ml</td>
-            <td>Specialty Tea</td>
-            <td>1,500 &#8376;</td>
-          </tr>
-          <tr>
-            <th scope="row">Fresh Butter Croissant</th>
-            <td>110 g</td>
-            <td>Pastry</td>
-            <td>1,100 &#8376;</td>
-          </tr>
-        </tbody>
-      </table></div>
-      <!-- Note: Using div here just to group the price disclaimer text, because no semantic tag fits for a simple notice without a heading. -->
-      <div class="col-12 col-lg-4 price-note alert alert-warning" role="alert">
-        <p>Prices include tax. Payment via card, cash, or mobile QR.</p>
-      </div>
-      <figure class="col-12 col-lg-4">
-        <img src="images/croissant.jpg" alt="Golden flaky baked butter croissant served on a ceramic plate at Coffi" width="400" height="300">
-        <figcaption>Flaky butter croissants baked fresh every morning by our pastry team.</figcaption>
-      </figure>
-    </section>
-    <section id="customizations" class="row g-3 border-top pt-4 mt-5">
-      <h2>Dairy and Plant Milk Alternatives</h2>
-      <ul>
-        <li>Milk Varieties
-          <ul>
-            <li>Farm Fresh Whole Milk (default)</li>
-            <li>Barista Oat Milk for vegan diets</li>
-            <li>Almond and Coconut Milk upon request</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-    <section id="brewing-guide" class="row g-3 border-top pt-4 mt-5">
-      <h2>Manual Pour-Over Extraction Process</h2>
-      <ol type="1" start="1">
-        <li>Grinding 18g of fresh medium-roast beans.</li>
-        <li>Rinsing paper filter with clean hot water.</li>
-        <li>Blooming grounds for 40 seconds.</li>
-        <li>Pouring filtered water until 300ml.</li>
-      </ol>
-      <p>Our extraction water maintains optimal mineral balance with pure H<sub>2</sub>O and magnesium.</p>
-    </section>
-    <!-- Why: I used a definition list (dl) because coffee terms are term-and-description pairs, not an ordered list. -->
-    <section id="glossary" class="row g-3 border-top pt-4 mt-5">
-      <h2>Coffee Glossary</h2>
-      <dl>
-        <dt>Single-Origin</dt>
-        <dd>Beans sourced exclusively from a single farm or region.</dd>
-        <dt>Bumble Coffee</dt>
-        <dd>Chilled beverage made with rich double espresso, sweet orange juice, and ice.</dd>
-        <dt>Micro-foam</dt>
-        <dd>Steamed milk aerated with tiny bubbles for silky texture.</dd>
-      </dl>
-      <p>View our local reviews and customer photos on <a href="https://2gis.kz" target="_blank" rel="noopener noreferrer">2GIS Astana City Guide</a>.</p>
-      <p class="jump-link small mb-4"><a href="#top">Back to top of page</a></p>
-    </section>
-  </main>
-  <footer class="site-footer container py-4 border-top d-flex flex-column flex-md-row justify-content-between gap-3 small text-center text-md-start">
-    <p>Direct inquiries: <a href="tel:+77018804104">+7 (701) 880-41-04</a> or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.</p>
-    <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
-  </footer>
-  <a class="back-top btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3" href="#top">Back to top ↑</a>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+      </nav>
+    </header>
+    <!-- Container limits line length on wide screens. -->
+    <main class="site-main container py-5">
+      <p class="jump-link d-flex flex-wrap gap-2 mb-4">
+        <a class="btn btn-outline-dark btn-sm rounded-pill px-3" href="#hot-coffee">Coffee</a>
+        <a class="btn btn-outline-dark btn-sm rounded-pill px-3" href="#cold-coffee">Over ice</a>
+        <a class="btn btn-outline-dark btn-sm rounded-pill px-3" href="#tea-more">Tea &amp; more</a>
+        <a class="btn btn-outline-dark btn-sm rounded-pill px-3" href="#customizations">
+          Make it yours
+        </a>
+      </p>
+      <!-- Bootstrap table: drink groups and prices from 2GIS. -->
+      <section id="price-table-section" class="row g-4">
+        <h2 class="col-12 display-5 mb-0">A little coffee. A little pause.</h2>
+        <p class="col-12 lead text-body-secondary">
+          Find your everyday cup, try something over ice, or settle in with a warming tea.
+        </p>
+        <figure class="col-12 mb-2">
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="border rounded-4 overflow-hidden h-100 bg-white shadow-sm">
+                <div class="ratio ratio-4x3">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="images/bumble-coffee.jpg"
+                    alt="Illustrative photograph of milk coffee with foam in a ceramic cup"
+                    width="960"
+                    height="871"
+                  />
+                </div>
+                <div class="p-4">
+                  <p class="small text-body-secondary text-uppercase mb-2">Warm &amp; familiar</p>
+                  <h3 class="h4">Your daily coffee</h3>
+                  <p class="small text-body-secondary">
+                    Americano, cappuccino or a velvety latte. Choose the cup that suits your day.
+                  </p>
+                  <a class="fw-semibold" href="#hot-coffee">Coffee from 990 ₸ →</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="border rounded-4 overflow-hidden h-100 bg-white shadow-sm">
+                <div class="ratio ratio-4x3">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="images/bumble-illustration.png"
+                    alt="AI-generated illustration of iced orange espresso in a glass; not a photograph of Coffi's serving"
+                    width="1536"
+                    height="1024"
+                  />
+                </div>
+                <div class="p-4">
+                  <p class="small text-body-secondary text-uppercase mb-2">Bright &amp; chilled</p>
+                  <h3 class="h4">Bumble coffee</h3>
+                  <p class="small text-body-secondary">
+                    Coffee meets orange over ice. A refreshing choice for an afternoon break.
+                  </p>
+                  <a class="fw-semibold" href="#cold-coffee">400 ml · 1,790 ₸ →</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4">
+              <div class="border rounded-4 overflow-hidden h-100 bg-white shadow-sm">
+                <div class="ratio ratio-4x3">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="images/croissant.jpg"
+                    alt="Illustrative photograph of a golden laminated pastry on fabric"
+                    width="960"
+                    height="665"
+                  />
+                </div>
+                <div class="p-4">
+                  <p class="small text-body-secondary text-uppercase mb-2">Something on the side</p>
+                  <h3 class="h4">A pastry pairing</h3>
+                  <p class="small text-body-secondary">
+                    Ask at the counter for today's pastry selection, ingredients and prices.
+                  </p>
+                  <a class="fw-semibold" href="#customizations">Plan your pairing →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="small text-body-secondary mt-3">
+            Images illustrate drink and pastry styles; actual presentation may differ. The orange
+            coffee image is AI-generated.
+          </figcaption>
+        </figure>
+        <div class="col-12 table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <caption class="small">
+              Selected drinks from Coffi’s 2GIS menu, checked 24 September 2026. Source lists an
+              update on 8 September 2026. Sizes and prices below correspond in order; “Ask” means
+              the size was not specified.
+            </caption>
+            <thead class="table-light">
+              <tr>
+                <th scope="col">Drink</th>
+                <th scope="col">Size</th>
+                <th scope="col" class="d-none d-md-table-cell">Style</th>
+                <th scope="col" class="text-end">
+                  Price (
+                  <abbr title="Kazakhstani Tenge">KZT</abbr>
+                  )
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="hot-coffee" class="table-light">
+                <th colspan="4" class="py-3 text-uppercase small">01 / Coffee</th>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Americano</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    Espresso with hot water.
+                  </span>
+                </th>
+                <td class="small">
+                  250
+                  <br />
+                  350
+                  <br />
+                  450 ml
+                </td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Black coffee</td>
+                <td class="text-end fw-semibold">
+                  990
+                  <br />
+                  1,090
+                  <br />
+                  1,190
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Cappuccino</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    Coffee with steamed milk and foam.
+                  </span>
+                </th>
+                <td class="small">
+                  250
+                  <br />
+                  350
+                  <br />
+                  450 ml
+                </td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Milk coffee</td>
+                <td class="text-end fw-semibold">
+                  1,290
+                  <br />
+                  1,390
+                  <br />
+                  1,390
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Latte</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A milk-forward coffee classic.
+                  </span>
+                </th>
+                <td class="small">
+                  250
+                  <br />
+                  350
+                  <br />
+                  450 ml
+                </td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Milk coffee</td>
+                <td class="text-end fw-semibold">
+                  1,290
+                  <br />
+                  1,390
+                  <br />
+                  1,490
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Flat white</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A smooth, coffee-forward milk drink.
+                  </span>
+                </th>
+                <td class="small">Ask</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Milk coffee</td>
+                <td class="text-end fw-semibold">1,290</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Mocha</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    Coffee with a chocolate note.
+                  </span>
+                </th>
+                <td class="small">
+                  350
+                  <br />
+                  450 ml
+                </td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Chocolate coffee</td>
+                <td class="text-end fw-semibold">
+                  1,490
+                  <br />
+                  1,590
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Raf</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A creamy coffee option.
+                  </span>
+                </th>
+                <td class="small">
+                  350
+                  <br />
+                  450 ml
+                </td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Creamy coffee</td>
+                <td class="text-end fw-semibold">
+                  1,790
+                  <br />
+                  1,890
+                </td>
+              </tr>
+              <tr id="cold-coffee" class="table-light">
+                <th colspan="4" class="py-3 text-uppercase small">02 / Over ice</th>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Bumble coffee</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    An orange-and-coffee combination over ice.
+                  </span>
+                </th>
+                <td class="small">400 ml</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Citrus coffee</td>
+                <td class="text-end fw-semibold">1,790</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Iced Americano</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A chilled black coffee.
+                  </span>
+                </th>
+                <td class="small">400 ml</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Black coffee</td>
+                <td class="text-end fw-semibold">1,490</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Iced latte</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    Coffee and milk served cold.
+                  </span>
+                </th>
+                <td class="small">400 ml</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Milk coffee</td>
+                <td class="text-end fw-semibold">1,590</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Espresso tonic</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A sparkling, bittersweet coffee option.
+                  </span>
+                </th>
+                <td class="small">400 ml</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Sparkling coffee</td>
+                <td class="text-end fw-semibold">1,790</td>
+              </tr>
+              <tr id="tea-more" class="table-light">
+                <th colspan="4" class="py-3 text-uppercase small">03 / Tea &amp; more</th>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Sea buckthorn tea</span>
+                  <span class="d-block small text-body-secondary mt-1">A fruity tea option.</span>
+                </th>
+                <td class="small">Ask</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Hot tea</td>
+                <td class="text-end fw-semibold">1,590</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Ginger tea</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A warming ginger option.
+                  </span>
+                </th>
+                <td class="small">Ask</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Hot tea</td>
+                <td class="text-end fw-semibold">1,590</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Moroccan tea</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    One of the published hot tea choices.
+                  </span>
+                </th>
+                <td class="small">Ask</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Hot tea</td>
+                <td class="text-end fw-semibold">1,590</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Hot chocolate</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A warm chocolate drink.
+                  </span>
+                </th>
+                <td class="small">350 ml</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Chocolate</td>
+                <td class="text-end fw-semibold">1,490</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Cocoa</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A comforting cocoa drink.
+                  </span>
+                </th>
+                <td class="small">350 ml</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Chocolate</td>
+                <td class="text-end fw-semibold">1,390</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Lemon tart raf</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A signature flavoured raf.
+                  </span>
+                </th>
+                <td class="small">Ask</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Signature coffee</td>
+                <td class="text-end fw-semibold">1,890</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Apple &amp; cinnamon raf</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    A signature flavoured raf.
+                  </span>
+                </th>
+                <td class="small">Ask</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Signature coffee</td>
+                <td class="text-end fw-semibold">1,890</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Orange juice</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    Fresh juice from the published menu.
+                  </span>
+                </th>
+                <td class="small">400 ml</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Fresh juice</td>
+                <td class="text-end fw-semibold">2,800</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Green smoothie</span>
+                  <span class="d-block small text-body-secondary mt-1">
+                    Ask the barista about the ingredients.
+                  </span>
+                </th>
+                <td class="small">400 ml</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Smoothie</td>
+                <td class="text-end fw-semibold">2,800</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 fw-normal">
+                  <span class="fw-semibold">Berry lemonade</span>
+                  <span class="d-block small text-body-secondary mt-1">A fruity cold drink.</span>
+                </th>
+                <td class="small">400 ml</td>
+                <td class="small text-body-secondary d-none d-md-table-cell">Lemonade</td>
+                <td class="text-end fw-semibold">1,590</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Bootstrap alert: availability and price notice. -->
+        <div class="col-12 price-note alert alert-light border rounded-3" role="alert">
+          <p class="mb-2">
+            <strong>Before you order:</strong>
+            prices are reproduced from the published menu and may change. Confirm availability,
+            ingredients and allergens with the barista.
+          </p>
+          <a
+            class="btn btn-outline-dark btn-sm rounded-pill px-3"
+            href="https://2gis.kz/astana/firm/70000001093393499/tab/prices"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Full menu on 2GIS ↗
+          </a>
+        </div>
+      </section>
+      <section id="customizations" class="row g-3 border-top pt-4 mt-5">
+        <h2>Make your cup yours</h2>
+        <ul>
+          <li>
+            Ask the barista before ordering
+            <ul>
+              <li>Which dairy milk is used in your drink</li>
+              <li>Whether oat milk is available and whether it costs extra</li>
+              <li>Other plant-milk options and ingredient or allergen information</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section id="brewing-guide" class="row g-3 border-top pt-4 mt-5">
+        <h2>A guide to pour-over coffee</h2>
+        <ol type="1" start="1">
+          <li>Grinding 18g of fresh medium-roast beans.</li>
+          <li>Rinsing paper filter with clean hot water.</li>
+          <li>Blooming grounds for 40 seconds.</li>
+          <li>Pouring filtered water until 300ml.</li>
+        </ol>
+        <p>
+          This is a general brewing guide. Pour-over availability is not confirmed by the published
+          menu. Water (H
+          <sub>2</sub>
+          O), grind and pouring speed all affect extraction.
+        </p>
+      </section>
+      <section id="glossary" class="row g-3 border-top pt-4 mt-5">
+        <h2>Coffee Glossary</h2>
+        <dl>
+          <dt>Single-Origin</dt>
+          <dd>Beans sourced exclusively from a single farm or region.</dd>
+          <dt>Bumble Coffee</dt>
+          <dd>Chilled beverage made with rich double espresso, sweet orange juice, and ice.</dd>
+          <dt>Micro-foam</dt>
+          <dd>Steamed milk aerated with tiny bubbles for silky texture.</dd>
+        </dl>
+        <p>
+          View our local reviews and customer photos on
+          <a
+            href="https://2gis.kz/astana/firm/70000001093393499"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            2GIS Astana City Guide
+          </a>.
+        </p>
+        <p class="jump-link small mb-4"><a href="#top">Back to top of page</a></p>
+      </section>
+    </main>
+    <footer
+      class="site-footer container py-4 border-top d-flex flex-column flex-md-row justify-content-between gap-3 small text-center text-md-start"
+    >
+      <p>
+        Direct inquiries:
+        <a href="tel:+77018804104">+7 (701) 880-41-04</a>
+        or email
+        <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.
+      </p>
+      <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
+    </footer>
+    <a
+      class="back-top btn btn-dark btn-sm rounded-pill position-fixed bottom-0 end-0 m-3 shadow-sm"
+      href="#top"
+    >
+      Back to top ↑
+    </a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

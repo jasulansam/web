@@ -1,17 +1,78 @@
-/* Assignment 3 correction layer: Bootstrap 5.3.8 does the layout, spacing and responsive work. */
-:root { --coffi-ink: #30271f; --coffi-accent: #885238; --coffi-paper: #f7f3eb; }
-body { background: var(--coffi-paper); color: var(--coffi-ink); font-family: Arial, Helvetica, sans-serif; }
-.site-header h1, h1, h2, h3, legend { font-family: Georgia, "Times New Roman", serif; color: var(--coffi-ink); }
-.site-header h1 { letter-spacing: -0.04em; }
-.site-header > p { letter-spacing: 0.08em; }
-.site-header nav a { color: var(--coffi-ink); }
-.site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--coffi-accent); }
-.site-main img { object-fit: cover; }
-.site-main figure img { width: 100%; max-height: 420px; }
-blockquote { border-left: 3px solid var(--coffi-accent); }
-.site-footer a, a { color: var(--coffi-accent); }
-.decorative-circle { width: 180px; height: 180px; border-radius: 50%; background: rgba(136,82,56,.15); }
-.guest-form fieldset { background: var(--coffi-paper); }
-.guest-form textarea { min-height: 8rem; }
-.technical-card pre { white-space: pre-wrap; overflow-wrap: anywhere; }
-@media (max-width: 575.98px) { .site-header h1 { font-size: 2.25rem; } .site-header > p { font-size: .8rem; } }
+/* Brand corrections; Bootstrap handles layout and spacing. */
+:root {
+  --coffi-ink: #342820;
+  --coffi-accent: #82472f;
+  --coffi-paper: #faf7f0;
+  --bs-body-color: var(--coffi-ink);
+  --bs-body-bg: var(--coffi-paper);
+  --bs-secondary-color: #706458;
+  --bs-border-color: #ded5c8;
+  --bs-link-color-rgb: 130, 71, 47;
+  --bs-link-hover-color-rgb: 85, 48, 31;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1,
+h2,
+h3,
+legend,
+.brand-wordmark {
+  font-family: Georgia, "Times New Roman", serif;
+}
+/* Custom wordmark tracking. */
+.brand-wordmark {
+  letter-spacing: -0.065em;
+  font-style: italic;
+}
+.brand-dot {
+  color: var(--coffi-accent);
+}
+.brand-caption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+}
+.site-header {
+  background: #f1eadf;
+}
+.site-header .navbar {
+  --bs-navbar-active-color: var(--coffi-accent);
+  --bs-navbar-hover-color: var(--coffi-accent);
+}
+.special-offer {
+  background: #3b493c;
+}
+blockquote {
+  border-left: 3px solid var(--coffi-accent);
+}
+a {
+  text-underline-offset: 0.18em;
+}
+mark {
+  background: #eee0c7;
+  color: inherit;
+}
+/* Override Bootstrap button colors, keeping its states. */
+.btn-primary {
+  --bs-btn-bg: var(--coffi-accent);
+  --bs-btn-border-color: var(--coffi-accent);
+  --bs-btn-hover-bg: #63351f;
+  --bs-btn-hover-border-color: #63351f;
+  --bs-btn-active-bg: #55301f;
+  --bs-btn-active-border-color: #55301f;
+  --bs-btn-focus-shadow-rgb: 130, 71, 47;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #a5765e;
+  box-shadow: 0 0 0 0.25rem rgb(130 71 47 / 15%);
+}
+.form-check-input:checked {
+  background-color: var(--coffi-accent);
+  border-color: var(--coffi-accent);
+}
+.technical-card pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

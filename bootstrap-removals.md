@@ -1,12 +1,14 @@
-# Assignment 3 CSS cleanup
+# CSS replacements
 
-| Assignment 2 rule removed from active pages | Bootstrap replacement |
+| Removed custom CSS | Bootstrap replacement |
 |---|---|
-| Hand-built navigation flex layout | `navbar`, `navbar-expand-lg`, `navbar-nav`, `navbar-toggler`, `collapse` |
-| Manual page width and spacing | `container`, `container-fluid`, `py-5`, `p-4`, `m-5`, `gap-*` |
-| Manual form two-column Grid | `row`, `col-12`, `col-lg-4`, `col-lg-8` |
-| Manual table striping and overflow | `table`, `table-striped`, `table-hover`, `table-responsive` |
-| Manual buttons | `btn`, `btn-primary`, `btn-outline-secondary`, `btn-sm` |
-| Manual footer alignment | `d-flex`, `flex-column`, `flex-md-row`, `justify-content-between` |
+| Navigation layout and mobile menu | `navbar`, `navbar-expand-lg`, `collapse` |
+| Page widths and outer spacing | `container`, `container-fluid`, `py-5` |
+| Form columns and gaps | `row`, `col-12`, `col-lg-4`, `col-lg-8`, `g-3` |
+| Field and select styling | `form-control`, `form-select`, `form-check-input` |
+| Table styling and overflow | `table`, `table-hover`, `table-responsive` |
+| Button sizing and states | `btn`, `btn-primary`, `btn-outline-secondary`, `btn-sm` |
+| Footer layout and alignment | `d-flex`, `flex-column`, `flex-md-row`, `justify-content-between` |
+| Image sizing and cropping | `img-fluid`, `ratio`, `object-fit-cover` |
 
-The remaining `css/bootstrap-custom.css` is a correction layer for Coffi colors, fonts, image fitting, borders and small project-specific details. Bootstrap 5.3.8 is loaded from the official jsDelivr CDN on every page.
+`bootstrap-custom.css` retains only brand colors, fonts, wordmark details and small visual corrections.
