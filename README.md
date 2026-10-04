@@ -1,32 +1,59 @@
-# Coffi - Assignment 3
+# Coffi Coffee Shop
 
-Introduction to Web Technologies | SE-2537
+Introduction to Web Technologies | SE-2537 | Midterm Project
 
 Zhaksylyk Adilet and Samrat Zhasulan
 
-A coffee shop website using Bootstrap 5.3.8. Open `index.html` in a browser; internet access is needed for the Bootstrap CDN. No installation or build step is required.
+Coffi is a responsive coffee shop website for visitors who want to choose a drink, plan a takeaway
+order, reserve a table or find the cafe in Astana. The site uses Bootstrap 5.3.8 plus a small brand
+stylesheet. Open `index.html` in a browser; the Bootstrap CDN needs internet access.
 
-## Files
+## Visitor journeys
 
-- `index.html`, `about.html`, `menu.html`: introduction, cafe information and menu.
-- `booking.html`, `feedback.html`: demonstration forms. Submission is disabled because no backend is connected; inputs and reset buttons remain usable.
-- `colophon.html`: retained technical page, omitted from visitor navigation.
-- `css/bootstrap-custom.css`: brand colors, typography and small corrections.
-- `images/`: images used by the pages.
-- `assignment3-assets/`: three Home screenshots, a collapsed mobile navbar screenshot, HTML validation results and menu sources.
+1. **Find and visit:** start on Home, read today's hours, open the 2GIS directions link and use the
+   phone or email link for a practical question.
+2. **Choose and plan an order:** open Menu, compare drink sizes and prices, complete the order plan,
+   see the calculated total and save the plan locally. Call Coffi to confirm availability and pickup.
+3. **Reserve a workspace:** open Reservations, choose a date, party size and seating zone, save the
+   request locally and call Coffi to confirm the table.
+
+## Pages and files
+
+- `index.html`: hero, practical visit details and the three fastest actions.
+- `menu.html`: prices, category anchors, real project photos and the order planner.
+- `booking.html`: table and study workspace request form with a local confirmation state.
+- `about.html`: community, workspace and coffee story.
+- `feedback.html`: customer experience form with a local saved state.
+- `colophon.html`: technical project page, omitted from visitor navigation.
+- `css/bootstrap-custom.css`: dark coffee-bar visual system and small brand corrections.
+- `js/coffi.js`: order total, local drafts and form confirmation messages.
+- `images/`: project photographs used by the pages.
+- `DESIGN.md`: product, visual and interaction decisions for future work.
+- `quality-pass.md`: manual and automated checks before the midterm freeze.
+- `assignment3-assets/`: screenshots, validation evidence and menu source notes.
 - `bootstrap-removals.md`: old CSS rules and their Bootstrap replacements.
-- `ai-log.md`: recorded assistance and image-generation disclosure.
+- `ai-log.md`: assistance and image provenance disclosure.
 
-## Implementation
+## Functional boundary
 
-Bootstrap handles containers, the grid, spacing, forms, buttons and collapsing navigation. The menu keeps its semantic table and adds a responsive photo group. There is no custom JavaScript, inline CSS or hand-built grid.
+Order and reservation forms work on the client side: they validate native fields, calculate the order
+total and save a draft in `localStorage`. No payment, delivery system or staff inbox is connected.
+The page tells the visitor to call Coffi for final confirmation, so the static prototype does not
+promise a reservation or payment it cannot complete.
 
-The menu contains 20 selected drinks from [Coffi on 2GIS](https://2gis.kz/astana/firm/70000001093393499/tab/prices), checked on 24 September 2026. Prices may change. Image provenance and the generation prompt are recorded in `assignment3-assets/menu-sources.md`.
+## Content and sources
 
-## Checks
+Drink prices are selected from [Coffi on 2GIS](https://2gis.kz/astana/firm/70000001093393499/tab/prices)
+and should be rechecked by the owner before launch. The address and directions use the supplied
+[2GIS location](https://2gis.kz/astana/geo/70000001093393499). Images in the active site are local
+project photographs; no generated illustration is used in the customer-facing menu.
 
-All six HTML pages and the custom stylesheet passed the local Nu Html Checker on 27 September 2026. Local regression checks cover IDs, anchor links, image paths, form labels and controls, Bootstrap links and the menu rows. Formatting was checked against a semantic snapshot before the separately documented content fixes.
+## Checks before submission
 
-The four screenshots show the September 24 visual revision at 375, 768 and 1440 px; they predate the September 27 text and form-state corrections. Fresh browser verification remains pending because the browser tool blocked local file navigation.
-
-Assignment 3 requires each team member's own commits, at least four commits across three days, and an individual defense. These requirements are separate from code validation. Earlier assignment reports and sketches remain in Git history.
+- Validate all six HTML pages and the stylesheet with the local Nu Html Checker.
+- Open the site at roughly 375, 768 and 1440 px and check that the navbar, order panel and forms do
+  not overflow horizontally.
+- Click every internal link, 2GIS link, phone link and email link.
+- Test the order total, reset control and saved confirmation, then test the booking and feedback
+  confirmation states.
+- Record the final quality-pass findings and freeze the accepted state with the Git tag `midterm`.

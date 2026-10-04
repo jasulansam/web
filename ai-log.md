@@ -49,6 +49,13 @@ This version is an AI-assisted draft. The assignment permits conceptual assistan
 - Asked for a minimal PDF naming both teammates, SE-2537, the course, Assignment 3, the Coffi project and its GitHub repository.
 - Asked to review all code, shorten long comments, format HTML/CSS for readability and remove files not needed for the current assignment.
 - Codex backed up the working files, archived old Assignment 1/2 reports and evidence outside the repository, shortened comments and formatted all six pages and the stylesheet. Semantic regression checks confirmed the formatting-only pass preserved content and attributes.
-- Follow-up review corrected the technical page's assignment/version information, replaced an unsupported attributed quote with a project concept, and added a responsive lg alignment example. The placeholder technical button was removed; the actual demo submit buttons are disabled with an explanation because no backend exists.
+- Follow-up review corrected the technical page's assignment/version information, replaced an unsupported attributed quote with a project concept, and added a responsive lg alignment example. The placeholder technical button was removed; the earlier demo submit buttons were later made locally usable after the owner approved a quality-first redesign.
 - All six pages were checked with a locally installed Nu Html Checker. No source files were uploaded to an external validator. The one-page PDF was rendered and visually inspected.
 - A fresh browser visual pass remains pending because the browser tool previously blocked local file navigation. Required screenshots from the earlier visual revision are retained and their date is noted in README.
+
+## 2026-10-05 — Midterm usability redesign
+
+- Asked to make Coffi useful for ordering, reservations and visit planning instead of only presenting a menu.
+- Chose a dark coffee-bar direction inspired by modern cafe ordering sites: stronger primary actions, practical visit details and a task-focused menu.
+- Added a local order planner with size-aware prices, quantity totals and `localStorage` drafts; added local confirmation states for reservation and feedback forms. No payment, delivery or staff inbox is connected.
+- Added `DESIGN.md`, three visitor journeys and prepared JavaScript hooks. Existing project photographs remain the active imagery; the generated menu illustration is no longer used.

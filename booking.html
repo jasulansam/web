@@ -22,7 +22,9 @@
         <span class="brand-wordmark display-1 fw-bold d-block">
           Coffi<span class="brand-dot" aria-hidden="true">.</span>
         </span>
-        <span class="brand-caption d-block text-uppercase small mt-2">Coffee Shop</span>
+        <span class="brand-caption d-block text-uppercase small mt-2"
+          >Coffee Shop</span
+        >
       </h1>
       <p class="container text-center text-body-secondary small mb-4 px-4">
         Desk and Table Reservation for Focused Study and Friendly Meetings.
@@ -33,7 +35,9 @@
         aria-label="Primary navigation"
       >
         <div class="container-fluid px-3 px-lg-5">
-          <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html">Coffi</a>
+          <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html"
+            >Coffi</a
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -47,15 +51,27 @@
           </button>
           <div class="collapse navbar-collapse" id="siteNav">
             <ul class="navbar-nav mx-auto gap-lg-3 mb-3 mb-lg-0 mt-3 mt-lg-0">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
               <li class="nav-item">
-                <a class="nav-link active fw-semibold" aria-current="page" href="booking.html">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active fw-semibold"
+                  aria-current="page"
+                  href="booking.html"
+                >
                   Reservations
                 </a>
               </li>
-              <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="feedback.html">Feedback</a>
+              </li>
             </ul>
             <a
               class="btn btn-outline-dark btn-sm rounded-pill px-4"
@@ -74,21 +90,30 @@
       <section class="content-section mb-5">
         <h2>Reserve a Table or Study Workspace</h2>
         <p class="page-intro lead text-body-secondary mb-4">
-          Guarantee your seat during busy afternoon hours. Please fill out the booking form below to
-          secure your place for academic study, remote office work, or casual social coffee.
+          Request a quiet desk, window table or meeting spot before you visit.
+          Fill out the form below, save the request and call Coffi to confirm
+          availability.
         </p>
-        <!-- Demo form; no backend. -->
         <p id="booking-demo" class="small text-body-secondary">
-          This is a demonstration reservation form. Online submission is unavailable; please contact
-          Coffi directly.
+          Save your request on this device, then call Coffi to confirm
+          availability. No payment is taken online.
         </p>
-        <form class="guest-form row g-4" method="post" action="#">
+        <form
+          id="booking-form"
+          class="guest-form row g-4"
+          method="post"
+          action="#booking-status"
+        >
           <div class="col-12 col-lg-4">
             <fieldset class="h-100 p-4 border rounded-4 bg-white shadow-sm">
-              <legend class="float-none w-auto px-2 fs-4">Guest Contact Information</legend>
+              <legend class="float-none w-auto px-2 fs-4">
+                Guest Contact Information
+              </legend>
               <div class="row g-3">
                 <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="book-name">Full Name (required):</label>
+                  <label class="form-label" for="book-name"
+                    >Full Name (required):</label
+                  >
                   <input
                     class="form-control"
                     type="text"
@@ -99,7 +124,9 @@
                   />
                 </p>
                 <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="book-email">Email Address (required):</label>
+                  <label class="form-label" for="book-email"
+                    >Email Address (required):</label
+                  >
                   <input
                     class="form-control"
                     type="email"
@@ -110,7 +137,9 @@
                   />
                 </p>
                 <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="book-phone">Phone Number (required):</label>
+                  <label class="form-label" for="book-phone"
+                    >Phone Number (required):</label
+                  >
                   <input
                     class="form-control"
                     type="tel"
@@ -125,10 +154,14 @@
           </div>
           <div class="col-12 col-lg-8">
             <fieldset class="p-4 border rounded-4 bg-white shadow-sm">
-              <legend class="float-none w-auto px-2 fs-4">Booking Specifics</legend>
+              <legend class="float-none w-auto px-2 fs-4">
+                Booking Specifics
+              </legend>
               <div class="row g-3">
                 <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="book-date">Date of Visit (required):</label>
+                  <label class="form-label" for="book-date"
+                    >Date of Visit (required):</label
+                  >
                   <input
                     class="form-control"
                     type="date"
@@ -138,7 +171,9 @@
                   />
                 </p>
                 <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="book-guests">Party Size (1 to 8 guests):</label>
+                  <label class="form-label" for="book-guests"
+                    >Party Size (1 to 8 guests):</label
+                  >
                   <input
                     class="form-control"
                     type="number"
@@ -150,8 +185,12 @@
                     required
                   />
                 </p>
-                <p class="form-field form-wide col-12 mb-0">Preferred Seating Zone:</p>
-                <p class="form-field form-wide radio-group col-12 d-flex flex-column gap-2 mb-0">
+                <p class="form-field form-wide col-12 mb-0">
+                  Preferred Seating Zone:
+                </p>
+                <p
+                  class="form-field form-wide radio-group col-12 d-flex flex-column gap-2 mb-0"
+                >
                   <label>
                     <input
                       class="form-check-input me-2"
@@ -182,8 +221,14 @@
                   </label>
                 </p>
                 <p class="form-field form-wide col-12 mb-0">
-                  <label class="form-label" for="book-purpose">Visit Purpose:</label>
-                  <select class="form-select" id="book-purpose" name="book_purpose">
+                  <label class="form-label" for="book-purpose"
+                    >Visit Purpose:</label
+                  >
+                  <select
+                    class="form-select"
+                    id="book-purpose"
+                    name="book_purpose"
+                  >
                     <option value="study">University Study / Laptop</option>
                     <option value="meeting">Business Discussion</option>
                     <option value="friends">Friendly Catch-up</option>
@@ -212,7 +257,8 @@
                       name="book_agreement"
                       required
                     />
-                    I understand that completing this demonstration does not reserve a table.
+                    I understand that completing this demonstration does not
+                    reserve a table.
                   </label>
                 </p>
                 <p
@@ -221,15 +267,23 @@
                   <button
                     class="btn btn-primary rounded-pill px-4"
                     type="submit"
-                    disabled
                     aria-describedby="booking-demo"
                   >
-                    Confirm Reservation
+                    Save Reservation Request
                   </button>
-                  <button class="btn btn-outline-secondary btn-sm rounded-pill px-3" type="reset">
+                  <button
+                    class="btn btn-outline-secondary btn-sm rounded-pill px-3"
+                    type="reset"
+                  >
                     Clear Form
                   </button>
                 </p>
+                <div
+                  id="booking-status"
+                  class="state-message is-hidden p-3 rounded-3"
+                  role="status"
+                  aria-live="polite"
+                ></div>
               </div>
             </fieldset>
           </div>
@@ -238,7 +292,8 @@
       <section class="content-section mb-5">
         <h2>Booking Policy</h2>
         <p>
-          To ask about table availability, group size or reservation terms, please call
+          To ask about table availability, group size or reservation terms,
+          please call
           <a href="tel:+77018804104">+7 (701) 880-41-04</a>.
         </p>
       </section>
@@ -261,5 +316,6 @@
       Back to top ↑
     </a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/coffi.js"></script>
   </body>
 </html>

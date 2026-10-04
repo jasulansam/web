@@ -22,7 +22,9 @@
         <span class="brand-wordmark display-1 fw-bold d-block">
           Coffi<span class="brand-dot" aria-hidden="true">.</span>
         </span>
-        <span class="brand-caption d-block text-uppercase small mt-2">Coffee Shop</span>
+        <span class="brand-caption d-block text-uppercase small mt-2"
+          >Coffee Shop</span
+        >
       </h1>
       <p class="container text-center text-body-secondary small mb-4 px-4">
         Technical Architecture and Standards Documentation.
@@ -33,7 +35,9 @@
         aria-label="Primary navigation"
       >
         <div class="container-fluid px-3 px-lg-5">
-          <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html">Coffi</a>
+          <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html"
+            >Coffi</a
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -47,11 +51,21 @@
           </button>
           <div class="collapse navbar-collapse" id="siteNav">
             <ul class="navbar-nav mx-auto gap-lg-3 mb-3 mb-lg-0 mt-3 mt-lg-0">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-              <li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
-              <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="booking.html">Reservations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="feedback.html">Feedback</a>
+              </li>
             </ul>
             <a
               class="btn btn-outline-dark btn-sm rounded-pill px-4"
@@ -70,15 +84,17 @@
       <section class="content-section technical-grid">
         <h2>Technical Standards and Methodology</h2>
         <p>
-          This Coffi coursework website was created by Samrat Zhasulan and Zhaksylyk Adilet.
-          Assignment 3 uses Bootstrap 5.3.8 for layout and navigation, with a small custom
-          stylesheet. Only the Bootstrap bundle is loaded; there is no custom JavaScript.
+          This Coffi coursework website was created by Samrat Zhasulan and
+          Zhaksylyk Adilet. The current Coffi site uses Bootstrap 5.3.8 for
+          layout and navigation, with a small custom stylesheet and a local
+          vanilla JavaScript layer for order totals and saved form states. No
+          backend or payment service is connected.
         </p>
         <article class="technical-card">
           <h3>Document Structural Skeleton</h3>
           <p>
-            The site relies on a uniform semantic hierarchy ensuring universal access across all
-            devices:
+            The site relies on a uniform semantic hierarchy ensuring universal
+            access across all devices:
           </p>
           <pre><code>&lt;header&gt;
   &lt;h1&gt;Coffi Coffee Shop&lt;/h1&gt;
@@ -104,7 +120,10 @@
             <kbd>U</kbd>
             on macOS.
           </p>
-          <p>All six pages were checked locally with Nu Html Checker on 27 September 2026:</p>
+          <p>
+            All six pages were checked locally with Nu Html Checker on 27
+            September 2026:
+          </p>
           <pre><samp>Document checking completed. No errors or warnings to show.</samp></pre>
           <p>
             HTML validation:
@@ -114,7 +133,8 @@
           <p>
             Every element was chosen based on its true structural role.
             <br />
-            Semantic sections describe the content; Bootstrap wrappers provide the responsive grid.
+            Semantic sections describe the content; Bootstrap wrappers provide
+            the responsive grid.
           </p>
         </article>
       </section>
@@ -137,5 +157,6 @@
       Back to top ↑
     </a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/coffi.js"></script>
   </body>
 </html>

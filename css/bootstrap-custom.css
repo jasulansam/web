@@ -1,17 +1,23 @@
-/* Brand corrections; Bootstrap handles layout and spacing. */
+/* Coffi brand corrections; Bootstrap owns layout and component behavior. */
 :root {
-  --coffi-ink: #342820;
-  --coffi-accent: #82472f;
-  --coffi-paper: #faf7f0;
+  --coffi-ink: #2f241d;
+  --coffi-espresso: #6f3e2a;
+  --coffi-amber: #c97835;
+  --coffi-sage: #3f5547;
+  --coffi-paper: #1b1714;
+  --coffi-line: #5a493e;
   --bs-body-color: var(--coffi-ink);
   --bs-body-bg: var(--coffi-paper);
-  --bs-secondary-color: #706458;
-  --bs-border-color: #ded5c8;
-  --bs-link-color-rgb: 130, 71, 47;
-  --bs-link-hover-color-rgb: 85, 48, 31;
+  --bs-secondary-color: #c9bdb0;
+  --bs-border-color: var(--coffi-line);
+  --bs-link-color-rgb: 255, 185, 104;
+  --bs-link-hover-color-rgb: 255, 211, 159;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.01em;
+  background: var(--coffi-paper);
+  color: #f8f2e9;
 }
 h1,
 h2,
@@ -20,59 +26,156 @@ legend,
 .brand-wordmark {
   font-family: Georgia, "Times New Roman", serif;
 }
-/* Custom wordmark tracking. */
+h2 {
+  letter-spacing: -0.025em;
+}
 .brand-wordmark {
-  letter-spacing: -0.065em;
+  letter-spacing: -0.07em;
   font-style: italic;
 }
 .brand-dot {
-  color: var(--coffi-accent);
+  color: var(--coffi-amber);
 }
 .brand-caption {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
 }
 .site-header {
-  background: #f1eadf;
+  background: radial-gradient(
+    circle at 80% 10%,
+    #543321 0%,
+    #241b17 44%,
+    #1b1714 100%
+  );
 }
 .site-header .navbar {
-  --bs-navbar-active-color: var(--coffi-accent);
-  --bs-navbar-hover-color: var(--coffi-accent);
+  --bs-navbar-color: #f8f2e9;
+  --bs-navbar-active-color: var(--coffi-amber);
+  --bs-navbar-hover-color: var(--coffi-amber);
+  background: rgb(27 23 20 / 88%);
+  backdrop-filter: blur(10px);
+}
+.site-header .navbar {
+  --bs-navbar-brand-color: #f8f2e9;
+  --bs-navbar-brand-hover-color: var(--coffi-amber);
+}
+.site-header .btn-outline-dark {
+  --bs-btn-color: #f8f2e9;
+  --bs-btn-border-color: #c9bdb0;
+  --bs-btn-hover-color: #1b1714;
+  --bs-btn-hover-bg: var(--coffi-amber);
+  --bs-btn-hover-border-color: var(--coffi-amber);
+}
+.site-header .navbar-toggler {
+  border-color: #c9bdb0;
+}
+.site-header .navbar-toggler-icon {
+  filter: invert(1);
+}
+.site-main {
+  min-height: 60vh;
+}
+.hero-panel {
+  background: linear-gradient(135deg, #4e2e21, #2b211c);
+  color: #fff;
+}
+.hero-panel h2 {
+  max-width: 14ch;
+}
+.action-card,
+.feature-card,
+.order-panel,
+.visit-card {
+  border: 1px solid var(--coffi-line);
+  border-radius: 1.25rem;
+  background: #29211c;
+  color: #f8f2e9;
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 20%);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+.action-card:hover,
+.feature-card:hover,
+.order-panel:hover,
+.visit-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 35%);
+}
+.action-card .icon-badge {
+  background: #6a3b24;
+  color: #ffd39f;
+}
+.menu-section-title {
+  background: #35271f;
+  color: #ffd39f;
 }
 .special-offer {
-  background: #3b493c;
+  background: var(--coffi-sage);
+}
+.order-panel {
+  background: #241b17;
+}
+.order-panel .order-summary {
+  background: #3a2a20;
+  border-color: #815431 !important;
+}
+.bg-white {
+  color: var(--coffi-ink);
+}
+.state-message {
+  border-left: 0.25rem solid var(--coffi-amber);
+  background: #3b2c23;
+}
+.is-hidden {
+  display: none !important;
+}
+.is-error {
+  border-left-color: #ef8178;
+  background: #452422;
+}
+.is-success {
+  border-left-color: #8fce9a;
+  background: #213b2a;
 }
 blockquote {
-  border-left: 3px solid var(--coffi-accent);
+  border-left: 3px solid var(--coffi-amber);
 }
 a {
   text-underline-offset: 0.18em;
 }
 mark {
-  background: #eee0c7;
-  color: inherit;
+  background: #6a3b24;
+  color: #ffe1b9;
 }
-/* Override Bootstrap button colors, keeping its states. */
 .btn-primary {
-  --bs-btn-bg: var(--coffi-accent);
-  --bs-btn-border-color: var(--coffi-accent);
-  --bs-btn-hover-bg: #63351f;
-  --bs-btn-hover-border-color: #63351f;
-  --bs-btn-active-bg: #55301f;
-  --bs-btn-active-border-color: #55301f;
-  --bs-btn-focus-shadow-rgb: 130, 71, 47;
+  --bs-btn-bg: var(--coffi-espresso);
+  --bs-btn-border-color: var(--coffi-espresso);
+  --bs-btn-hover-bg: #512d20;
+  --bs-btn-hover-border-color: #512d20;
+  --bs-btn-active-bg: #422419;
+  --bs-btn-active-border-color: #422419;
+  --bs-btn-focus-shadow-rgb: 111, 62, 42;
 }
 .form-control:focus,
 .form-select:focus {
-  border-color: #a5765e;
-  box-shadow: 0 0 0 0.25rem rgb(130 71 47 / 15%);
+  border-color: #b68163;
+  box-shadow: 0 0 0 0.25rem rgb(111 62 42 / 15%);
 }
 .form-check-input:checked {
-  background-color: var(--coffi-accent);
-  border-color: var(--coffi-accent);
+  background-color: var(--coffi-espresso);
+  border-color: var(--coffi-espresso);
 }
 .technical-card pre {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+@media (prefers-reduced-motion: reduce) {
+  .action-card,
+  .feature-card,
+  .order-panel,
+  .visit-card {
+    transition: none;
+  }
 }

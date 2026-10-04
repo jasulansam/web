@@ -22,7 +22,9 @@
         <span class="brand-wordmark display-1 fw-bold d-block">
           Coffi<span class="brand-dot" aria-hidden="true">.</span>
         </span>
-        <span class="brand-caption d-block text-uppercase small mt-2">Coffee Shop</span>
+        <span class="brand-caption d-block text-uppercase small mt-2"
+          >Coffee Shop</span
+        >
       </h1>
       <p class="container text-center text-body-secondary small mb-4 px-4">
         Guest Feedback and Customer Experience Survey.
@@ -33,7 +35,9 @@
         aria-label="Primary navigation"
       >
         <div class="container-fluid px-3 px-lg-5">
-          <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html">Coffi</a>
+          <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html"
+            >Coffi</a
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -47,12 +51,24 @@
           </button>
           <div class="collapse navbar-collapse" id="siteNav">
             <ul class="navbar-nav mx-auto gap-lg-3 mb-3 mb-lg-0 mt-3 mt-lg-0">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-              <li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
               <li class="nav-item">
-                <a class="nav-link active fw-semibold" aria-current="page" href="feedback.html">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="booking.html">Reservations</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active fw-semibold"
+                  aria-current="page"
+                  href="feedback.html"
+                >
                   Feedback
                 </a>
               </li>
@@ -74,21 +90,30 @@
       <section class="content-section mb-5">
         <h2>We Value Your Experience</h2>
         <p class="page-intro lead text-body-secondary mb-4">
-          Your honest reviews help our baristas refine roast recipes, improve hospitality, and
-          maintain a pleasant workspace. Please take two minutes to tell us about your recent visit.
+          Your honest reviews help our baristas refine roast recipes, improve
+          hospitality, and maintain a pleasant workspace. Please take two
+          minutes to tell us about your recent visit.
         </p>
-        <!-- Demo form; no backend. -->
         <p id="feedback-demo" class="small text-body-secondary">
-          This is a demonstration feedback form. Online submission is unavailable; please contact
-          Coffi directly.
+          Your feedback is saved locally on this device in the prototype. Use
+          the email link below if the team needs to receive it now.
         </p>
-        <form class="guest-form row g-4" method="post" action="#">
+        <form
+          id="feedback-form"
+          class="guest-form row g-4"
+          method="post"
+          action="#feedback-status"
+        >
           <div class="col-12 col-lg-4">
             <fieldset class="h-100 p-4 border rounded-4 bg-white shadow-sm">
-              <legend class="float-none w-auto px-2 fs-4">Customer Profile</legend>
+              <legend class="float-none w-auto px-2 fs-4">
+                Customer Profile
+              </legend>
               <div class="row g-3">
                 <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="client-name">Your Name (required):</label>
+                  <label class="form-label" for="client-name"
+                    >Your Name (required):</label
+                  >
                   <input
                     class="form-control"
                     type="text"
@@ -99,7 +124,9 @@
                   />
                 </p>
                 <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="client-email">Email Address (required):</label>
+                  <label class="form-label" for="client-email"
+                    >Email Address (required):</label
+                  >
                   <input
                     class="form-control"
                     type="email"
@@ -110,7 +137,9 @@
                   />
                 </p>
                 <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="client-phone">Phone Number (optional):</label>
+                  <label class="form-label" for="client-phone"
+                    >Phone Number (optional):</label
+                  >
                   <input
                     class="form-control"
                     type="tel"
@@ -124,10 +153,14 @@
           </div>
           <div class="col-12 col-lg-8">
             <fieldset class="p-4 border rounded-4 bg-white shadow-sm">
-              <legend class="float-none w-auto px-2 fs-4">Visit Evaluation</legend>
+              <legend class="float-none w-auto px-2 fs-4">
+                Visit Evaluation
+              </legend>
               <div class="row g-3">
                 <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="visit-date">Date of Visit (required):</label>
+                  <label class="form-label" for="visit-date"
+                    >Date of Visit (required):</label
+                  >
                   <input
                     class="form-control"
                     type="date"
@@ -154,7 +187,9 @@
                 <p class="form-field form-wide col-12 mb-0">
                   Would you recommend Coffi to fellow students?
                 </p>
-                <p class="form-field form-wide radio-group col-12 d-flex flex-column gap-2 mb-0">
+                <p
+                  class="form-field form-wide radio-group col-12 d-flex flex-column gap-2 mb-0"
+                >
                   <label>
                     <input
                       class="form-check-input me-2"
@@ -185,8 +220,14 @@
                   </label>
                 </p>
                 <p class="form-field form-wide col-12 mb-0">
-                  <label class="form-label" for="favorite-beverage">Favorite Beverage Tried:</label>
-                  <select class="form-select" id="favorite-beverage" name="favorite_beverage">
+                  <label class="form-label" for="favorite-beverage"
+                    >Favorite Beverage Tried:</label
+                  >
+                  <select
+                    class="form-select"
+                    id="favorite-beverage"
+                    name="favorite_beverage"
+                  >
                     <option value="bumble">Bumble Coffee</option>
                     <option value="flatwhite">Flat White</option>
                     <option value="matcha">Matcha Latte</option>
@@ -214,7 +255,8 @@
                       id="news-optin"
                       name="news_optin"
                     />
-                    Keep me updated about upcoming student coffee tastings and discounts.
+                    Keep me updated about upcoming student coffee tastings and
+                    discounts.
                   </label>
                 </p>
                 <p
@@ -223,15 +265,23 @@
                   <button
                     class="btn btn-primary rounded-pill px-4"
                     type="submit"
-                    disabled
                     aria-describedby="feedback-demo"
                   >
-                    Submit Feedback
+                    Save Feedback
                   </button>
-                  <button class="btn btn-outline-secondary btn-sm rounded-pill px-3" type="reset">
+                  <button
+                    class="btn btn-outline-secondary btn-sm rounded-pill px-3"
+                    type="reset"
+                  >
                     Reset Form
                   </button>
                 </p>
+                <div
+                  id="feedback-status"
+                  class="state-message is-hidden p-3 rounded-3"
+                  role="status"
+                  aria-live="polite"
+                ></div>
               </div>
             </fieldset>
           </div>
@@ -240,10 +290,10 @@
       <section class="content-section mb-5">
         <h2>Why Your Opinion Matters</h2>
         <p>
-          As an independent local cafe on Alikhan Bokeikhan Street, we rely on word-of-mouth
-          recommendations rather than aggressive commercial advertising. Every review submitted
-          through this form is discussed at our weekly staff meetings so our baristas can enhance
-          drink consistency, pastry freshness, and table cleanliness.
+          Your notes help the cafe owner decide what to improve next: drink
+          consistency, pastry freshness, table comfort or the study atmosphere.
+          The prototype saves the form locally; use email if the team needs to
+          receive the message today.
         </p>
       </section>
     </main>
@@ -265,5 +315,6 @@
       Back to top ↑
     </a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/coffi.js"></script>
   </body>
 </html>
