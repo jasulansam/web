@@ -39,8 +39,9 @@ stylesheet. Open `index.html` in a browser; the Bootstrap CDN needs internet acc
 
 Order and reservation forms work on the client side: they validate native fields, calculate the order
 total and save a draft in `localStorage`. No payment, delivery system or staff inbox is connected.
-The page tells the visitor to call Coffi for final confirmation, so the static prototype does not
-promise a reservation or payment it cannot complete.
+The page now includes a local menu cart: visitors can choose a size, add several drinks, adjust
+quantities and carry the cart summary into the order-details form. The visitor still calls Coffi for
+final confirmation, so the static prototype does not promise payment, delivery or a staff inbox.
 
 The interface can be switched between English, Russian and Kazakh. WhatsApp and Instagram buttons are
 prepared as owner-controlled placeholders; they show a connection note until official links are supplied.

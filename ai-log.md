@@ -70,3 +70,8 @@ This version is an AI-assisted draft. The assignment permits conceptual assistan
 
 - Added an English/Russian/Kazakh switcher with a saved local preference. The main navigation, headings, actions, order controls and reservation/feedback forms have translated labels.
 - Added WhatsApp and Instagram placeholder controls for future owner-approved links. They intentionally show a status message until official destinations are supplied; no fake social URL, account, password flow or backend was invented.
+
+## 2026-10-05 — Menu cart
+
+- Added a local menu cart for every priced table row. Visitors can choose a listed size, add several drinks, increase or decrease quantities, remove lines and see a live KZT total.
+- The cart can prepare the existing order-details form with its summary. It remains a prototype until the owner supplies the real ordering channel; no payment, delivery or staff inbox was added.

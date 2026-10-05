@@ -208,6 +208,43 @@ h2 {
 .order-panel {
   background: #241b17;
 }
+.cart-panel {
+  background: #2e241e;
+  border: 1px solid var(--coffi-line);
+  border-radius: 1.25rem;
+}
+.cart-panel .cart-empty {
+  border-color: var(--coffi-line) !important;
+  color: #c9bdb0;
+}
+.cart-line {
+  background: #3a2a20;
+  border-color: var(--coffi-line) !important;
+}
+.cart-line-info {
+  min-width: 10rem;
+}
+.cart-line-quantity {
+  min-width: 1.5rem;
+  text-align: center;
+}
+.cart-remove {
+  color: #ffd39f;
+}
+.cart-remove:hover {
+  color: #fff0d2;
+}
+.cart-row-controls .form-select {
+  min-width: 8.5rem;
+  background-color: #2e241e;
+  border-color: #8a6246;
+  color: #f8f2e9;
+  font-size: 0.75rem;
+}
+.cart-row-controls .form-select option {
+  background: #2e241e;
+  color: #f8f2e9;
+}
 .order-panel .form-control,
 .order-panel .form-select {
   background-color: #2e241e;

@@ -50,7 +50,7 @@
 ## Components
 
 - Existing components to reuse: Bootstrap navbar, collapse, cards, responsive table, forms, buttons, alert and ratio image wrappers
-- New/changed components: practical action strip, order-planning panel, visit-details card, journey cards, language switcher, future-contact placeholders, confirmation and error containers
+- New/changed components: practical action strip, menu cart, order-planning panel, visit-details card, journey cards, language switcher, future-contact placeholders, confirmation and error containers
 - Variants and states: primary, outline, disabled, hidden, active, selected, error and success states for current and future JavaScript
 - Token/component ownership: Bootstrap owns layout and component behavior; `bootstrap-custom.css` owns Coffi brand corrections only
 
@@ -93,5 +93,5 @@
 
 ## Open questions
 
-- [ ] Which real ordering channel will the cafe owner use: WhatsApp, a POS link or a backend endpoint?
+- [ ] Which real ordering channel will the cafe owner use: WhatsApp, a POS link or a backend endpoint? The current cart keeps a local draft and prepares the details for that future channel.
 - [ ] Which Instagram URL and current menu should be published after the owner confirms them?
