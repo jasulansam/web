@@ -11,7 +11,7 @@
 
 - Personality: warm, calm and useful; a neighbourhood coffee shop for a quick drink or a focused study session
 - Trust signals: clear prices, opening hours, address, phone link, 2GIS directions, ingredient notes and honest form states
-- Avoid: decorative clutter, invented social links, fake live availability, AI or stock imagery, and long copy before the next action
+- Avoid: decorative clutter, invented social links, fake live availability, unapproved imagery, and long copy before the next action
 
 ## Product goals
 
@@ -45,7 +45,7 @@
 - Spacing/layout rhythm: Bootstrap containers, rows, columns and spacing utilities; generous sections and compact action groups
 - Shape/radius/elevation: medium rounded cards, restrained borders and soft shadows for interactive groups
 - Motion: subtle hover lift only; respect `prefers-reduced-motion`
-- Imagery/iconography: existing project photographs with descriptive alt text; no generated or stock images in the active experience
+- Imagery/iconography: warm cafe photography with descriptive alt text and simple inline SVG action icons; generated visuals are documented in the image log and remain conceptual until approved by the cafe owner
 
 ## Components
 

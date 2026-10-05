@@ -59,3 +59,9 @@ This version is an AI-assisted draft. The assignment permits conceptual assistan
 - Chose a dark coffee-bar direction inspired by modern cafe ordering sites: stronger primary actions, practical visit details and a task-focused menu.
 - Added a local order planner with size-aware prices, quantity totals and `localStorage` drafts; added local confirmation states for reservation and feedback forms. No payment, delivery or staff inbox is connected.
 - Added `DESIGN.md`, three visitor journeys and prepared JavaScript hooks. Existing project photographs remain the active imagery; the generated menu illustration is no longer used.
+
+## 2026-10-05 — Image refresh
+
+- At the owner's request, generated four presentation visuals with the built-in image generation tool: `coffee-cappuccino-generated.png`, `coffee-bumble-generated.png`, `pastry-almond-generated.png` and `coffi-interior-generated.png`.
+- Replaced the three emoji action badges on Home with inline SVG icons so the interface keeps one consistent visual language at every size.
+- The generated visuals contain no logos, text or watermarks. They are conceptual Coffi project imagery and should be replaced by owner-approved product and interior photos before a commercial launch.

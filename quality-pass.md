@@ -8,7 +8,7 @@ Checked on 5 October 2026 after the Coffi usability redesign.
 - Internal page links, section anchors, phone links, email links and supplied 2GIS links resolve to real targets.
 - The order planner updates size choices, calculates the selected quantity and saves a local draft.
 - Reservation and feedback forms validate native required fields, save local drafts and show an accessible confirmation message.
-- Local images have descriptive `alt` text and the generated illustration is not used by the active menu.
+- All active images have descriptive `alt` text; generated cafe visuals are documented in `ai-log.md` and labelled as conceptual project imagery.
 - Nu Html Checker reports zero errors and zero warnings for all six HTML pages and `css/bootstrap-custom.css`.
 - Prettier formatting and `git diff --check` pass.
 

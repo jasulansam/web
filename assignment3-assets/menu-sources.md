@@ -1,4 +1,4 @@
-# Menu sources — 24 September 2026
+# Menu sources — 24 September 2026 (imagery refreshed 5 October 2026)
 
 Menu data: https://2gis.kz/astana/firm/70000001093393499/tab/prices
 Read in the live 2GIS browser listing, showing 44 items and “Updated 8 September 2026”. The website presents a selection of 20 named drinks. Variant prices are transcribed as listed, including cappuccino 350/450 ml at the same 1,390 KZT price. Unspecified sizes remain “Ask”. No pastry price is claimed. Descriptions are short general taste/style explanations, not verified recipes.
@@ -7,9 +7,13 @@ The existing menu section, semantic table, figure, customization section, brewin
 
 ## Images
 
-- images/bumble-coffee.jpg: existing project photograph, visually a milk coffee; not labelled as bumble coffee.
-- images/croissant.jpg: existing project photograph, visually a laminated pastry; no exact product or bakery provenance claimed.
-- The former generated orange-coffee illustration is no longer used by the active menu; the redesigned page uses local project photographs only.
+- images/coffee-cappuccino-generated.png: conceptual photorealistic cappuccino image generated for the daily coffee card.
+- images/coffee-bumble-generated.png: conceptual photorealistic bumble coffee image generated for the cold coffee card.
+- images/pastry-almond-generated.png: conceptual photorealistic almond croissant image generated for the pastry card.
+- images/coffi-interior-generated.png: conceptual photorealistic Coffi-style interior and wall image used for the Home story section.
+- Existing `bumble-coffee.jpg`, `croissant.jpg` and `interior.jpg` remain in the repository as earlier project assets but are not used by the refreshed menu cards.
+
+These visuals contain no logos, text or watermarks and are presentation imagery, not evidence of the cafe's exact products or interior. Replace them with owner-approved photographs before a commercial launch.
 
 ## Exact generation prompt
 

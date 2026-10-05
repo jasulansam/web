@@ -20,14 +20,14 @@ stylesheet. Open `index.html` in a browser; the Bootstrap CDN needs internet acc
 ## Pages and files
 
 - `index.html`: hero, practical visit details and the three fastest actions.
-- `menu.html`: prices, category anchors, real project photos and the order planner.
+- `menu.html`: prices, category anchors, cafe photography and the order planner.
 - `booking.html`: table and study workspace request form with a local confirmation state.
 - `about.html`: community, workspace and coffee story.
 - `feedback.html`: customer experience form with a local saved state.
 - `colophon.html`: technical project page, omitted from visitor navigation.
 - `css/bootstrap-custom.css`: dark coffee-bar visual system and small brand corrections.
 - `js/coffi.js`: order total, local drafts and form confirmation messages.
-- `images/`: project photographs used by the pages.
+- `images/`: local and generated project photographs used by the pages; provenance is recorded in `ai-log.md`.
 - `DESIGN.md`: product, visual and interaction decisions for future work.
 - `quality-pass.md`: manual and automated checks before the midterm freeze.
 - `assignment3-assets/`: screenshots, validation evidence and menu source notes.
@@ -46,7 +46,8 @@ promise a reservation or payment it cannot complete.
 Drink prices are selected from [Coffi on 2GIS](https://2gis.kz/astana/firm/70000001093393499/tab/prices)
 and should be rechecked by the owner before launch. The address and directions use the supplied
 [2GIS location](https://2gis.kz/astana/geo/70000001093393499). Images in the active site are local
-project photographs; no generated illustration is used in the customer-facing menu.
+project and generated cafe photographs; generated visuals are clearly documented and are
+conceptual until the cafe owner approves final production photography.
 
 ## Checks before submission
 
