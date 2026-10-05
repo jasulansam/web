@@ -111,11 +111,77 @@ h2 {
   background: #35271f;
   color: #ffd39f;
 }
+.menu-card {
+  background: #29211c;
+  border-color: var(--coffi-line) !important;
+  color: #f8f2e9;
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 20%) !important;
+}
+.menu-card .text-body-secondary,
+.menu-table .text-body-secondary,
+.menu-table caption {
+  color: #c9bdb0 !important;
+}
+.menu-card a {
+  color: #ffd39f;
+}
+.menu-card a:hover {
+  color: #fff0d2;
+}
+.menu-table {
+  --bs-table-bg: #29211c;
+  --bs-table-color: #f8f2e9;
+  --bs-table-border-color: var(--coffi-line);
+  --bs-table-hover-bg: #3a2a20;
+  --bs-table-hover-color: #fff7ed;
+  border-color: var(--coffi-line);
+}
+.menu-table thead {
+  --bs-table-bg: #4a3022;
+  --bs-table-color: #ffd39f;
+}
+.menu-table .table-light {
+  --bs-table-bg: #3a2a20;
+  --bs-table-color: #ffd39f;
+}
+.menu-table td.text-end {
+  color: #ffd39f !important;
+}
+.price-note {
+  background: #3a2a20 !important;
+  border-color: #815431 !important;
+  color: #f8f2e9;
+}
+.price-note .btn-outline-dark {
+  --bs-btn-color: #ffd39f;
+  --bs-btn-border-color: #b68163;
+  --bs-btn-hover-color: #241b17;
+  --bs-btn-hover-bg: #ffd39f;
+  --bs-btn-hover-border-color: #ffd39f;
+}
 .special-offer {
   background: var(--coffi-sage);
 }
 .order-panel {
   background: #241b17;
+}
+.order-panel .form-control,
+.order-panel .form-select {
+  background-color: #2e241e;
+  border-color: #8a6246;
+  color: #f8f2e9;
+}
+.order-panel .form-control::placeholder {
+  color: #c9bdb0;
+}
+.order-panel .form-select option {
+  background: #2e241e;
+  color: #f8f2e9;
+}
+.order-panel .form-control:focus,
+.order-panel .form-select:focus {
+  background-color: #34271f;
+  color: #fff7ed;
 }
 .order-panel .order-summary {
   background: #3a2a20;
@@ -144,6 +210,13 @@ blockquote {
 }
 a {
   text-underline-offset: 0.18em;
+}
+.jump-link .btn-outline-dark {
+  --bs-btn-color: #ffd39f;
+  --bs-btn-border-color: #8a6246;
+  --bs-btn-hover-color: #241b17;
+  --bs-btn-hover-bg: #ffd39f;
+  --bs-btn-hover-border-color: #ffd39f;
 }
 mark {
   background: #6a3b24;

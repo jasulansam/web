@@ -5,12 +5,28 @@
     cappuccino: { 250: 1290, 350: 1390, 450: 1390 },
     latte: { 250: 1290, 350: 1390, 450: 1490 },
     bumble: { 400: 1790 },
+    "iced-americano": { 400: 1490 },
+    "iced-latte": { 400: 1590 },
+    "espresso-tonic": { 400: 1790 },
+    "hot-chocolate": { 350: 1490 },
+    cocoa: { 350: 1390 },
+    "orange-juice": { 400: 2800 },
+    "green-smoothie": { 400: 2800 },
+    "berry-lemonade": { 400: 1590 },
   };
   const drinkNames = {
     americano: "Americano",
     cappuccino: "Cappuccino",
     latte: "Latte",
     bumble: "Bumble coffee",
+    "iced-americano": "Iced Americano",
+    "iced-latte": "Iced latte",
+    "espresso-tonic": "Espresso tonic",
+    "hot-chocolate": "Hot chocolate",
+    cocoa: "Cocoa",
+    "orange-juice": "Orange juice",
+    "green-smoothie": "Green smoothie",
+    "berry-lemonade": "Berry lemonade",
   };
 
   const orderForm = document.querySelector("#order-form");
@@ -60,8 +76,10 @@
       if (saved?.order_drink && prices[saved.order_drink]) {
         drink.value = saved.order_drink;
         updateSizeOptions();
-        size.value = saved.order_size;
-        quantity.value = saved.order_quantity || 1;
+        if (Object.hasOwn(prices[drink.value], saved.order_size)) {
+          size.value = saved.order_size;
+        }
+        quantity.value = Math.min(8, Math.max(1, saved.order_quantity || 1));
         updateTotal();
       }
     } catch {
