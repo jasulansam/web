@@ -187,6 +187,35 @@ h2 {
   background: #3a2a20;
   border-color: #815431 !important;
 }
+.guest-form fieldset {
+  background: #29211c !important;
+  border-color: var(--coffi-line) !important;
+  color: #f8f2e9;
+}
+.guest-form legend {
+  color: #ffd39f;
+}
+.guest-form .form-control,
+.guest-form .form-select {
+  background-color: #2e241e;
+  border-color: #8a6246;
+  color: #f8f2e9;
+}
+.guest-form .form-control::placeholder {
+  color: #b9aa9c;
+}
+.guest-form .form-select option {
+  background: #2e241e;
+  color: #f8f2e9;
+}
+.guest-form .btn-outline-secondary,
+.order-panel .btn-outline-secondary {
+  --bs-btn-color: #e5d7c8;
+  --bs-btn-border-color: #9b7b64;
+  --bs-btn-hover-color: #241b17;
+  --bs-btn-hover-bg: #e5d7c8;
+  --bs-btn-hover-border-color: #e5d7c8;
+}
 .bg-white {
   color: var(--coffi-ink);
 }
