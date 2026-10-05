@@ -28,6 +28,10 @@
     "green-smoothie": "Green smoothie",
     "berry-lemonade": "Berry lemonade",
   };
+  const getDrinkName = (id) =>
+    window.CoffiI18n?.drinkName(id) || drinkNames[id] || id;
+  const formatMoney = (value) =>
+    window.CoffiI18n?.formatMoney(value) || money.format(value);
 
   const orderForm = document.querySelector("#order-form");
   if (orderForm) {
@@ -49,7 +53,7 @@
     const updateTotal = () => {
       const unitPrice = prices[drink.value][size.value] || 0;
       const count = Math.max(1, Number(quantity.value) || 1);
-      total.textContent = `${count} × ${drinkNames[drink.value]} · ${size.value} ml = ${money.format(unitPrice * count)} ₸`;
+      total.textContent = `${count} × ${getDrinkName(drink.value)} · ${size.value} ml = ${formatMoney(unitPrice * count)} ₸`;
     };
 
     drink.addEventListener("change", () => {
@@ -70,13 +74,20 @@
     if (!prices[drink.value]) drink.value = "americano";
     updateSizeOptions();
     updateTotal();
+    window.addEventListener("coffi:language", updateTotal);
 
     orderForm.addEventListener("submit", (event) => {
       event.preventDefault();
       const data = Object.fromEntries(new FormData(orderForm));
       localStorage.setItem("coffi-order-plan", JSON.stringify(data));
       status.className = "state-message is-success p-3 rounded-3";
-      status.textContent = `Your ${drinkNames[data.order_drink]} plan is saved on this device. Call Coffi at +7 (701) 880-41-04 to confirm availability and pickup time.`;
+      status.textContent =
+        window.CoffiI18n?.message(
+          "orderSaved",
+          data,
+          getDrinkName(data.order_drink),
+        ) ||
+        `Your ${drinkNames[data.order_drink]} plan is saved on this device. Call Coffi at +7 (701) 880-41-04 to confirm availability and pickup time.`;
     });
 
     try {
@@ -159,12 +170,17 @@
     "#booking-form",
     "#booking-status",
     (data) =>
+      window.CoffiI18n?.message("bookingSaved", data) ||
       `Thanks, ${data.book_name}. Your request for ${data.book_date} at ${data.book_time} for ${data.book_guests} guest(s) is saved on this device. Call Coffi to confirm availability; no payment has been taken.`,
   );
   setupLocalForm(
     "#feedback-form",
     "#feedback-status",
     (data) =>
+      window.CoffiI18n?.message("feedbackSaved", data) ||
       `Thanks, ${data.client_name}. Your feedback is saved on this device. The live cafe version can connect this form to the team's inbox later.`,
   );
+  if (window.CoffiI18n) {
+    window.CoffiI18n.applyLanguage(window.CoffiI18n.language);
+  }
 })();

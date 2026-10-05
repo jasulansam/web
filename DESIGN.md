@@ -27,7 +27,7 @@
 
 ## Information architecture
 
-- Primary navigation: Home, Menu, Reservations, About, Feedback, Find us
+- Primary navigation: Home, Menu, Reservations, About, Feedback, Find us, language switcher
 - Core routes/screens: `index.html`, `menu.html#order-builder`, `booking.html`, `about.html`, `feedback.html`
 - Content hierarchy: immediate action and practical facts first, menu and story second, supporting information last
 
@@ -50,7 +50,7 @@
 ## Components
 
 - Existing components to reuse: Bootstrap navbar, collapse, cards, responsive table, forms, buttons, alert and ratio image wrappers
-- New/changed components: practical action strip, order-planning panel, visit-details card, journey cards, confirmation and error containers
+- New/changed components: practical action strip, order-planning panel, visit-details card, journey cards, language switcher, future-contact placeholders, confirmation and error containers
 - Variants and states: primary, outline, disabled, hidden, active, selected, error and success states for current and future JavaScript
 - Token/component ownership: Bootstrap owns layout and component behavior; `bootstrap-custom.css` owns Coffi brand corrections only
 

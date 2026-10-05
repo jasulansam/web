@@ -65,3 +65,8 @@ This version is an AI-assisted draft. The assignment permits conceptual assistan
 - At the owner's request, generated four presentation visuals with the built-in image generation tool: `coffee-cappuccino-generated.png`, `coffee-bumble-generated.png`, `pastry-almond-generated.png` and `coffi-interior-generated.png`.
 - Replaced the three emoji action badges on Home with inline SVG icons so the interface keeps one consistent visual language at every size.
 - The generated visuals contain no logos, text or watermarks. They are conceptual Coffi project imagery and should be replaced by owner-approved product and interior photos before a commercial launch.
+
+## 2026-10-05 — Language and contact placeholders
+
+- Added an English/Russian/Kazakh switcher with a saved local preference. The main navigation, headings, actions, order controls and reservation/feedback forms have translated labels.
+- Added WhatsApp and Instagram placeholder controls for future owner-approved links. They intentionally show a status message until official destinations are supplied; no fake social URL, account, password flow or backend was invented.

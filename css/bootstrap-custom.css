@@ -120,6 +120,36 @@ h2 {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.language-switcher .btn {
+  min-width: 2.2rem;
+  padding: 0.25rem 0.45rem;
+  border: 1px solid var(--coffi-line);
+  color: #d8cabe;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+.language-switcher .btn:hover,
+.language-switcher .btn.active {
+  border-color: #ffd39f;
+  background: #6a3b24;
+  color: #fff0d2;
+}
+.future-contact {
+  color: #c9bdb0;
+}
+.future-contact .contact-placeholder {
+  border-color: var(--coffi-line);
+  color: #ffd39f;
+}
+.future-contact .contact-placeholder:hover {
+  border-color: #ffd39f;
+  background: #6a3b24;
+  color: #fff0d2;
+}
+.contact-placeholder-status {
+  flex-basis: 100%;
+  color: #c9bdb0;
+}
 .menu-section-title {
   background: #35271f;
   color: #ffd39f;

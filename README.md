@@ -27,6 +27,7 @@ stylesheet. Open `index.html` in a browser; the Bootstrap CDN needs internet acc
 - `colophon.html`: technical project page, omitted from visitor navigation.
 - `css/bootstrap-custom.css`: dark coffee-bar visual system and small brand corrections.
 - `js/coffi.js`: order total, local drafts and form confirmation messages.
+- `js/i18n.js`: saved EN/RU/KZ interface language switcher and future contact placeholders.
 - `images/`: local and generated project photographs used by the pages; provenance is recorded in `ai-log.md`.
 - `DESIGN.md`: product, visual and interaction decisions for future work.
 - `quality-pass.md`: manual and automated checks before the midterm freeze.
@@ -40,6 +41,9 @@ Order and reservation forms work on the client side: they validate native fields
 total and save a draft in `localStorage`. No payment, delivery system or staff inbox is connected.
 The page tells the visitor to call Coffi for final confirmation, so the static prototype does not
 promise a reservation or payment it cannot complete.
+
+The interface can be switched between English, Russian and Kazakh. WhatsApp and Instagram buttons are
+prepared as owner-controlled placeholders; they show a connection note until official links are supplied.
 
 ## Content and sources
 

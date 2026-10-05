@@ -8,6 +8,8 @@ Checked on 5 October 2026 after the Coffi usability redesign.
 - Internal page links, section anchors, phone links, email links and supplied 2GIS links resolve to real targets.
 - The order planner updates size choices, calculates the selected quantity and saves a local draft.
 - Reservation and feedback forms validate native required fields, save local drafts and show an accessible confirmation message.
+- The EN/RU/KZ language switcher updates the main navigation, page headings, actions and form controls and keeps the selected language after reload.
+- WhatsApp and Instagram controls are owner-controlled placeholders: they show a clear status message without inventing an official destination.
 - All active images have descriptive `alt` text; generated cafe visuals are documented in `ai-log.md` and labelled as conceptual project imagery.
 - Nu Html Checker reports zero errors and zero warnings for all six HTML pages and `css/bootstrap-custom.css`.
 - Prettier formatting and `git diff --check` pass.
@@ -16,6 +18,7 @@ Checked on 5 October 2026 after the Coffi usability redesign.
 
 - Phone-width review: completed on the local Home, Menu, Reservation and Feedback pages; the collapsed navbar, hero actions, order controls and confirmation states were visible.
 - Desktop-width review: completed on the local wide viewport; an owner browser pass is still recommended before public launch.
+- Language/contact review: completed on Home, Menu, Reservation and Feedback in English, Russian and Kazakh; placeholder contact feedback was confirmed.
 - Owner verification still needed: current hours, prices, phone, email, Instagram link and the real ordering channel.
 
 ## Before freeze
