@@ -108,704 +108,134 @@
         >
           Make it yours
         </a>
-        <a class="btn btn-outline-dark btn-sm rounded-pill px-3" href="#cart">
-          <span data-i18n="cartNav">Cart</span>
-          (<span id="cart-count">0</span>)
-        </a>
       </p>
-      <!-- Bootstrap table: drink groups and prices from 2GIS. -->
-      <section id="price-table-section" class="row g-4">
-        <h2 class="col-12 display-5 mb-0">A little coffee. A little pause.</h2>
-        <p class="col-12 lead text-body-secondary">
-          Find your everyday cup, try something over ice, or settle in with a
-          warming tea.
-        </p>
-        <figure class="col-12 mb-2">
-          <div class="row g-4">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div
-                class="menu-card border rounded-4 overflow-hidden h-100 shadow-sm"
-              >
-                <div class="ratio ratio-4x3">
-                  <img
-                    class="w-100 h-100 object-fit-cover"
-                    src="images/coffee-cappuccino-generated.png"
-                    alt="Cappuccino with heart latte art in a ceramic cup"
-                    width="1086"
-                    height="1448"
-                  />
-                </div>
-                <div class="p-4">
-                  <p class="small text-body-secondary text-uppercase mb-2">
-                    Warm &amp; familiar
-                  </p>
-                  <h3 class="h4">Your daily coffee</h3>
-                  <p class="small text-body-secondary">
-                    Americano, cappuccino or a velvety latte. Choose the cup
-                    that suits your day.
-                  </p>
-                  <a class="fw-semibold" href="#hot-coffee"
-                    >Coffee from 990 ₸ →</a
-                  >
-                </div>
+      <section id="price-table-section" class="d-grid gap-4">
+        <div class="feature-card row g-0 overflow-hidden mb-5">
+          <div class="col-lg-5 ratio ratio-16x9">
+            <img
+              class="w-100 h-100 object-fit-cover"
+              src="images/coffee-cappuccino-generated.png"
+              alt="Cappuccino with leaf latte art"
+              width="1086"
+              height="1448"
+            />
+          </div>
+          <div class="col-lg-7 p-4 p-md-5 d-flex flex-column justify-content-center">
+            <p class="small text-uppercase text-body-secondary mb-2">COFFI · ASTANA</p>
+            <h2 class="display-6 mb-3">A good cup, without the guesswork.</h2>
+            <p class="lead text-body-secondary">Browse the drinks, add a few favourites, then prepare one simple order request.</p>
+            <button id="open-cart" class="btn btn-warning rounded-pill px-4" type="button" aria-label="Open your basket">Basket (0)</button>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-4">
+          <div class="col-12 col-lg-5">
+            <h2 class="h3 mb-1">The menu</h2>
+            <p class="small text-body-secondary mb-0">Prices are listed for planning and may change.</p>
+          </div>
+          <div class="col-12 col-lg-7">
+            <div id="category-nav" class="d-flex flex-wrap gap-2 mb-3" aria-label="Filter drinks by category">
+              <button class="btn btn-warning rounded-pill" type="button" data-category="Popular" aria-pressed="true">Popular</button>
+              <button class="btn btn-outline-light rounded-pill" type="button" data-category="All drinks" aria-pressed="false">All drinks</button>
+              <button class="btn btn-outline-light rounded-pill" type="button" data-category="Coffee" aria-pressed="false">Coffee</button>
+              <button class="btn btn-outline-light rounded-pill" type="button" data-category="Cold coffee" aria-pressed="false">Cold coffee</button>
+              <button class="btn btn-outline-light rounded-pill" type="button" data-category="Tea &amp; chocolate" aria-pressed="false">Tea &amp; chocolate</button>
+              <button class="btn btn-outline-light rounded-pill" type="button" data-category="Fresh &amp; specials" aria-pressed="false">Fresh &amp; specials</button>
+              <button id="reset-filters" class="btn btn-outline-light rounded-pill" type="button" aria-label="Reset category and search">Reset</button>
+            </div>
+            <label class="visually-hidden" for="drink-search">
+              Search drinks
+              <input id="drink-search" class="form-control form-control-lg" type="search" placeholder="Search drinks" />
+            </label>
+          </div>
+        </div>
+        <p id="menu-count" class="small text-body-secondary" aria-live="polite">4 drinks</p>
+        <div id="menu-items" class="row g-3"></div>
+        <p id="menu-empty" class="state-message is-hidden p-3 rounded-3">No drinks match your search.</p>
+        <p id="menu-status" class="state-message is-hidden p-3 rounded-3 mt-3" role="status" aria-live="polite"></p>
+      </section>
+      <template id="drink-card-template">
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="feature-card h-100 overflow-hidden">
+            <div class="ratio ratio-4x3 is-hidden" data-image-wrap>
+              <img class="w-100 h-100 object-fit-cover" data-drink-image alt="" loading="lazy" width="1086" height="1448" />
+            </div>
+            <div class="p-3 p-md-4">
+              <p class="small text-uppercase text-body-secondary mb-2" data-drink-category></p>
+              <h3 class="h5 mb-2" data-drink-name></h3>
+              <p class="small text-body-secondary mb-3" data-drink-description></p>
+              <p class="fw-semibold mb-0" data-drink-price></p>
+              <div class="d-flex gap-2 align-items-center mt-3">
+                <button class="btn btn-primary btn-sm rounded-pill d-inline-flex align-items-center justify-content-center" type="button" data-add-drink>Add</button>
               </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div
-                class="menu-card border rounded-4 overflow-hidden h-100 shadow-sm"
-              >
-                <div class="ratio ratio-4x3">
-                  <img
-                    class="w-100 h-100 object-fit-cover"
-                    src="images/coffee-bumble-generated.png"
-                    alt="Iced bumble coffee with orange juice and espresso"
-                    width="1086"
-                    height="1448"
-                  />
-                </div>
-                <div class="p-4">
-                  <p class="small text-body-secondary text-uppercase mb-2">
-                    Bright &amp; chilled
-                  </p>
-                  <h3 class="h4">Bumble coffee</h3>
-                  <p class="small text-body-secondary">
-                    Coffee meets orange over ice. A refreshing choice for an
-                    afternoon break.
-                  </p>
-                  <a class="fw-semibold" href="#cold-coffee"
-                    >400 ml · 1,790 ₸ →</a
-                  >
-                </div>
+          </article>
+        </div>
+      </template>
+      <template id="cart-item-template">
+        <div class="border rounded-4 p-3 d-flex flex-wrap align-items-center justify-content-between gap-3" data-cart-line>
+          <div class="flex-grow-1">
+            <strong class="d-block" data-cart-name></strong>
+            <span class="small text-body-secondary" data-cart-price></span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-outline-light rounded-pill" type="button" data-cart-action="decrease">−</button>
+            <output class="fw-semibold px-1" data-cart-quantity></output>
+            <button class="btn btn-sm btn-outline-light rounded-pill" type="button" data-cart-action="increase">+</button>
+            <button class="btn btn-sm btn-outline-light rounded-pill" type="button" data-cart-action="remove">Remove</button>
+          </div>
+        </div>
+      </template>
+      <div class="modal fade" id="coffi-cart-modal" tabindex="-1" aria-labelledby="coffi-cart-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+              <h2 class="modal-title h4" id="coffi-cart-title">Your basket and order details</h2>
+              <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close basket"></button>
+            </div>
+            <div class="modal-body">
+              <div id="cart-items" class="d-grid gap-2 mb-3"></div>
+              <p id="cart-empty" class="state-message p-3 rounded-3">Your basket is empty. Add drinks from the menu to start.</p>
+              <div class="d-flex justify-content-between align-items-center border-top border-bottom py-3 mb-3">
+                <span id="cart-count" class="text-body-secondary">0 items</span>
+                <output id="cart-total" class="fs-4 fw-semibold" aria-live="polite">0 ₸</output>
               </div>
-            </div>
-            <div class="col-12 col-md-12 col-lg-4">
-              <div
-                class="menu-card border rounded-4 overflow-hidden h-100 shadow-sm"
-              >
-                <div class="ratio ratio-4x3">
-                  <img
-                    class="w-100 h-100 object-fit-cover"
-                    src="images/pastry-almond-generated.png"
-                    alt="Almond croissant and pastry on a warm wooden cafe table"
-                    width="1448"
-                    height="1086"
-                  />
+              <button id="clear-cart" class="btn btn-outline-light btn-sm rounded-pill mb-4" type="button">Clear basket</button>
+              <p id="order-demo" class="small text-body-secondary">
+                This is a demo request saved on this device; no order or payment is sent. To order, call
+                <a href="tel:+77018804104">+7 (701) 880-41-04</a> and confirm details with the barista.
+              </p>
+              <h3 class="h5 mt-4">Where should we prepare it?</h3>
+              <form id="order-form" class="row g-3" method="post" action="#order-status">
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="order-service">Visit type</label>
+                  <select class="form-select bg-light text-dark border-secondary" id="order-service" name="order_service" required>
+                    <option value="" disabled>Select a visit type</option>
+                    <option value="takeaway" selected>Takeaway</option>
+                    <option value="cafe">Eat and drink in the cafe</option>
+                  </select>
                 </div>
-                <div class="p-4">
-                  <p class="small text-body-secondary text-uppercase mb-2">
-                    Something on the side
-                  </p>
-                  <h3 class="h4">A pastry pairing</h3>
-                  <p class="small text-body-secondary">
-                    Ask at the counter for today's pastry selection, ingredients
-                    and prices.
-                  </p>
-                  <a class="fw-semibold" href="#customizations"
-                    >Plan your pairing →</a
-                  >
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="order-name">Your name</label>
+                  <input class="form-control bg-light text-dark border-secondary" type="text" id="order-name" name="order_name" autocomplete="name" required />
                 </div>
-              </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="order-phone">Phone</label>
+                  <input class="form-control bg-light text-dark border-secondary" type="tel" id="order-phone" name="order_phone" autocomplete="tel" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="order-notes">Notes or milk preference</label>
+                  <textarea class="form-control bg-light text-dark border-secondary" id="order-notes" name="order_notes" rows="2" placeholder="For example: oat milk, less sweet"></textarea>
+                </div>
+                <div class="col-12 d-flex flex-wrap align-items-center gap-3">
+                  <button class="btn btn-primary btn-lg rounded-pill px-4" type="submit" aria-describedby="order-demo">Prepare demo request</button>
+                  <button class="btn btn-outline-light btn-sm rounded-pill px-3" type="reset">Clear details</button>
+                </div>
+                <div id="order-status" class="state-message is-hidden p-3 rounded-3" role="status" aria-live="polite"></div>
+              </form>
             </div>
           </div>
-          <figcaption class="small text-body-secondary mt-3">
-            Photos show the Coffi atmosphere and current project menu
-            references. Ask the barista about availability and ingredients
-            before ordering.
-          </figcaption>
-        </figure>
-        <div class="col-12 table-responsive">
-          <table class="menu-table table table-hover align-middle mb-0">
-            <caption class="small">
-              Selected drinks from Coffi’s 2GIS menu, checked 24 September 2026.
-              Source lists an update on 8 September 2026. Sizes and prices below
-              correspond in order; “Ask” means the size was not specified.
-            </caption>
-            <thead class="table-light">
-              <tr>
-                <th scope="col">Drink</th>
-                <th scope="col">Size</th>
-                <th scope="col" class="d-none d-md-table-cell">Style</th>
-                <th scope="col" class="text-end">
-                  Price (
-                  <abbr title="Kazakhstani Tenge">KZT</abbr>
-                  )
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr id="hot-coffee" class="table-light">
-                <th colspan="4" class="py-3 text-uppercase small">
-                  01 / Coffee
-                </th>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Americano</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    Espresso with hot water.
-                  </span>
-                </th>
-                <td class="small">
-                  250
-                  <br />
-                  350
-                  <br />
-                  450 ml
-                </td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Black coffee
-                </td>
-                <td class="text-end fw-semibold">
-                  990
-                  <br />
-                  1,090
-                  <br />
-                  1,190
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Cappuccino</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    Coffee with steamed milk and foam.
-                  </span>
-                </th>
-                <td class="small">
-                  250
-                  <br />
-                  350
-                  <br />
-                  450 ml
-                </td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Milk coffee
-                </td>
-                <td class="text-end fw-semibold">
-                  1,290
-                  <br />
-                  1,390
-                  <br />
-                  1,390
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Latte</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A milk-forward coffee classic.
-                  </span>
-                </th>
-                <td class="small">
-                  250
-                  <br />
-                  350
-                  <br />
-                  450 ml
-                </td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Milk coffee
-                </td>
-                <td class="text-end fw-semibold">
-                  1,290
-                  <br />
-                  1,390
-                  <br />
-                  1,490
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Flat white</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A smooth, coffee-forward milk drink.
-                  </span>
-                </th>
-                <td class="small">Ask</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Milk coffee
-                </td>
-                <td class="text-end fw-semibold">1,290</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Mocha</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    Coffee with a chocolate note.
-                  </span>
-                </th>
-                <td class="small">
-                  350
-                  <br />
-                  450 ml
-                </td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Chocolate coffee
-                </td>
-                <td class="text-end fw-semibold">
-                  1,490
-                  <br />
-                  1,590
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Raf</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A creamy coffee option.
-                  </span>
-                </th>
-                <td class="small">
-                  350
-                  <br />
-                  450 ml
-                </td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Creamy coffee
-                </td>
-                <td class="text-end fw-semibold">
-                  1,790
-                  <br />
-                  1,890
-                </td>
-              </tr>
-              <tr id="cold-coffee" class="table-light">
-                <th colspan="4" class="py-3 text-uppercase small">
-                  02 / Over ice
-                </th>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Bumble coffee</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    An orange-and-coffee combination over ice.
-                  </span>
-                </th>
-                <td class="small">400 ml</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Citrus coffee
-                </td>
-                <td class="text-end fw-semibold">1,790</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Iced Americano</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A chilled black coffee.
-                  </span>
-                </th>
-                <td class="small">400 ml</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Black coffee
-                </td>
-                <td class="text-end fw-semibold">1,490</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Iced latte</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    Coffee and milk served cold.
-                  </span>
-                </th>
-                <td class="small">400 ml</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Milk coffee
-                </td>
-                <td class="text-end fw-semibold">1,590</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Espresso tonic</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A sparkling, bittersweet coffee option.
-                  </span>
-                </th>
-                <td class="small">400 ml</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Sparkling coffee
-                </td>
-                <td class="text-end fw-semibold">1,790</td>
-              </tr>
-              <tr id="tea-more" class="table-light">
-                <th colspan="4" class="py-3 text-uppercase small">
-                  03 / Tea &amp; more
-                </th>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Sea buckthorn tea</span>
-                  <span class="d-block small text-body-secondary mt-1"
-                    >A fruity tea option.</span
-                  >
-                </th>
-                <td class="small">Ask</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Hot tea
-                </td>
-                <td class="text-end fw-semibold">1,590</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Ginger tea</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A warming ginger option.
-                  </span>
-                </th>
-                <td class="small">Ask</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Hot tea
-                </td>
-                <td class="text-end fw-semibold">1,590</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Moroccan tea</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    One of the published hot tea choices.
-                  </span>
-                </th>
-                <td class="small">Ask</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Hot tea
-                </td>
-                <td class="text-end fw-semibold">1,590</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Hot chocolate</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A warm chocolate drink.
-                  </span>
-                </th>
-                <td class="small">350 ml</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Chocolate
-                </td>
-                <td class="text-end fw-semibold">1,490</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Cocoa</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A comforting cocoa drink.
-                  </span>
-                </th>
-                <td class="small">350 ml</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Chocolate
-                </td>
-                <td class="text-end fw-semibold">1,390</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Lemon tart raf</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A signature flavoured raf.
-                  </span>
-                </th>
-                <td class="small">Ask</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Signature coffee
-                </td>
-                <td class="text-end fw-semibold">1,890</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Apple &amp; cinnamon raf</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    A signature flavoured raf.
-                  </span>
-                </th>
-                <td class="small">Ask</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Signature coffee
-                </td>
-                <td class="text-end fw-semibold">1,890</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Orange juice</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    Fresh juice from the published menu.
-                  </span>
-                </th>
-                <td class="small">400 ml</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Fresh juice
-                </td>
-                <td class="text-end fw-semibold">2,800</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Green smoothie</span>
-                  <span class="d-block small text-body-secondary mt-1">
-                    Ask the barista about the ingredients.
-                  </span>
-                </th>
-                <td class="small">400 ml</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Smoothie
-                </td>
-                <td class="text-end fw-semibold">2,800</td>
-              </tr>
-              <tr>
-                <th scope="row" class="py-3 fw-normal">
-                  <span class="fw-semibold">Berry lemonade</span>
-                  <span class="d-block small text-body-secondary mt-1"
-                    >A fruity cold drink.</span
-                  >
-                </th>
-                <td class="small">400 ml</td>
-                <td class="small text-body-secondary d-none d-md-table-cell">
-                  Lemonade
-                </td>
-                <td class="text-end fw-semibold">1,590</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
-        <!-- Bootstrap alert: availability and price notice. -->
-        <div
-          class="col-12 price-note alert alert-light border rounded-3"
-          role="alert"
-        >
-          <p class="mb-2">
-            <strong>Before you order:</strong>
-            prices are reproduced from the published menu and may change.
-            Confirm availability, ingredients and allergens with the barista.
-          </p>
-          <a
-            class="btn btn-outline-dark btn-sm rounded-pill px-3"
-            href="https://2gis.kz/astana/firm/70000001093393499/tab/prices"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Full menu on 2GIS ↗
-          </a>
-        </div>
-      </section>
-      <section
-        id="cart"
-        class="cart-panel row g-4 p-4 p-md-5 mt-5"
-        aria-labelledby="cart-title"
-      >
-        <div class="col-12 col-lg-5">
-          <p
-            class="small text-uppercase text-body-secondary mb-2"
-            data-i18n="cartEyebrow"
-          >
-            Your order
-          </p>
-          <h2 id="cart-title" data-i18n="cartTitle">
-            Build an order from the menu
-          </h2>
-          <p class="lead text-body-secondary mb-0" data-i18n="cartLead">
-            Add drinks from the menu above. Your cart stays on this device until
-            you are ready to confirm the details with Coffi.
-          </p>
-        </div>
-        <div class="col-12 col-lg-7">
-          <div
-            id="cart-empty"
-            class="cart-empty border rounded-4 p-4"
-            data-i18n="cartEmpty"
-          >
-            Your cart is empty. Choose a size and add a drink above.
-          </div>
-          <div id="cart-items" class="vstack gap-2" aria-live="polite"></div>
-          <div
-            class="cart-total border-top mt-4 pt-3 d-flex justify-content-between gap-3"
-          >
-            <strong data-i18n="cartTotal">Total</strong>
-            <output id="cart-total" class="fs-4 fw-semibold">0 ₸</output>
-          </div>
-          <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
-            <button
-              id="cart-to-order"
-              class="btn btn-primary rounded-pill px-4"
-              type="button"
-              data-i18n="cartContinue"
-            >
-              Continue to order details
-            </button>
-            <button
-              id="cart-clear"
-              class="btn btn-outline-secondary rounded-pill px-4"
-              type="button"
-              data-i18n="cartClear"
-            >
-              Clear cart
-            </button>
-          </div>
-          <div
-            id="cart-status"
-            class="state-message is-hidden p-3 rounded-3 mt-3"
-            role="status"
-            aria-live="polite"
-          ></div>
-        </div>
-      </section>
-      <section
-        id="order-builder"
-        class="order-panel row g-4 p-4 p-md-5 mt-5"
-        aria-labelledby="order-title"
-      >
-        <div class="col-12 col-lg-5">
-          <p class="small text-uppercase text-body-secondary mb-2">
-            Order planning
-          </p>
-          <h2 id="order-title">Build your coffee stop</h2>
-          <p class="lead text-body-secondary">
-            Choose a priced drink and visit type first. The page calculates the
-            total and keeps your draft on this device so you can call Coffi with
-            the details.
-          </p>
-          <div class="order-summary border rounded-4 p-4 mt-4">
-            <p class="small text-uppercase mb-2">Your current plan</p>
-            <output
-              id="order-total"
-              class="fs-3 fw-semibold d-block"
-              for="order-drink order-size order-quantity"
-              >Price appears here</output
-            >
-            <p class="small text-body-secondary mb-0">
-              Prices are checked against the published 2GIS menu and can change.
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-lg-7">
-          <p id="order-demo" class="small text-body-secondary">
-            To order today, call
-            <a href="tel:+77018804104">+7 (701) 880-41-04</a>
-            and confirm the saved details with the barista.
-          </p>
-          <form
-            id="order-form"
-            class="row g-3"
-            method="post"
-            action="#order-status"
-          >
-            <div class="col-12 col-md-6">
-              <label class="form-label" for="order-drink">Drink</label>
-              <select
-                class="form-select"
-                id="order-drink"
-                name="order_drink"
-                required
-              >
-                <option value="" disabled>Select a drink</option>
-                <option value="americano" selected>Americano</option>
-                <option value="cappuccino">Cappuccino</option>
-                <option value="latte">Latte</option>
-                <option value="bumble">Bumble coffee</option>
-                <option value="iced-americano">Iced Americano</option>
-                <option value="iced-latte">Iced latte</option>
-                <option value="espresso-tonic">Espresso tonic</option>
-                <option value="hot-chocolate">Hot chocolate</option>
-                <option value="cocoa">Cocoa</option>
-                <option value="orange-juice">Orange juice</option>
-                <option value="green-smoothie">Green smoothie</option>
-                <option value="berry-lemonade">Berry lemonade</option>
-              </select>
-            </div>
-            <div class="col-12 col-md-6">
-              <label class="form-label" for="order-size">Size</label>
-              <select
-                class="form-select"
-                id="order-size"
-                name="order_size"
-                required
-              >
-                <option value="" disabled>Select a size</option>
-                <option value="250" selected>250 ml</option>
-                <option value="350">350 ml</option>
-                <option value="400">400 ml</option>
-                <option value="450">450 ml</option>
-              </select>
-            </div>
-            <div class="col-12 col-md-6">
-              <label class="form-label" for="order-service">Visit type</label>
-              <select
-                class="form-select"
-                id="order-service"
-                name="order_service"
-                required
-              >
-                <option value="" disabled>Select a visit type</option>
-                <option value="takeaway" selected>Takeaway</option>
-                <option value="cafe">Eat and drink in the cafe</option>
-              </select>
-            </div>
-            <div class="col-12 col-md-6">
-              <label class="form-label" for="order-quantity">Quantity</label>
-              <input
-                class="form-control"
-                type="number"
-                id="order-quantity"
-                name="order_quantity"
-                min="1"
-                max="8"
-                value="1"
-                required
-              />
-            </div>
-            <div class="col-12 col-md-6">
-              <label class="form-label" for="order-name">Your name</label>
-              <input
-                class="form-control"
-                type="text"
-                id="order-name"
-                name="order_name"
-                autocomplete="name"
-                required
-              />
-            </div>
-            <div class="col-12 col-md-6">
-              <label class="form-label" for="order-phone">Phone</label>
-              <input
-                class="form-control"
-                type="tel"
-                id="order-phone"
-                name="order_phone"
-                autocomplete="tel"
-                required
-              />
-            </div>
-            <div class="col-12">
-              <label class="form-label" for="order-notes"
-                >Notes or milk preference</label
-              >
-              <textarea
-                class="form-control"
-                id="order-notes"
-                name="order_notes"
-                rows="2"
-                placeholder="For example: oat milk, less sweet"
-              ></textarea>
-            </div>
-            <div class="col-12 d-flex flex-wrap align-items-center gap-3">
-              <button
-                class="btn btn-primary btn-lg rounded-pill px-4"
-                type="submit"
-                aria-describedby="order-demo"
-              >
-                Save order plan
-              </button>
-              <button
-                class="btn btn-outline-secondary btn-sm rounded-pill px-3"
-                type="reset"
-              >
-                Reset plan
-              </button>
-            </div>
-            <div
-              id="order-status"
-              class="state-message is-hidden p-3 rounded-3"
-              role="status"
-              aria-live="polite"
-            ></div>
-          </form>
-        </div>
-      </section>
+      </div>
       <section id="customizations" class="row g-3 border-top pt-4 mt-5">
         <h2>Make your cup yours</h2>
         <ul>
@@ -881,8 +311,8 @@
     >
       Back to top ↑
     </a>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/i18n.js?v=20261005"></script>
-    <script src="js/coffi.js?v=20261005"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/menu.js" defer></script>
   </body>
 </html>

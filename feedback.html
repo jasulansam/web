@@ -8,7 +8,7 @@
       content="Share your thoughts and feedback about your coffee and workspace experience at Coffi on Alikhan Bokeikhan Street 10."
     />
     <meta name="author" content="Zhaksylyk Adilet" />
-    <title>Customer Feedback &amp; Reviews - Coffi Coffee Shop</title>
+    <title>Guest Reviews &amp; Feedback - Coffi Coffee Shop</title>
     <!-- Bootstrap 5.3.8 via CDN. -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -27,7 +27,7 @@
         >
       </h1>
       <p class="container text-center text-body-secondary small mb-4 px-4">
-        Guest Feedback and Customer Experience Survey.
+        Read verified reviews or share a short note about your visit.
       </p>
       <!-- Fluid navigation uses the full screen width. -->
       <nav
@@ -87,225 +87,101 @@
     </header>
     <!-- Container limits line length on wide screens. -->
     <main class="site-main container py-5">
-      <section class="content-section mb-5">
-        <h2>We Value Your Experience</h2>
-        <p class="page-intro lead text-body-secondary mb-4">
-          Your honest reviews help our baristas refine roast recipes, improve
-          hospitality, and maintain a pleasant workspace. Please take two
-          minutes to tell us about your recent visit.
+      <section class="visit-card p-4 p-md-5 mb-5">
+        <p class="small text-uppercase text-body-secondary mb-2">Your feedback</p>
+        <h2 class="display-6">How was your visit?</h2>
+        <p class="lead text-body-secondary mb-4">
+          Read customer reviews on 2GIS, or add a short demo review to this page.
         </p>
-        <p id="feedback-demo" class="small text-body-secondary">
-          Your feedback is saved locally on this device in the prototype. Use
-          the email link below if the team needs to receive it now.
-        </p>
-        <form
-          id="feedback-form"
-          class="guest-form row g-4"
-          method="post"
-          action="#feedback-status"
-        >
-          <div class="col-12 col-lg-4">
-            <fieldset class="h-100 p-4 border rounded-4 bg-white shadow-sm">
-              <legend class="float-none w-auto px-2 fs-4">
-                Customer Profile
-              </legend>
-              <div class="row g-3">
-                <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="client-name"
-                    >Your Name (required):</label
-                  >
-                  <input
-                    class="form-control"
-                    type="text"
-                    id="client-name"
-                    name="client_name"
-                    placeholder="e.g. Dana Kassymova"
-                    required
-                  />
-                </p>
-                <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="client-email"
-                    >Email Address (required):</label
-                  >
-                  <input
-                    class="form-control"
-                    type="email"
-                    id="client-email"
-                    name="client_email"
-                    placeholder="dana@example.kz"
-                    required
-                  />
-                </p>
-                <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="client-phone"
-                    >Phone Number (optional):</label
-                  >
-                  <input
-                    class="form-control"
-                    type="tel"
-                    id="client-phone"
-                    name="client_phone"
-                    placeholder="+7 (7XX) XXX-XX-XX"
-                  />
-                </p>
-              </div>
-            </fieldset>
-          </div>
-          <div class="col-12 col-lg-8">
-            <fieldset class="p-4 border rounded-4 bg-white shadow-sm">
-              <legend class="float-none w-auto px-2 fs-4">
-                Visit Evaluation
-              </legend>
-              <div class="row g-3">
-                <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="visit-date"
-                    >Date of Visit (required):</label
-                  >
-                  <input
-                    class="form-control"
-                    type="date"
-                    id="visit-date"
-                    name="visit_date"
-                    required
-                  />
-                </p>
-                <p class="form-field col-12 mb-0">
-                  <label class="form-label" for="rating-score">
-                    Overall Satisfaction (1 to 5):
-                  </label>
-                  <input
-                    class="form-control"
-                    type="number"
-                    id="rating-score"
-                    name="rating_score"
-                    min="1"
-                    max="5"
-                    placeholder="5"
-                    required
-                  />
-                </p>
-                <p
-                  id="feedback-recommend-label"
-                  class="form-field form-wide col-12 mb-0"
-                >
-                  Would you recommend Coffi to fellow students?
-                </p>
-                <p
-                  class="form-field form-wide radio-group col-12 d-flex flex-column gap-2 mb-0"
-                >
-                  <label>
-                    <input
-                      class="form-check-input me-2"
-                      type="radio"
-                      name="recommendation"
-                      value="yes"
-                      checked
-                    />
-                    Yes, definitely
-                  </label>
-                  <label>
-                    <input
-                      class="form-check-input me-2"
-                      type="radio"
-                      name="recommendation"
-                      value="maybe"
-                    />
-                    Maybe
-                  </label>
-                  <label>
-                    <input
-                      class="form-check-input me-2"
-                      type="radio"
-                      name="recommendation"
-                      value="no"
-                    />
-                    Needs improvement
-                  </label>
-                </p>
-                <p class="form-field form-wide col-12 mb-0">
-                  <label class="form-label" for="favorite-beverage"
-                    >Favorite Beverage Tried:</label
-                  >
-                  <select
-                    class="form-select"
-                    id="favorite-beverage"
-                    name="favorite_beverage"
-                  >
-                    <option value="bumble">Bumble Coffee</option>
-                    <option value="americano">Americano</option>
-                    <option value="cappuccino">Cappuccino</option>
-                    <option value="latte">Latte</option>
-                    <option value="iced-americano">Iced Americano</option>
-                    <option value="iced-latte">Iced Latte</option>
-                    <option value="espresso-tonic">Espresso Tonic</option>
-                    <option value="hot-chocolate">Hot Chocolate</option>
-                    <option value="cocoa">Cocoa</option>
-                    <option value="orange-juice">Orange Juice</option>
-                    <option value="green-smoothie">Green Smoothie</option>
-                    <option value="berry-lemonade">Berry Lemonade</option>
-                    <option value="other">Other</option>
-                  </select>
-                </p>
-                <p class="form-field form-wide col-12 mb-0">
-                  <label class="form-label" for="review-comments">
-                    Comments and Suggestions for Our Baristas:
-                  </label>
-                  <textarea
-                    class="form-control"
-                    id="review-comments"
-                    name="review_comments"
-                    rows="4"
-                    cols="45"
-                    placeholder="Tell us how we can make your study sessions even better..."
-                  ></textarea>
-                </p>
-                <p class="form-field form-wide consent-field col-12 small mb-0">
-                  <label class="form-label" for="news-optin">
-                    <input
-                      class="form-check-input me-2"
-                      type="checkbox"
-                      id="news-optin"
-                      name="news_optin"
-                    />
-                    Keep me updated about upcoming student coffee tastings and
-                    discounts.
-                  </label>
-                </p>
-                <p
-                  class="form-field form-wide form-actions col-12 d-flex flex-wrap align-items-center gap-3 mb-0 pt-2"
-                >
-                  <button
-                    class="btn btn-primary rounded-pill px-4"
-                    type="submit"
-                    aria-describedby="feedback-demo"
-                  >
-                    Save Feedback
-                  </button>
-                  <button
-                    class="btn btn-outline-secondary btn-sm rounded-pill px-3"
-                    type="reset"
-                  >
-                    Reset Form
-                  </button>
-                </p>
-                <div
-                  id="feedback-status"
-                  class="state-message is-hidden p-3 rounded-3"
-                  role="status"
-                  aria-live="polite"
-                ></div>
-              </div>
-            </fieldset>
-          </div>
-        </form>
+        <div class="d-flex flex-wrap gap-2">
+          <a
+            class="btn btn-primary rounded-pill px-4"
+            href="https://2gis.kz/astana/firm/70000001093393499"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read reviews on 2GIS
+          </a>
+          <button
+            class="btn btn-outline-dark rounded-pill px-4"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#feedback-panel"
+            aria-expanded="false"
+            aria-controls="feedback-panel"
+          >
+            Write a review
+          </button>
+        </div>
       </section>
-      <section class="content-section mb-5">
-        <h2>Why Your Opinion Matters</h2>
-        <p>
-          Your notes help the cafe owner decide what to improve next: drink
-          consistency, pastry freshness, table comfort or the study atmosphere.
-          The prototype saves the form locally; use email if the team needs to
-          receive the message today.
+      <section id="feedback-panel" class="collapse mb-5">
+        <div class="action-card p-4 p-md-5">
+          <p class="small text-uppercase text-body-secondary mb-2">Share your experience</p>
+          <h2 class="h3 mb-2">Leave a short review</h2>
+          <p id="feedback-demo" class="small text-body-secondary mb-4">
+            This demo review appears on this page until it is reloaded. It is not sent to Coffi or stored.
+          </p>
+          <form id="feedback-form" class="row g-3" method="post" action="#feedback-status">
+            <div class="form-field col-12 col-md-6 mb-0">
+              <label class="form-label" for="rating-score">Your rating</label>
+              <select class="form-select" id="rating-score" name="rating_score" required>
+                <option value="" selected disabled>Choose a rating</option>
+                <option value="5">5 — Loved it</option>
+                <option value="4">4 — Very good</option>
+                <option value="3">3 — It was okay</option>
+                <option value="2">2 — Could be better</option>
+                <option value="1">1 — Needs improvement</option>
+              </select>
+            </div>
+            <div class="form-field col-12 col-md-6 mb-0">
+              <label class="form-label" for="visit-date">Visit date <span class="text-body-secondary">(optional)</span></label>
+              <input class="form-control" type="date" id="visit-date" name="visit_date" />
+            </div>
+            <div class="form-field col-12 mb-0">
+              <label class="form-label" for="review-comments">Your comment</label>
+              <textarea class="form-control" id="review-comments" name="review_comments" rows="4" minlength="10" maxlength="240" aria-describedby="comment-counter" placeholder="What did you enjoy, or what could be better?" required></textarea>
+              <small id="comment-counter" class="text-body-secondary d-block mt-1" aria-live="polite">0 / 240 characters</small>
+            </div>
+            <div class="form-field col-12 col-md-6 mb-0">
+              <label class="form-label" for="client-name">Display name <span class="text-body-secondary">(optional)</span></label>
+              <input class="form-control" type="text" id="client-name" name="client_name" maxlength="40" autocomplete="given-name" placeholder="For example, Dana" />
+            </div>
+            <div class="form-field col-12 col-md-6 mb-0">
+              <label class="form-label" for="favorite-beverage">Drink <span class="text-body-secondary">(optional)</span></label>
+              <select class="form-select" id="favorite-beverage" name="favorite_beverage">
+                <option value="">Choose a drink</option>
+                <option value="Bumble coffee">Bumble coffee</option>
+                <option value="Cappuccino">Cappuccino</option>
+                <option value="Flat white">Flat white</option>
+                <option value="Americano">Americano</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="col-12 d-flex flex-wrap align-items-center gap-3 pt-2">
+              <button class="btn btn-primary rounded-pill px-4" type="submit" aria-describedby="feedback-demo">
+                Add demo review
+              </button>
+            </div>
+            <div id="feedback-status" class="state-message is-hidden p-3 rounded-3" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+      <section class="content-section mb-5" aria-labelledby="preview-title">
+        <div class="d-flex flex-wrap align-items-baseline justify-content-between gap-2 mb-3">
+          <h2 id="preview-title" class="h3 mb-0">Demo reviews in this session</h2>
+          <p id="review-count" class="small text-body-secondary mb-0">No reviews added yet</p>
+        </div>
+        <p id="review-empty" class="state-message p-3 rounded-3">
+          Use “Write a review” above to add a sample. For public customer reviews, open 2GIS.
+        </p>
+        <div id="review-list" class="row g-3"></div>
+      </section>
+      <section class="content-section">
+        <h2 class="h4">Need a private reply?</h2>
+        <p class="mb-0">
+          For a private question or message, call
+          <a href="tel:+77018804104">+7 (701) 880-41-04</a>
+          or email <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.
         </p>
       </section>
     </main>
@@ -326,8 +202,8 @@
     >
       Back to top ↑
     </a>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/i18n.js?v=20261005"></script>
-    <script src="js/coffi.js?v=20261005"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/feedback.js?v=20261026-2" defer></script>
   </body>
 </html>

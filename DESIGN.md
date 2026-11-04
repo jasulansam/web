@@ -3,7 +3,7 @@
 ## Source of truth
 
 - Status: Active
-- Last refreshed: 2026-10-05
+- Last refreshed: 2026-10-24
 - Primary product surfaces: Home, menu and order planning, table reservation, about, feedback
 - Evidence reviewed: current Coffi HTML pages, `css/bootstrap-custom.css`, Assignment 3 Bootstrap brief, `midterm_project.docx`, existing project photographs, and current 2GIS menu link
 
@@ -27,8 +27,8 @@
 
 ## Information architecture
 
-- Primary navigation: Home, Menu, Reservations, About, Feedback, Find us, language switcher
-- Core routes/screens: `index.html`, `menu.html#order-builder`, `booking.html`, `about.html`, `feedback.html`
+- Primary navigation: Home, Menu, Reservations, About, Feedback, Find us
+- Core routes/screens: `index.html`, `menu.html` with one basket-and-order modal, `booking.html`, `about.html`, `feedback.html`
 - Content hierarchy: immediate action and practical facts first, menu and story second, supporting information last
 
 ## Design principles
@@ -40,18 +40,18 @@
 
 ## Visual language
 
-- Color: espresso ink, paper cream, muted sage and a warm amber accent for action and status
+- Color: warm white and paper cream surfaces, dark coffee ink, and a restrained latte-brown accent for actions and selected states
 - Typography: Georgia for the Coffi wordmark and headings; Arial for readable interface text
-- Spacing/layout rhythm: Bootstrap containers, rows, columns and spacing utilities; generous sections and compact action groups
-- Shape/radius/elevation: medium rounded cards, restrained borders and soft shadows for interactive groups
+- Spacing/layout rhythm: Bootstrap containers, rows, columns and spacing utilities; generous section spacing with compact menu rows
+- Shape/radius/elevation: softly rounded drink rows, circular drink thumbnails, restrained borders and light shadows
 - Motion: subtle hover lift only; respect `prefers-reduced-motion`
 - Imagery/iconography: warm cafe photography with descriptive alt text and simple inline SVG action icons; generated visuals are documented in the image log and remain conceptual until approved by the cafe owner
 
 ## Components
 
-- Existing components to reuse: Bootstrap navbar, collapse, cards, responsive table, forms, buttons, alert and ratio image wrappers
-- New/changed components: practical action strip, menu cart, order-planning panel, visit-details card, journey cards, language switcher, future-contact placeholders, confirmation and error containers
-- Variants and states: primary, outline, disabled, hidden, active, selected, error and success states for current and future JavaScript
+- Existing components to reuse: Bootstrap navbar, collapse, cards, forms, buttons, alert, modal and ratio image wrappers
+- New/changed components: practical action strip, category-filtered menu catalog, one basket-and-order modal, visit-details card, journey cards, confirmation and error containers
+- Variants and states: coordinated espresso-brown primary and outline buttons, pale latte selected states, disabled, error and success states
 - Token/component ownership: Bootstrap owns layout and component behavior; `bootstrap-custom.css` owns Coffi brand corrections only
 
 ## Accessibility
@@ -65,8 +65,8 @@
 ## Responsive behavior
 
 - Supported breakpoints/devices: phone around 375px, tablet around 768px and desktop around 1440px
-- Layout adaptations: action cards stack on phones, become two columns on tablets and three columns on desktop; forms stack before `lg`
-- Touch/hover differences: large tap targets and direct phone/map links; hover is supplementary
+- Layout adaptations: menu categories sit beside compact drink rows on desktop and become a horizontal scroll strip on phones; forms stack before `lg`
+- Touch/hover differences: consistent button states, comfortably tappable add controls and direct phone/map links; hover is supplementary
 
 ## Interaction states
 
