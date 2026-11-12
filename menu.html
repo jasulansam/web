@@ -17,21 +17,10 @@
     <link rel="stylesheet" href="css/bootstrap-custom.css" />
   </head>
   <body id="top" class="menu-page">
-    <header class="site-header pt-4 pt-md-5">
-      <h1 class="container text-center mb-3">
-        <span class="brand-wordmark display-1 fw-bold d-block">
-          Coffi<span class="brand-dot" aria-hidden="true">.</span>
-        </span>
-        <span class="brand-caption d-block text-uppercase small mt-2"
-          >Coffee Shop</span
-        >
-      </h1>
-      <p class="container text-center text-body-secondary small mb-4 px-4">
-        Artisan Beverages, Specialty Teas, and Fresh Morning Pastries.
-      </p>
+    <header class="site-header">
       <!-- Fluid navigation uses the full screen width. -->
       <nav
-        class="navbar navbar-expand-lg border-top border-bottom py-3"
+        class="navbar navbar-expand-lg border-bottom py-3"
         aria-label="Primary navigation"
       >
         <div class="container-fluid px-3 px-lg-5">
@@ -55,11 +44,8 @@
                 <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
                 <a
-                  class="nav-link active fw-semibold"
+                  class="nav-link active"
                   aria-current="page"
                   href="menu.html"
                   >Menu</a
@@ -86,29 +72,6 @@
     </header>
     <!-- Container limits line length on wide screens. -->
     <main class="site-main container py-5">
-      <p class="jump-link d-flex flex-wrap gap-2 mb-4">
-        <a
-          class="btn btn-outline-dark btn-sm rounded-pill px-3"
-          href="#hot-coffee"
-          >Coffee</a
-        >
-        <a
-          class="btn btn-outline-dark btn-sm rounded-pill px-3"
-          href="#cold-coffee"
-          >Over ice</a
-        >
-        <a
-          class="btn btn-outline-dark btn-sm rounded-pill px-3"
-          href="#tea-more"
-          >Tea &amp; more</a
-        >
-        <a
-          class="btn btn-outline-dark btn-sm rounded-pill px-3"
-          href="#customizations"
-        >
-          Make it yours
-        </a>
-      </p>
       <section id="price-table-section" class="d-grid gap-4">
         <div class="feature-card row g-0 overflow-hidden mb-5">
           <div class="col-lg-5 ratio ratio-16x9">
@@ -130,7 +93,6 @@
         <div class="row g-3 align-items-center mb-4">
           <div class="col-12 col-lg-5">
             <h2 class="h3 mb-1">The menu</h2>
-            <p class="small text-body-secondary mb-0">Prices are listed for planning and may change.</p>
           </div>
           <div class="col-12 col-lg-7">
             <div id="category-nav" class="d-flex flex-wrap gap-2 mb-3" aria-label="Filter drinks by category">
@@ -200,10 +162,6 @@
                 <output id="cart-total" class="fs-4 fw-semibold" aria-live="polite">0 ₸</output>
               </div>
               <button id="clear-cart" class="btn btn-outline-light btn-sm rounded-pill mb-4" type="button">Clear basket</button>
-              <p id="order-demo" class="small text-body-secondary">
-                This is a demo request saved on this device; no order or payment is sent. To order, call
-                <a href="tel:+77018804104">+7 (701) 880-41-04</a> and confirm details with the barista.
-              </p>
               <h3 class="h5 mt-4">Where should we prepare it?</h3>
               <form id="order-form" class="row g-3" method="post" action="#order-status">
                 <div class="col-12 col-md-6">
@@ -220,14 +178,14 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <label class="form-label" for="order-phone">Phone</label>
-                  <input class="form-control bg-light text-dark border-secondary" type="tel" id="order-phone" name="order_phone" autocomplete="tel" required />
+                  <input class="form-control bg-light text-dark border-secondary" type="tel" id="order-phone" name="order_phone" autocomplete="tel" inputmode="numeric" pattern="[0-9]*" required />
                 </div>
                 <div class="col-12">
                   <label class="form-label" for="order-notes">Notes or milk preference</label>
                   <textarea class="form-control bg-light text-dark border-secondary" id="order-notes" name="order_notes" rows="2" placeholder="For example: oat milk, less sweet"></textarea>
                 </div>
                 <div class="col-12 d-flex flex-wrap align-items-center gap-3">
-                  <button class="btn btn-primary btn-lg rounded-pill px-4" type="submit" aria-describedby="order-demo">Prepare demo request</button>
+                  <button class="btn btn-primary btn-lg rounded-pill px-4" type="submit" aria-describedby="order-demo">Prepare request</button>
                   <button class="btn btn-outline-light btn-sm rounded-pill px-3" type="reset">Clear details</button>
                 </div>
                 <div id="order-status" class="state-message is-hidden p-3 rounded-3" role="status" aria-live="polite"></div>
@@ -236,75 +194,7 @@
           </div>
         </div>
       </div>
-      <section id="customizations" class="row g-3 border-top pt-4 mt-5">
-        <h2>Make your cup yours</h2>
-        <ul>
-          <li>
-            Ask the barista before ordering
-            <ul>
-              <li>Which dairy milk is used in your drink</li>
-              <li>Whether oat milk is available and whether it costs extra</li>
-              <li>
-                Other plant-milk options and ingredient or allergen information
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-      <section id="brewing-guide" class="row g-3 border-top pt-4 mt-5">
-        <h2>A guide to pour-over coffee</h2>
-        <ol type="1" start="1">
-          <li>Grinding 18g of fresh medium-roast beans.</li>
-          <li>Rinsing paper filter with clean hot water.</li>
-          <li>Blooming grounds for 40 seconds.</li>
-          <li>Pouring filtered water until 300ml.</li>
-        </ol>
-        <p>
-          This is a general brewing guide. Pour-over availability is not
-          confirmed by the published menu. Water (H
-          <sub>2</sub>
-          O), grind and pouring speed all affect extraction.
-        </p>
-      </section>
-      <section id="glossary" class="row g-3 border-top pt-4 mt-5">
-        <h2>Coffee Glossary</h2>
-        <dl>
-          <dt>Single-Origin</dt>
-          <dd>Beans sourced exclusively from a single farm or region.</dd>
-          <dt>Bumble Coffee</dt>
-          <dd>
-            Chilled beverage made with rich double espresso, sweet orange juice,
-            and ice.
-          </dd>
-          <dt>Micro-foam</dt>
-          <dd>Steamed milk aerated with tiny bubbles for silky texture.</dd>
-        </dl>
-        <p>
-          View our local reviews and customer photos on
-          <a
-            href="https://2gis.kz/astana/firm/70000001093393499"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            2GIS Astana City Guide </a
-          >.
-        </p>
-        <p class="jump-link small mb-4">
-          <a href="#top">Back to top of page</a>
-        </p>
-      </section>
     </main>
-    <footer
-      class="site-footer container py-4 border-top d-flex flex-column flex-md-row justify-content-between gap-3 small text-center text-md-start"
-    >
-      <p>
-        Direct inquiries:
-        <a href="tel:+77018804104">+7 (701) 880-41-04</a>
-        or email
-        <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.
-      </p>
-      <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
-    </footer>
     <a
       class="back-top btn btn-dark btn-sm rounded-pill position-fixed bottom-0 end-0 m-3 shadow-sm"
       href="#top"

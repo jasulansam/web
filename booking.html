@@ -17,21 +17,10 @@
     <link rel="stylesheet" href="css/bootstrap-custom.css" />
   </head>
   <body id="top" class="booking-page">
-    <header class="site-header pt-4 pt-md-5">
-      <h1 class="container text-center mb-3">
-        <span class="brand-wordmark display-1 fw-bold d-block">
-          Coffi<span class="brand-dot" aria-hidden="true">.</span>
-        </span>
-        <span class="brand-caption d-block text-uppercase small mt-2"
-          >Coffee Shop</span
-        >
-      </h1>
-      <p class="container text-center text-body-secondary small mb-4 px-4">
-        Plan a table visit or a focused study session at Coffi.
-      </p>
+    <header class="site-header">
       <!-- Fluid navigation uses the full screen width. -->
       <nav
-        class="navbar navbar-expand-lg border-top border-bottom py-3"
+        class="navbar navbar-expand-lg border-bottom py-3"
         aria-label="Primary navigation"
       >
         <div class="container-fluid px-3 px-lg-5">
@@ -55,14 +44,11 @@
                 <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="menu.html">Menu</a>
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link active fw-semibold"
+                  class="nav-link active"
                   aria-current="page"
                   href="booking.html"
                 >
@@ -91,7 +77,7 @@
         <p class="small text-uppercase text-body-secondary mb-2">Plan your visit</p>
         <h2 class="display-6">Request a table or study spot</h2>
         <p class="lead text-body-secondary mb-4">
-          Choose a date and time, then tell us how to reach you. This page prepares a demo request; it does not check availability or confirm a table.
+          Choose a date and time, then tell us how to reach you.
         </p>
         <div class="d-flex flex-wrap gap-2">
           <button
@@ -113,18 +99,12 @@
           >
             Find Coffi on 2GIS
           </a>
-          <a class="btn btn-outline-dark rounded-pill px-4" href="tel:+77018804104">
-            Call Coffi
-          </a>
         </div>
       </section>
       <section id="booking-panel" class="collapse mb-5">
         <div class="action-card p-4 p-md-5">
           <p class="small text-uppercase text-body-secondary mb-2">Reservation request</p>
           <h2 class="h3 mb-2">When are you planning to visit?</h2>
-          <p id="booking-demo" class="small text-body-secondary mb-4">
-            This is a classroom demo. Nothing is sent to Coffi and no table is reserved; call to check real availability.
-          </p>
           <form id="booking-form" class="row g-3" method="post" action="#booking-status">
             <div class="form-field col-12 col-md-4 mb-0">
               <label class="form-label" for="book-date">Date</label>
@@ -145,7 +125,7 @@
             </div>
             <div class="form-field col-12 col-md-6 mb-0">
               <label class="form-label" for="book-phone">Phone number</label>
-              <input class="form-control" type="tel" id="book-phone" name="book_phone" autocomplete="tel" placeholder="+7 (7XX) XXX-XX-XX" required />
+              <input class="form-control" type="tel" id="book-phone" name="book_phone" autocomplete="tel" inputmode="numeric" pattern="[0-9]*" placeholder="77018804104" required />
             </div>
             <div class="form-field col-12 col-md-6 mb-0">
               <label class="form-label" for="book-zone">Seating preference <span class="text-body-secondary">(optional)</span></label>
@@ -186,17 +166,6 @@
         </p>
       </section>
     </main>
-    <footer
-      class="site-footer container py-4 border-top d-flex flex-column flex-md-row justify-content-between gap-3 small text-center text-md-start"
-    >
-      <p>
-        Direct inquiries:
-        <a href="tel:+77018804104">+7 (701) 880-41-04</a>
-        or email
-        <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.
-      </p>
-      <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
-    </footer>
     <a
       class="back-top btn btn-dark btn-sm rounded-pill position-fixed bottom-0 end-0 m-3 shadow-sm"
       href="#top"

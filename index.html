@@ -17,21 +17,10 @@
     <link rel="stylesheet" href="css/bootstrap-custom.css" />
   </head>
   <body id="top" class="home-page">
-    <header class="site-header pt-4 pt-md-5">
-      <h1 class="container text-center mb-3">
-        <span class="brand-wordmark display-1 fw-bold d-block">
-          Coffi<span class="brand-dot" aria-hidden="true">.</span>
-        </span>
-        <span class="brand-caption d-block text-uppercase small mt-2"
-          >Coffee Shop</span
-        >
-      </h1>
-      <p class="container text-center text-body-secondary small mb-4 px-4">
-        Fresh specialty roasts and quiet workspace on the Left Bank of Astana.
-      </p>
+    <header class="site-header">
       <!-- Fluid navigation uses the full screen width. -->
       <nav
-        class="navbar navbar-expand-lg border-top border-bottom py-3"
+        class="navbar navbar-expand-lg border-bottom py-3"
         aria-label="Primary navigation"
       >
         <div class="container-fluid px-3 px-lg-5">
@@ -53,15 +42,12 @@
             <ul class="navbar-nav mx-auto gap-lg-3 mb-3 mb-lg-0 mt-3 mt-lg-0">
               <li class="nav-item">
                 <a
-                  class="nav-link active fw-semibold"
+                  class="nav-link active"
                   aria-current="page"
                   href="index.html"
                 >
                   Home
                 </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu.html">Menu</a>
@@ -101,20 +87,6 @@
             Check the menu, plan a takeaway order, or reserve a quiet table at
             Coffi on the Left Bank of Astana.
           </p>
-          <div class="d-flex flex-wrap gap-2">
-            <a
-              class="btn btn-warning btn-lg rounded-pill px-4"
-              href="menu.html#order-builder"
-            >
-              Plan an order
-            </a>
-            <a
-              class="btn btn-outline-light btn-lg rounded-pill px-4"
-              href="booking.html"
-            >
-              Reserve a table
-            </a>
-          </div>
         </div>
         <div class="col-12 col-lg-5">
           <div class="bg-white text-dark rounded-4 p-4 shadow-sm">
@@ -155,8 +127,12 @@
             <span
               class="icon-badge d-inline-flex rounded-circle p-3 mb-3"
               aria-hidden="true"
-              >☕</span
             >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z" />
+                <path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M7 3v2m4-2v2m4-2v2" />
+              </svg>
+            </span>
             <h3 class="h4">Choose a drink</h3>
             <p class="small text-body-secondary">
               Compare sizes and prices, then prepare your order details.
@@ -171,8 +147,12 @@
             <span
               class="icon-badge d-inline-flex rounded-circle p-3 mb-3"
               aria-hidden="true"
-              >⌂</span
             >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M5 11V5h14v6m-2 0v8m-10-8v8m-2 0h14M8 19v2m8-2v2" />
+                <path d="M5 11h14v3H5z" />
+              </svg>
+            </span>
             <h3 class="h4">Find your seat</h3>
             <p class="small text-body-secondary">
               Request a quiet desk, window table or space for a meeting.
@@ -185,8 +165,12 @@
             <span
               class="icon-badge d-inline-flex rounded-circle p-3 mb-3"
               aria-hidden="true"
-              >↗</span
             >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" />
+                <circle cx="12" cy="10" r="2.3" />
+              </svg>
+            </span>
             <h3 class="h4">Visit today</h3>
             <p class="small text-body-secondary">
               Check the address, opening hours and direct contact options.
@@ -197,24 +181,10 @@
           </article>
         </div>
       </section>
-      <p class="jump-link small mb-4">
-        <a href="#visiting-hours"
-          >Jump directly to visiting hours and location</a
-        >
-      </p>
       <article class="cafe-story row g-4 align-items-center">
         <h2 class="col-12 display-5">
           Artisan Coffee Culture on Alikhan Bokeikhan Street
         </h2>
-        <p>
-          Located at Alikhan Bokeikhan Street 10 in Astana,
-          <strong>Coffi</strong>
-          is an independent neighborhood coffeehouse founded to serve freshly
-          roasted beans and homemade pastries. We provide a peaceful haven with
-          thirty comfortable seats designed for university students, remote
-          professionals, and neighborhood residents who appreciate genuine
-          hospitality.
-        </p>
         <figure class="col-12 col-lg-6 mb-0">
           <div class="ratio ratio-4x3">
             <img
@@ -225,66 +195,46 @@
               height="300"
             />
           </div>
-          <figcaption class="small text-body-secondary mt-3">
-            The welcoming front lounge of Coffi featuring warm timber seating
-            and quiet study corners.
-          </figcaption>
         </figure>
-        <blockquote class="col-12 col-lg-6 p-4 p-lg-5 mb-0">
-          <p><q>A little coffee. A little pause.</q></p>
-          <p class="small text-body-secondary mb-0">
-            Coffi student project concept.
-          </p>
+        <blockquote class="col-12 col-lg-5 p-12 p-lg-12 mb-0 fs-4">
+          <p><q>Our vision for Coffi was simple: an authentic local alternative to commercial chains. We deliberately designed our 30-seat cafe for the neighborhood, featuring ergonomic chairs, accessible outlets, and reliable high-speed internet.
+
+</q></p>
         </blockquote>
-        <p>
-          Every single espresso shot is pulled at 93
-          <sup>&deg;</sup>
-          C using fresh beans roasted in Kazakhstan. We pair our coffee with
-          <mark>handmade bakery treats</mark>
-          baked every morning before opening hours.
-        </p>
       </article>
       <aside
-        class="row align-items-center g-3 special-offer text-light p-4 p-md-5 my-5 rounded-4 shadow-sm"
+        class="row align-items-center g-3 special-offer p-4 p-md-5 my-5 rounded-4 shadow-sm"
       >
-        <h2 class="col-12 col-md-5 text-light text-center text-lg-start">
+        <h2 class="col-12 col-md-5 text-center text-lg-start">
           Daily Morning Special
         </h2>
         <p class="col-12 col-md-7 mb-0">
           Enjoy our special breakfast pairing from 07:30 to 11:00: order any
-          <b>cappuccino</b>
-          or
-          <i>flat white</i>
-          and receive a warm
-          <small>croissant at half price</small>
-          .
+          <span class="special-offer-item">cappuccino</span> or
+          <span class="special-offer-item">flat white</span> and receive a warm
+          <span class="special-offer-item">croissant</span> at half price.
         </p>
       </aside>
       <section
         id="visiting-hours"
         class="row g-4 border-top pt-5 mt-5"
-        aria-labelledby="visit-title"
       >
         <div class="col-12 col-lg-7">
-          <h2 id="visit-title">Plan your visit</h2>
-          <p class="lead text-body-secondary">
-            Everything you need before leaving home.
-          </p>
           <div class="visit-card p-4">
-            <dl class="row mb-0">
-              <dt class="col-5">Address</dt>
-              <dd class="col-7">Alikhan Bokeikhan Street 10, Astana</dd>
-              <dt class="col-5">Hours</dt>
-              <dd class="col-7">Every day, 07:30–23:00</dd>
-              <dt class="col-5">Phone</dt>
-              <dd class="col-7">
+            <dl class="visit-details mb-0">
+              <dt>Address</dt>
+              <dd>Alikhan Bokeikhan Street 10, Astana</dd>
+              <dt>Hours</dt>
+              <dd>Every day, 07:30–23:00</dd>
+              <dt>Phone</dt>
+              <dd>
                 <a href="tel:+77018804104">+7 (701) 880-41-04</a>
               </dd>
             </dl>
           </div>
         </div>
         <div
-          class="col-12 col-lg-5 d-flex flex-column justify-content-center gap-2"
+          class="col-12 col-lg-5 d-flex flex-column justify-content-start gap-2"
         >
           <a
             class="btn btn-primary btn-lg rounded-pill"
@@ -293,31 +243,9 @@
             rel="noopener noreferrer"
             >Open directions in 2GIS ↗</a
           >
-          <a
-            class="btn btn-outline-secondary rounded-pill"
-            href="mailto:hello@coffi-astana.kz"
-            >Ask a question by email</a
-          >
-          <p class="small text-body-secondary mb-0">
-            For availability or ingredients, call the cafe before travelling.
-          </p>
         </div>
-        <p class="jump-link small mb-4">
-          <a href="#top">Back to top of page</a>
-        </p>
       </section>
     </main>
-    <footer
-      class="site-footer container py-4 border-top d-flex flex-column flex-md-row justify-content-between gap-3 small text-center text-md-start"
-    >
-      <p>
-        Direct inquiries:
-        <a href="tel:+77018804104">+7 (701) 880-41-04</a>
-        or email
-        <a href="mailto:hello@coffi-astana.kz">hello@coffi-astana.kz</a>.
-      </p>
-      <p>&copy; 2026 Coffi Coffee Shop. All rights reserved.</p>
-    </footer>
     <a
       class="back-top btn btn-dark btn-sm rounded-pill position-fixed bottom-0 end-0 m-3 shadow-sm"
       href="#top"

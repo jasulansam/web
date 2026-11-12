@@ -4,7 +4,7 @@
 
 - Status: Active
 - Last refreshed: 2026-10-24
-- Primary product surfaces: Home, menu and order planning, table reservation, about, feedback
+- Primary product surfaces: Home, menu and order planning, table reservation, feedback
 - Evidence reviewed: current Coffi HTML pages, `css/bootstrap-custom.css`, Assignment 3 Bootstrap brief, `midterm_project.docx`, existing project photographs, and current 2GIS menu link
 
 ## Brand
@@ -27,8 +27,8 @@
 
 ## Information architecture
 
-- Primary navigation: Home, Menu, Reservations, About, Feedback, Find us
-- Core routes/screens: `index.html`, `menu.html` with one basket-and-order modal, `booking.html`, `about.html`, `feedback.html`
+- Primary navigation: Home, Menu, Reservations, Feedback, Find us
+- Core routes/screens: `index.html`, `menu.html` with one basket-and-order modal, `booking.html`, `feedback.html`
 - Content hierarchy: immediate action and practical facts first, menu and story second, supporting information last
 
 ## Design principles

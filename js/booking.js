@@ -12,6 +12,26 @@
   const guests = document.querySelector("#book-guests");
   const name = document.querySelector("#book-name");
   const phone = document.querySelector("#book-phone");
+
+  name.addEventListener("input", () => {
+    name.value = name.value.replace(/[^A-Za-zА-Яа-яЁё\s'-]/g, "");
+  });
+
+  phone.addEventListener("input", () => {
+    phone.value = phone.value.replace(/[^0-9]/g, "");
+    if (phone.value && !/^7\d{10}$/.test(phone.value)) {
+      clearError(phone);
+      showError(phone, "Phone number must start with 7.");
+    }
+  });
+
+  phone.addEventListener("blur", () => {
+    if (!phone.value) return;
+    if (!/^7\d{10}$/.test(phone.value)) {
+      clearError(phone);
+      showError(phone, "Phone number must start with 7.");
+    }
+  });
   const zone = document.querySelector("#book-zone");
   const notes = document.querySelector("#book-notes");
   const today = new Date();
@@ -46,8 +66,8 @@
     app.hideStatus(status);
 
     const invalid = [];
-    if (name.value.trim().length < 2) invalid.push(showError(name, "Enter your name."));
-    if (!/^\+?[\d\s()\-]{7,}$/.test(phone.value.trim())) invalid.push(showError(phone, "Enter a valid phone number."));
+    if (!/^[A-Za-zА-Яа-яЁё\s'-]{2,}$/.test(name.value.trim())) invalid.push(showError(name, "Enter your name using letters only."));
+    if (!/^7\d{10}$/.test(phone.value)) invalid.push(showError(phone, "Phone number must start with 7."));
     if (date.value < date.min) invalid.push(showError(date, "Choose today or a future date."));
     if (!time.value) invalid.push(showError(time, "Choose a time."));
     else if (time.value < "07:30" || time.value > "23:00") {

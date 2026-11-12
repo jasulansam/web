@@ -36,7 +36,6 @@ The language switcher is intentionally postponed. The current version stays in E
 - `index.html`: practical home page with hours, address and fast actions.
 - `menu.html`: dynamic menu and the combined basket/order modal (created by JavaScript from the existing form).
 - `booking.html`: table and workspace request form.
-- `about.html`: Coffi story and workspace information.
 - `feedback.html`: customer feedback form and local review cards.
 - `colophon.html`: technical project information, omitted from visitor navigation.
 - `css/bootstrap-custom.css`: unchanged midterm brand correction layer.

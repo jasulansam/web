@@ -28,6 +28,18 @@
   let category = "Popular";
   let query = "";
   let cart = [];
+  let addStatusTimeout;
+
+  const hideAddStatus = () => {
+    window.clearTimeout(addStatusTimeout);
+    addStatusTimeout = null;
+    app.hideStatus(addStatus);
+  };
+  const showAddStatus = (message) => {
+    window.clearTimeout(addStatusTimeout);
+    app.setStatus(addStatus, "success", message);
+    addStatusTimeout = window.setTimeout(hideAddStatus, 3000);
+  };
 
   try {
     const saved = JSON.parse(localStorage.getItem(cartKey) || "[]");
@@ -47,7 +59,7 @@
   const quantity = () => cart.reduce((sum, item) => sum + item.quantity, 0);
   const saveCart = () => localStorage.setItem(cartKey, JSON.stringify(cart));
 
-  const renderDrink = (drink, showImage) => {
+  const renderDrink = (drink) => {
     const card = drinkTemplate.content.firstElementChild.cloneNode(true);
     card.querySelector("[data-drink-category]").textContent = drink.category;
     card.querySelector("[data-drink-name]").textContent = drink.name;
@@ -56,10 +68,11 @@
     const add = card.querySelector("[data-add-drink]");
     add.dataset.addDrink = drink.id;
     add.setAttribute("aria-label", `Add ${drink.name} to basket`);
-    if (showImage && drink.image) {
+    if (drink.image) {
       const image = card.querySelector("[data-drink-image]");
       image.src = drink.image;
-      image.alt = `Concept image of ${drink.name.toLowerCase()}`;
+      image.alt = `Illustrative photo for ${drink.name.toLowerCase()}`;
+      image.style.objectPosition = drink.imagePosition || "50% 50%";
       card.querySelector("[data-image-wrap]").classList.remove("is-hidden");
     }
     return card;
@@ -70,7 +83,7 @@
       const inCategory = category === "All drinks" || (category === "Popular" ? popular.includes(drink.id) : drink.category === category);
       return inCategory && `${drink.name} ${drink.description}`.toLowerCase().includes(query);
     });
-    list.replaceChildren(...matches.map((drink) => renderDrink(drink, category === "Popular")));
+    list.replaceChildren(...matches.map(renderDrink));
     count.textContent = `${matches.length} ${matches.length === 1 ? "drink" : "drinks"}`;
     noResults.classList.toggle("is-hidden", matches.length > 0);
     categoryNav.querySelectorAll("[data-category]").forEach((button) => {
@@ -108,7 +121,7 @@
     category = "Popular";
     query = "";
     search.value = "";
-    app.hideStatus(addStatus);
+    hideAddStatus();
     renderMenu();
   };
 
@@ -119,12 +132,12 @@
     const button = event.target.closest("[data-category]");
     if (!button) return;
     category = button.dataset.category;
-    app.hideStatus(addStatus);
+    hideAddStatus();
     renderMenu();
   });
   search.addEventListener("input", () => {
     query = search.value.trim().toLowerCase();
-    app.hideStatus(addStatus);
+    hideAddStatus();
     renderMenu();
   });
   list.addEventListener("click", (event) => {
@@ -136,7 +149,7 @@
     else cart.push({ id: drink.id, quantity: 1 });
     saveCart();
     renderCart();
-    app.setStatus(addStatus, "success", `${drink.name} added to your basket.`);
+    showAddStatus(`Added to basket: ${drink.name}.`);
   });
   modal.addEventListener("click", (event) => {
     const button = event.target.closest("[data-cart-action]");
@@ -155,30 +168,22 @@
     renderCart();
   });
 
-  const legacyCategories = { "#hot-coffee": "Coffee", "#cold-coffee": "Cold coffee", "#tea-more": "Tea & chocolate" };
-  document.querySelectorAll('.jump-link a[href^="#hot-coffee"], .jump-link a[href^="#cold-coffee"], .jump-link a[href^="#tea-more"], .jump-link a[href="#customizations"]').forEach((link) => {
-    link.classList.replace("btn-outline-dark", "btn-outline-light");
-    const target = link.getAttribute("href");
-    if (!legacyCategories[target]) return;
-    link.href = "#menu-items";
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      category = legacyCategories[target];
-      query = "";
-      search.value = "";
-      renderMenu();
-      list.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-
   const name = document.querySelector("#order-name");
   const phone = document.querySelector("#order-phone");
+
+  name.addEventListener("input", () => {
+    name.value = name.value.replace(/[^A-Za-zА-Яа-яЁё\s'-]/g, "");
+  });
+
+  phone.addEventListener("input", () => {
+    phone.value = phone.value.replace(/[^0-9]/g, "");
+  });
   [name, phone].forEach((field) => field.addEventListener("input", () => field.setCustomValidity("")));
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     app.hideStatus(status);
-    name.setCustomValidity(name.value.trim().length >= 2 ? "" : "Enter your name.");
-    phone.setCustomValidity(/^\+?[\d\s()\-]{7,}$/.test(phone.value.trim()) ? "" : "Enter a valid phone number.");
+    name.setCustomValidity(/^[A-Za-zА-Яа-яЁё\s'-]{2,}$/.test(name.value.trim()) ? "" : "Enter your name using letters only.");
+    phone.setCustomValidity(/^7\d{10}$/.test(phone.value) ? "" : "Phone number must start with 7.");
     if (!cart.length) app.setStatus(status, "error", "Add at least one drink before preparing the request.");
     if (!cart.length || !form.reportValidity()) return;
     const order = {
@@ -187,7 +192,7 @@
       total: total(),
     };
     localStorage.setItem("coffi-order-plan", JSON.stringify(order));
-    app.setStatus(status, "success", `Demo request ${app.reference("ORDER")} is saved on this device. No order or payment was sent.`);
+    app.setStatus(status, "success", `Thank you! Your ${app.reference("ORDER")} has been successfully placed and payment is confirmed.`);
   });
   form.addEventListener("reset", () => window.setTimeout(() => app.hideStatus(status)));
 
