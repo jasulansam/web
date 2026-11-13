@@ -39,3 +39,5 @@ Replaced font-dependent review arrow glyphs with centered SVG chevrons to repair
 Refined review motion with directional 8px movement and a 260ms opacity/height transition through jQuery. Rapid clicks finish the previous effect, resize/new reviews reset animation styles, and reduced-motion skips it. Added subtle hover feedback for review cards and icons.
 
 Sticky header trial: navigation remains at the top with a subtle scrolled shadow; Back to top removed. ResizeObserver keeps anchor scroll offset aligned to actual header height. Mobile navigation remains scrollable on short screens, with drawer/backdrop layers above the header.
+
+Approved partial Home update: replaced the old story/quote with the selected concept photo and exact Stay for a little while text. Photo extracted from generated mockup exec-3c5eccd3; conceptual, not an actual Coffi interior. Added a compact dark footer across all five pages without repeated navigation/contact buttons.
