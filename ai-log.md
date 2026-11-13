@@ -29,3 +29,5 @@ Order success now closes the basket and shows a dismissible persistent toast wit
 Feedback: three explicitly labelled illustrative sample reviews, star cards and local user-review persistence. One external 2GIS link opens public feedback; there is no automatic import or publication. Chromium/Firefox checks cover samples, submission, reload, text safety and responsive layout.
 
 Reviews use a manually controlled circular carousel (3/2/1 cards at desktop/tablet/phone widths), with accessible previous/next controls and a View all toggle restoring the full grid. No auto-advance. A newly added review starts the carousel.
+
+Added a WhatsApp contact button beside directions on Home, using the direct wa.me/77018804104 destination from the user-provided link. Opens a chat only; no automated messages.
