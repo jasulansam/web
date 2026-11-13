@@ -79,6 +79,34 @@
     updateHeaderShadow();
   }
 
+  const navigationLinks = document.querySelector(".site-header .navbar-nav");
+  if (navigationLinks) {
+    const indicator = element("span", "nav-indicator");
+    indicator.setAttribute("aria-hidden", "true");
+    navigationLinks.prepend(indicator);
+    const activeLink = navigationLinks.querySelector('[aria-current="page"]');
+    const moveIndicator = (link) => {
+      if (!link || !link.getClientRects().length) return;
+      const container = navigationLinks.getBoundingClientRect();
+      const target = link.getBoundingClientRect();
+      indicator.style.width = `${target.width}px`;
+      indicator.style.height = `${target.height}px`;
+      indicator.style.transform = `translate(${target.left - container.left}px, ${target.top - container.top}px)`;
+    };
+    moveIndicator(activeLink);
+    navigationLinks.classList.add("has-nav-indicator");
+    requestAnimationFrame(() => navigationLinks.classList.add("nav-indicator-ready"));
+    navigationLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("pointerenter", (event) => { if (event.pointerType !== "touch") moveIndicator(link); });
+      link.addEventListener("focus", () => moveIndicator(link));
+    });
+    navigationLinks.addEventListener("pointerleave", () => moveIndicator(activeLink));
+    navigationLinks.addEventListener("focusout", (event) => {
+      if (!navigationLinks.contains(event.relatedTarget)) moveIndicator(activeLink);
+    });
+    new ResizeObserver(() => moveIndicator(activeLink)).observe(navigationLinks);
+  }
+
   const recommendations = document.querySelector("#home-recommendations");
   if (recommendations) {
     ["cappuccino", "bumble", "flat-white"].forEach((id) => {

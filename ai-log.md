@@ -47,3 +47,5 @@ Replaced the conceptual atmosphere image with user-selected photo 04 downloaded 
 Final restrained refresh: retain coffee-brown as primary; slightly brighter cream with small sage selections. Keep Georgia headings, use Segoe UI/Arial for interface text. Home now has a generated coffee background without hero buttons, three recommendations sourced from the shared catalog, the approved real 2GIS interior and existing contacts/footer. Removed repeated quick-action blocks. Scroll reveal is restricted to Home informational sections; controls retain dedicated small animations. Heavy referenced drink images use optimized WebP versions.
 
 Adjusted Home coffee background using a masked photo layer: wider seamless fade, cup placed on the right, vertical fade on phones. Verified rendered desktop/mobile screenshots.
+
+Navigation motion: shared highlight follows pointer/focus, returns to current page and resizes with mobile collapse. Ordinary links remain native. Supporting browsers use cross-document View Transitions with a stable header and short content fade. Reduced-motion disables effects.

@@ -821,3 +821,21 @@ h1, h2, h3 { text-wrap: balance; }
 @media (max-width: 767.98px) {
   .home-hero::before { inset: auto 0 0; width: 100%; height: 330px; background-position: center bottom; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgb(0 0 0 / 35%) 20%, #000 48%); mask-image: linear-gradient(to bottom, transparent 0%, rgb(0 0 0 / 35%) 20%, #000 48%); }
 }
+
+/* One highlight moves between navigation items, without intercepting links. */
+.site-header .navbar-nav { position: relative; isolation: isolate; }
+.nav-indicator { position: absolute; top: 0; left: 0; pointer-events: none; z-index: -1; background: var(--coffi-sage); border-radius: 0.75rem; }
+.site-header .has-nav-indicator .nav-link.active, .site-header .has-nav-indicator .nav-link:hover { background: transparent; }
+.site-header .nav-link { transition: color 160ms ease; }
+@media (prefers-reduced-motion: no-preference) {
+  .nav-indicator-ready .nav-indicator { transition: transform 220ms ease, width 220ms ease, height 220ms ease; }
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: coffi-header; }
+  .nav-indicator { view-transition-name: coffi-nav-highlight; }
+  ::view-transition-old(root) { animation: page-leave 140ms ease both; }
+  ::view-transition-new(root) { animation: page-arrive 200ms ease both; }
+  ::view-transition-group(coffi-nav-highlight) { animation-duration: 220ms; }
+  @keyframes page-leave { to { opacity: 0; } }
+  @keyframes page-arrive { from { opacity: 0; } to { opacity: 1; } }
+}
+@media (prefers-reduced-motion: reduce) { .site-header .nav-link { transition: none; } }
