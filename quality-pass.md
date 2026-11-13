@@ -44,3 +44,5 @@ Feedback: three explicitly labelled illustrative sample reviews, star cards and 
 Reviews use a manually controlled circular carousel (3/2/1 cards at desktop/tablet/phone widths), with accessible previous/next controls and a View all toggle restoring the full grid. No auto-advance. A newly added review starts the carousel.
 
 Added jQuery 3.7.1 (full build) on Feedback at the student request. Carousel clicks use .on(); .stop(true, true) avoids animation queues and .animate({ opacity: 1 }, 240) softly reveals the next cards. Native click fallback keeps reviews usable if the CDN is unavailable. Reduced-motion skips effects. Button press/hover and order notification use small CSS transitions.
+
+Refined review motion with directional 8px movement and a 260ms opacity/height transition through jQuery. Rapid clicks finish the previous effect, resize/new reviews reset animation styles, and reduced-motion skips it. Added subtle hover feedback for review cards and icons.

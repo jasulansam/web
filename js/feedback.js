@@ -87,33 +87,39 @@
     toggle.setAttribute("aria-expanded", String(showAll));
   };
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-  const animateReviews = () => {
-    if (!$) return;
-    // Stop the previous effect so fast clicks do not queue delayed animations.
-    const $list = $(list).stop(true, true);
-    if (reducedMotion.matches) { $list.css("opacity", 1); return; }
-    $list.css("opacity", 0.2).animate({ opacity: 1 }, 240);
+  const changeReviewView = (update, direction = 1) => {
+    const $list = $ ? $(list).stop(true, true) : null;
+    const oldHeight = list.getBoundingClientRect().height;
+    update();
+    updateReviewView();
+    if (!$list || reducedMotion.matches) return;
+    const newHeight = list.getBoundingClientRect().height;
+    $list.css({ height: oldHeight, opacity: 0.25, overflow: "hidden", left: direction * 8 })
+      .animate({ height: newHeight, opacity: 1, left: 0 }, 260, () => {
+        $list.css({ height: "", opacity: "", left: "", overflow: "" });
+      });
   };
   const onReviewClick = (button, handler) => {
     if ($) $(button).on("click", handler);
     else button.addEventListener("click", handler);
   };
-  onReviewClick(previous, () => {
+  onReviewClick(previous, () => changeReviewView(() => {
     firstReview = (firstReview - 1 + list.children.length) % list.children.length;
-    updateReviewView();
-    animateReviews();
-  });
-  onReviewClick(next, () => {
+  }, -1));
+  onReviewClick(next, () => changeReviewView(() => {
     firstReview = (firstReview + 1) % list.children.length;
-    updateReviewView();
-    animateReviews();
-  });
-  onReviewClick(toggle, () => { showAll = !showAll; updateReviewView(); animateReviews(); });
-  reducedMotion.addEventListener("change", () => { if (reducedMotion.matches && $) $(list).stop(true, true).css("opacity", 1); });
-  desktop.addEventListener("change", updateReviewView);
-  tablet.addEventListener("change", updateReviewView);
+  }, 1));
+  onReviewClick(toggle, () => changeReviewView(() => { showAll = !showAll; }));
+  const finishReviewAnimation = () => {
+    if ($) $(list).stop(true, true).css({ height: "", opacity: "", left: "", overflow: "" });
+  };
+  reducedMotion.addEventListener("change", () => { if (reducedMotion.matches) finishReviewAnimation(); });
+  const resizeReviews = () => { finishReviewAnimation(); updateReviewView(); };
+  desktop.addEventListener("change", resizeReviews);
+  tablet.addEventListener("change", resizeReviews);
 
   const renderReviews = () => {
+    finishReviewAnimation();
     list.replaceChildren(...[...reviews, ...samples].map((review) => {
       const column = app.element("div", "col-12 col-md-6 col-xl-4");
       const card = app.element("article", "action-card review-card h-100 p-4");

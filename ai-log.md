@@ -35,3 +35,5 @@ Added a WhatsApp contact button beside directions on Home, using the direct wa.m
 Added jQuery 3.7.1 (full build) on Feedback at the student request. Carousel clicks use .on(); .stop(true, true) avoids animation queues and .animate({ opacity: 1 }, 240) softly reveals the next cards. Native click fallback keeps reviews usable if the CDN is unavailable. Reduced-motion skips effects. Button press/hover and order notification use small CSS transitions.
 
 Replaced font-dependent review arrow glyphs with centered SVG chevrons to repair misalignment.
+
+Refined review motion with directional 8px movement and a 260ms opacity/height transition through jQuery. Rapid clicks finish the previous effect, resize/new reviews reset animation styles, and reduced-motion skips it. Added subtle hover feedback for review cards and icons.

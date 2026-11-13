@@ -740,3 +740,11 @@ html { scrollbar-gutter: stable; }
 }
 
 .review-arrow svg { display: block; width: 20px; height: 20px; }
+
+#review-list { position: relative; }
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .review-card { transition: border-color 180ms ease, box-shadow 180ms ease; }
+  .review-card:hover { border-color: #cbb19e; box-shadow: 0 0.65rem 1.65rem rgb(67 45 31 / 10%); }
+  .action-card .icon-badge svg, .basket-button svg { transition: transform 180ms ease; }
+  .action-card:hover .icon-badge svg, .basket-button:hover svg { transform: translateY(-1px); }
+}

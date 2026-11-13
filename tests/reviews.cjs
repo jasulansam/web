@@ -7,7 +7,7 @@ assert.equal(await p.locator('#review-list article:visible').count(),1);
 const first=await p.locator('#review-list article:visible h3').innerText();
 for(let i=0;i<3;i++) await p.locator('#reviews-next').click();
 assert.equal(await p.locator('#review-list article:visible h3').innerText(),first);
-await p.locator('#reviews-prev').click();await p.waitForFunction(()=>!jQuery('#review-list').is(':animated'));assert.notEqual(await p.locator('#review-list article:visible h3').innerText(),first);
+await p.locator('#reviews-prev').click();await p.waitForFunction(()=>!jQuery('#review-list').is(':animated'));assert.deepEqual(await p.locator('#review-list').evaluate(el=>[el.style.height,el.style.left,el.style.overflow]),['','','']);assert.notEqual(await p.locator('#review-list article:visible h3').innerText(),first);
 await p.emulateMedia({reducedMotion:'reduce'});
 await p.locator('#reviews-next').click();
 assert.equal(await p.evaluate(()=>jQuery('#review-list').is(':animated')),false);
