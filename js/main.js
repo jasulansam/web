@@ -148,7 +148,6 @@
         card.hidden = order >= count;
         card.style.order = order;
       });
-      document.querySelector('#drinks-position').textContent = `${first + 1} / ${cards.length}`;
       if (direction && !reduced.matches) animation = recommendations.animate([
         { opacity },
         { opacity: 1 }
