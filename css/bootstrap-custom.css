@@ -648,8 +648,6 @@ textarea.form-control { min-height: 96px; }
 .menu-page #price-table-section > .feature-card.row.g-0 h1 { font-size: clamp(1.3rem, 2.3vw, 1.85rem); }
 .menu-page #menu-items button[data-add-drink] { width: 44px; height: 44px; flex-basis: 44px; }
 #menu-status.is-error { position: fixed; bottom: 1rem; right: 1rem; z-index: 1090; width: min(26rem, calc(100vw - 2rem)); box-shadow: 0 0.5rem 1.5rem rgb(67 45 31 / 12%); }
-.back-top { display: none; }
-.back-top.is-visible { display: inline-block; }
 @media (max-width: 991.98px) {
   .header-container { flex-wrap: wrap; }
   .header-actions { margin-left: auto; }
@@ -748,3 +746,14 @@ html { scrollbar-gutter: stable; }
   .action-card .icon-badge svg, .basket-button svg { transition: transform 180ms ease; }
   .action-card:hover .icon-badge svg, .basket-button:hover svg { transform: translateY(-1px); }
 }
+
+/* Sticky navigation stays below Bootstrap drawers and their backdrops. */
+html { scroll-padding-top: var(--header-height, 76px); }
+.site-header { position: sticky; top: 0; z-index: 1020; }
+.site-header.is-scrolled { box-shadow: 0 5px 18px rgb(52 40 32 / 8%); }
+main [id] { scroll-margin-top: 1rem; }
+@media (max-width: 991.98px) {
+  .site-header .navbar { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+  .site-header #siteNav { max-height: calc(100dvh - 80px); overflow-y: auto; }
+}
+@media (prefers-reduced-motion: no-preference) { .site-header { transition: box-shadow 180ms ease; } }

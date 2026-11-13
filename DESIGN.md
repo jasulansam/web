@@ -103,3 +103,5 @@ Keep the existing brand, Bootstrap structure and pages. Use one shared header wi
 The basket opens as a right-side Bootstrap offcanvas (full width on small phones), with separated items, total and contact details. Use a filled labelled basket button rather than a floating circle.
 
 Reviews use a manually controlled circular carousel (3/2/1 cards at desktop/tablet/phone widths), with accessible previous/next controls and a View all toggle restoring the full grid. No auto-advance. A newly added review starts the carousel.
+
+Sticky header trial: navigation remains at the top with a subtle scrolled shadow; Back to top removed. ResizeObserver keeps anchor scroll offset aligned to actual header height. Mobile navigation remains scrollable on short screens, with drawer/backdrop layers above the header.

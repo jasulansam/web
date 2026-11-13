@@ -66,11 +66,17 @@
     const navigation = document.querySelector("#siteNav");
     if (navigation && window.bootstrap) bootstrap.Collapse.getInstance(navigation)?.hide();
   });
-  const backTop = document.querySelector(".back-top");
-  if (backTop) {
-    const updateBackTop = () => backTop.classList.toggle("is-visible", window.scrollY > 500);
-    window.addEventListener("scroll", updateBackTop, { passive: true });
-    updateBackTop();
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const updateHeaderHeight = () => document.documentElement.style.setProperty(
+      "--header-height", `${header.getBoundingClientRect().height}px`
+    );
+    const updateHeaderShadow = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+    new ResizeObserver(updateHeaderHeight).observe(header);
+    window.addEventListener("scroll", updateHeaderShadow, { passive: true });
+    window.addEventListener("pageshow", updateHeaderShadow);
+    updateHeaderHeight();
+    updateHeaderShadow();
   }
 
   window.CoffiApp = Object.freeze({ drinks, element, money, reference, today, findDrink, setStatus, hideStatus });

@@ -37,3 +37,5 @@ Added jQuery 3.7.1 (full build) on Feedback at the student request. Carousel cli
 Replaced font-dependent review arrow glyphs with centered SVG chevrons to repair misalignment.
 
 Refined review motion with directional 8px movement and a 260ms opacity/height transition through jQuery. Rapid clicks finish the previous effect, resize/new reviews reset animation styles, and reduced-motion skips it. Added subtle hover feedback for review cards and icons.
+
+Sticky header trial: navigation remains at the top with a subtle scrolled shadow; Back to top removed. ResizeObserver keeps anchor scroll offset aligned to actual header height. Mobile navigation remains scrollable on short screens, with drawer/backdrop layers above the header.
