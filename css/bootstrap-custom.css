@@ -165,19 +165,22 @@ h2 {
   color: var(--coffi-ink);
 }
 .state-message {
-  border-left: 0.25rem solid var(--coffi-amber);
-  background: #f4ece5;
+  border: 1px solid var(--coffi-line);
+  border-left: 0.3rem solid var(--coffi-amber);
+  border-radius: 0.85rem;
+  background: #fbf5ee;
+  color: var(--coffi-ink);
 }
 .is-hidden {
   display: none !important;
 }
 .is-error {
   border-left-color: #b8473e;
-  background: #fff0ed;
+  background: #fff5f2;
 }
 .is-success {
-  border-left-color: #8fce9a;
-  background: #edf5ee;
+  border-left-color: var(--coffi-leaf);
+  background: #f0f3e9;
 }
 #menu-status.is-success {
   position: fixed;
@@ -185,10 +188,12 @@ h2 {
   bottom: 1rem;
   z-index: 1090;
   width: min(26rem, calc(100vw - 2rem));
-  border-left: 0.3rem solid #a9e3b2;
-  background: #244b31;
-  color: #ffffff;
-  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 24%);
+  border: 1px solid #d2dac7;
+  border-left: 0.3rem solid var(--coffi-leaf);
+  border-radius: 0.85rem;
+  background: #f0f3e9;
+  color: var(--coffi-ink);
+  box-shadow: 0 0.75rem 2rem rgb(67 45 31 / 16%);
   animation: coffi-toast-in 180ms ease-out;
 }
 @keyframes coffi-toast-in {
