@@ -827,8 +827,8 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
   .home-recommendations { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .section-appearing { animation: section-appear 420ms ease-out both; }
-  @keyframes section-appear { from { opacity: 0.65; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .section-appearing { animation: section-appear 180ms ease-out; }
+  @keyframes section-appear { from { opacity: 0.85; } to { opacity: 1; } }
   .recommendation-card img { transition: box-shadow 180ms ease, transform 180ms ease; }
   @media (hover: hover) { .recommendation-card:hover img { transform: translateY(-3px); box-shadow: 0 8px 24px rgb(54 37 31 / 12%); } }
 }
@@ -853,10 +853,9 @@ h1, h2, h3 { text-wrap: balance; }
   .nav-indicator-ready .nav-indicator { transition: transform 220ms ease, width 220ms ease, height 220ms ease; }
   @view-transition { navigation: auto; }
   .site-header { view-transition-name: coffi-header; }
-  .nav-indicator { view-transition-name: coffi-nav-highlight; }
   ::view-transition-old(root) { animation: page-leave 140ms ease both; }
   ::view-transition-new(root) { animation: page-arrive 200ms ease both; }
-  ::view-transition-group(coffi-nav-highlight) { animation-duration: 220ms; }
+  ::view-transition-group(coffi-header) { animation-duration: 0s; }
   @keyframes page-leave { to { opacity: 0; } }
   @keyframes page-arrive { from { opacity: 0; } to { opacity: 1; } }
 }

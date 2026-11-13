@@ -88,14 +88,16 @@
   };
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const changeReviewView = (update, direction = 1) => {
+    const opacity = getComputedStyle(list).opacity;
+    const wasAnimating = $ && $(list).is(":animated");
     const $list = $ ? $(list).stop(true, true) : null;
     const oldHeight = list.getBoundingClientRect().height;
     update();
     updateReviewView();
     if (!$list || reducedMotion.matches) return;
     const newHeight = list.getBoundingClientRect().height;
-    $list.css({ height: oldHeight, opacity: 0.25, overflow: "hidden", left: direction * 8 })
-      .animate({ height: newHeight, opacity: 1, left: 0 }, 260, () => {
+    $list.css({ height: oldHeight, opacity: wasAnimating ? opacity : 0.75, overflow: "hidden", left: 0 })
+      .animate({ height: newHeight, opacity: 1, left: 0 }, 180, () => {
         $list.css({ height: "", opacity: "", left: "", overflow: "" });
       });
   };
@@ -114,6 +116,7 @@
     if ($) $(list).stop(true, true).css({ height: "", opacity: "", left: "", overflow: "" });
   };
   reducedMotion.addEventListener("change", () => { if (reducedMotion.matches) finishReviewAnimation(); });
+  window.addEventListener("pagehide", finishReviewAnimation);
   const resizeReviews = () => { finishReviewAnimation(); updateReviewView(); };
   desktop.addEventListener("change", resizeReviews);
   tablet.addEventListener("change", resizeReviews);

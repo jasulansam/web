@@ -129,6 +129,7 @@
     let first = 0;
     let animation;
     const render = (direction = 0) => {
+      const opacity = animation?.playState === "running" ? getComputedStyle(recommendations).opacity : "0.75";
       animation?.cancel();
       const count = desktop.matches ? 3 : tablet.matches ? 2 : 1;
       cards.forEach((card, index) => {
@@ -138,9 +139,9 @@
       });
       document.querySelector('#drinks-position').textContent = `${first + 1} / ${cards.length}`;
       if (direction && !reduced.matches) animation = recommendations.animate([
-        { opacity: 0.3, transform: `translateX(${direction * 12}px)` },
-        { opacity: 1, transform: 'translateX(0)' }
-      ], { duration: 280, easing: 'ease-out' });
+        { opacity },
+        { opacity: 1 }
+      ], { duration: 180, easing: 'ease-out' });
     };
     [-1, 1].forEach(direction => document.querySelector(direction < 0 ? '#drinks-prev' : '#drinks-next').addEventListener('click', () => {
       first = (first + direction + cards.length) % cards.length;
@@ -149,6 +150,7 @@
     desktop.addEventListener('change', () => render());
     tablet.addEventListener('change', () => render());
     reduced.addEventListener('change', () => render());
+    window.addEventListener('pagehide', () => animation?.cancel());
     render();
   }
   const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
@@ -156,7 +158,9 @@
     const reveal = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
+        // Do not move controls while the visitor is scrolling or clicking.
         entry.target.classList.add("section-appearing");
+        entry.target.addEventListener("animationend", () => entry.target.classList.remove("section-appearing"), { once: true });
         reveal.unobserve(entry.target);
       });
     }, { threshold: 0.08 });
