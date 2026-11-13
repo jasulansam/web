@@ -37,6 +37,9 @@ h2 {
 .brand-dot {
   color: var(--coffi-amber);
 }
+.brand-i { position: relative; display: inline-block; }
+.brand-i svg { position: absolute; width: 0.27em; height: 0.27em; left: 0.09em; top: 0.12em; fill: var(--coffi-amber); }
+.footer-brand .brand-i svg { fill: #b8c8a7; }
 .site-header {
   background: linear-gradient(135deg, #f4ece5, #fffdfb 70%);
 }
@@ -837,7 +840,8 @@ h1, h2, h3 { text-wrap: balance; }
 .home-hero { overflow: hidden; background: #fcf4e9; isolation: isolate; }
 .home-hero::before { content: ""; position: absolute; inset: 0 0 0 auto; width: 66%; z-index: -1; background: url('../images/home-coffee-background.webp') center center / cover no-repeat; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 18%) 15%, rgb(0 0 0 / 65%) 33%, #000 52%); mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 18%) 15%, rgb(0 0 0 / 65%) 33%, #000 52%); }
 @media (max-width: 767.98px) {
-  .home-hero::before { inset: auto 0 0; width: 100%; height: 330px; background-position: center bottom; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgb(0 0 0 / 35%) 20%, #000 48%); mask-image: linear-gradient(to bottom, transparent 0%, rgb(0 0 0 / 35%) 20%, #000 48%); }
+  .home-hero { min-height: 0; display: flex; flex-direction: column; padding-bottom: 0 !important; }
+  .home-hero::before { position: relative; order: 2; inset: auto; flex: none; width: calc(100% + 3rem); height: clamp(200px, 52vw, 280px); margin: 0 -1.5rem; background-position: center 65%; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 32%); mask-image: linear-gradient(to bottom, transparent 0%, #000 32%); }
 }
 
 /* One highlight moves between navigation items, without intercepting links. */
