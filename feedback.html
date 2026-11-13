@@ -119,7 +119,15 @@
           Use “Write a review” above to add a sample. For public customer reviews, open 2GIS.
         </p>
         <p class="small text-body-secondary mb-4">Sample cards show how reviews look. Reviews you add are saved only in this browser.</p>
-        <div id="review-list" class="row g-3"></div>
+        <div id="review-browser" class="review-browser" role="region" aria-roledescription="carousel" aria-label="Reviews">
+          <button id="reviews-prev" class="review-arrow" type="button" aria-label="Previous review" aria-controls="review-list">‹</button>
+          <div id="review-list" class="row g-3"></div>
+          <button id="reviews-next" class="review-arrow" type="button" aria-label="Next review" aria-controls="review-list">›</button>
+        </div>
+        <div class="d-flex align-items-center justify-content-between gap-3 mt-3">
+          <p id="reviews-position" class="small text-body-secondary mb-0" role="status" aria-live="polite"></p>
+          <button id="reviews-toggle" type="button" class="btn btn-outline-dark btn-sm rounded-pill" aria-expanded="false" aria-controls="review-list">View all reviews</button>
+        </div>
         <div class="reviews-external mt-4 p-4 rounded-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
           <div><h3 class="h5 mb-1">Looking for public reviews?</h3><p class="small text-body-secondary mb-0">Read customer feedback on Coffi’s 2GIS page.</p></div>
           <a class="btn btn-outline-dark rounded-pill" href="https://2gis.kz/astana/firm/70000001093393499" target="_blank" rel="noopener noreferrer">Reviews on 2GIS ↗</a>

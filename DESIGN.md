@@ -101,3 +101,5 @@
 Keep the existing brand, Bootstrap structure and pages. Use one shared header with a basket action with icon, visible label and count, aligned beside the mobile menu. Preserve accessible labels and focus states. Use clear active navigation, readable mobile controls, visible category choices and consistent form spacing. Back-to-top appears only after scrolling. Account keeps login first with saved orders beneath it.
 
 The basket opens as a right-side Bootstrap offcanvas (full width on small phones), with separated items, total and contact details. Use a filled labelled basket button rather than a floating circle.
+
+Reviews use a manually controlled circular carousel (3/2/1 cards at desktop/tablet/phone widths), with accessible previous/next controls and a View all toggle restoring the full grid. No auto-advance. A newly added review starts the carousel.

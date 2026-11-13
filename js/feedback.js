@@ -57,6 +57,46 @@
     field.closest(".form-field")?.append(note);
     return field;
   };
+  const browser = document.querySelector("#review-browser");
+  const previous = document.querySelector("#reviews-prev");
+  const next = document.querySelector("#reviews-next");
+  const toggle = document.querySelector("#reviews-toggle");
+  const position = document.querySelector("#reviews-position");
+  const desktop = matchMedia("(min-width: 1200px)");
+  const tablet = matchMedia("(min-width: 768px)");
+  let firstReview = 0;
+  let showAll = false;
+  const updateReviewView = () => {
+    const cards = [...list.children];
+    const visibleCount = Math.min(cards.length, desktop.matches ? 3 : tablet.matches ? 2 : 1);
+    firstReview = cards.length ? firstReview % cards.length : 0;
+    const visible = Array.from({ length: visibleCount }, (_, offset) => (firstReview + offset) % cards.length);
+    browser.classList.toggle("show-all", showAll);
+    browser.setAttribute("aria-roledescription", showAll ? "review list" : "carousel");
+    cards.forEach((card, index) => {
+      card.classList.toggle("is-hidden", !showAll && !visible.includes(index));
+      card.style.order = showAll ? "" : String((index - firstReview + cards.length) % cards.length);
+    });
+    const canMove = !showAll && cards.length > 1;
+    previous.classList.toggle("is-hidden", showAll);
+    next.classList.toggle("is-hidden", showAll);
+    previous.disabled = next.disabled = !canMove;
+    position.textContent = showAll ? `All ${cards.length} reviews` : `${firstReview + 1} / ${cards.length}`;
+    toggle.textContent = showAll ? "Back to carousel" : "View all reviews";
+    toggle.setAttribute("aria-expanded", String(showAll));
+  };
+  previous.addEventListener("click", () => {
+    firstReview = (firstReview - 1 + list.children.length) % list.children.length;
+    updateReviewView();
+  });
+  next.addEventListener("click", () => {
+    firstReview = (firstReview + 1) % list.children.length;
+    updateReviewView();
+  });
+  toggle.addEventListener("click", () => { showAll = !showAll; updateReviewView(); });
+  desktop.addEventListener("change", updateReviewView);
+  tablet.addEventListener("change", updateReviewView);
+
   const renderReviews = () => {
     list.replaceChildren(...[...reviews, ...samples].map((review) => {
       const column = app.element("div", "col-12 col-md-6 col-xl-4");
@@ -78,6 +118,7 @@
     }));
     empty.classList.add("is-hidden");
     count.textContent = `${samples.length} samples${reviews.length ? ` · ${reviews.length} of your reviews` : ""}`;
+    updateReviewView();
   };
 
   comments.addEventListener("input", () => {
@@ -101,6 +142,7 @@
       return;
     }
 
+    firstReview = 0;
     reviews.unshift({
       name: name.value.trim(),
       visitDate: visitDate.value,
