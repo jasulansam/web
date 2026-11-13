@@ -730,3 +730,11 @@ html { scrollbar-gutter: stable; }
   #reviews-next { grid-column: 3; grid-row: 2; }
   .review-browser .review-card { min-height: 240px; }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .basket-button, .review-arrow { transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+  .btn:active, .basket-button:active, .review-arrow:active:not(:disabled) { transform: scale(0.97); }
+  .review-arrow:hover:not(:disabled) { transform: translateY(-2px); }
+  #order-saved.showing { animation: notification-in 200ms ease-out; }
+  @keyframes notification-in { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+}

@@ -2,6 +2,7 @@
 
 (() => {
   const app = window.CoffiApp;
+  const $ = window.jQuery;
   const form = document.querySelector("#feedback-form");
   const status = document.querySelector("#feedback-status");
   if (!app || !form || !status) return;
@@ -85,15 +86,30 @@
     toggle.textContent = showAll ? "Back to carousel" : "View all reviews";
     toggle.setAttribute("aria-expanded", String(showAll));
   };
-  previous.addEventListener("click", () => {
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  const animateReviews = () => {
+    if (!$) return;
+    // Stop the previous effect so fast clicks do not queue delayed animations.
+    const $list = $(list).stop(true, true);
+    if (reducedMotion.matches) { $list.css("opacity", 1); return; }
+    $list.css("opacity", 0.2).animate({ opacity: 1 }, 240);
+  };
+  const onReviewClick = (button, handler) => {
+    if ($) $(button).on("click", handler);
+    else button.addEventListener("click", handler);
+  };
+  onReviewClick(previous, () => {
     firstReview = (firstReview - 1 + list.children.length) % list.children.length;
     updateReviewView();
+    animateReviews();
   });
-  next.addEventListener("click", () => {
+  onReviewClick(next, () => {
     firstReview = (firstReview + 1) % list.children.length;
     updateReviewView();
+    animateReviews();
   });
-  toggle.addEventListener("click", () => { showAll = !showAll; updateReviewView(); });
+  onReviewClick(toggle, () => { showAll = !showAll; updateReviewView(); animateReviews(); });
+  reducedMotion.addEventListener("change", () => { if (reducedMotion.matches && $) $(list).stop(true, true).css("opacity", 1); });
   desktop.addEventListener("change", updateReviewView);
   tablet.addEventListener("change", updateReviewView);
 

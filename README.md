@@ -37,3 +37,5 @@ Order history now appears inside Account, also available to guests. Old orders.h
 Order history visibility now requires the browser account to be signed in. Logout clears rendered order details immediately; sign-in restores saved history. Guest checkout remains available. This is a client-side demo visibility rule.
 
 Feedback: three explicitly labelled illustrative sample reviews, star cards and local user-review persistence. One external 2GIS link opens public feedback; there is no automatic import or publication. Chromium/Firefox checks cover samples, submission, reload, text safety and responsive layout.
+
+Added jQuery 3.7.1 (full build) on Feedback at the student request. Carousel clicks use .on(); .stop(true, true) avoids animation queues and .animate({ opacity: 1 }, 240) softly reveals the next cards. Native click fallback keeps reviews usable if the CDN is unavailable. Reduced-motion skips effects. Button press/hover and order notification use small CSS transitions.
