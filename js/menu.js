@@ -276,7 +276,10 @@
   });
   renderMenu();
   renderCart();
-  if (requestedDrink) requestAnimationFrame(() => {
-    document.querySelector(`#drink-${CSS.escape(requestedDrink.id)}`)?.scrollIntoView({ block: "center" });
-  });
+  if (requestedDrink) requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelector(`#drink-${CSS.escape(requestedDrink.id)}`)?.scrollIntoView({
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "center"
+    });
+  }));
 })();

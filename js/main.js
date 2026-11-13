@@ -117,7 +117,7 @@
       image.alt = drink.name;
       image.width = 600; image.height = 450; image.loading = "lazy";
       const imageLink = element("a", "recommendation-image-link");
-      imageLink.href = `menu.html?drink=${encodeURIComponent(drink.id)}#drink-${drink.id}`;
+      imageLink.href = `menu.html?drink=${encodeURIComponent(drink.id)}`;
       imageLink.setAttribute("aria-label", `View ${drink.name} in the menu`);
       imageLink.append(image);
       const heading = element("div", "recommendation-heading");

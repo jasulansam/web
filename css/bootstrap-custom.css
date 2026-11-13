@@ -836,6 +836,7 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
   .recommendation-card img { transition: box-shadow 180ms ease, transform 180ms ease; }
   @media (hover: hover) { .recommendation-card:hover img { transform: translateY(-3px); box-shadow: 0 8px 24px rgb(54 37 31 / 12%); } }
 }
+.requested-drink { scroll-margin-top: calc(var(--header-height, 5rem) + 1rem); }
 .requested-drink article { border-color: var(--coffi-leaf); box-shadow: 0 0 0 3px rgb(83 102 74 / 14%); }
 @media (prefers-reduced-motion: no-preference) {
   .requested-drink article { animation: requested-drink-in 650ms ease-out; }
