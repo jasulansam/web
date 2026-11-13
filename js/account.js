@@ -78,6 +78,7 @@
       const account = readAccount();
       const signedInEmail = sessionStorage.getItem(sessionKey);
       const signedIn = account && signedInEmail === account.email;
+      window.dispatchEvent(new Event("coffi-session-change"));
       sessionPanel.classList.toggle("is-hidden", !signedIn);
       if (!signedIn) { showForm("login", false); return; }
       loginPanel.classList.add("is-hidden");
@@ -184,6 +185,7 @@
   logout.addEventListener("click", () => {
     try {
       sessionStorage.removeItem(sessionKey);
+      window.dispatchEvent(new Event("coffi-session-change"));
       app.hideStatus(registerStatus);
       sessionPanel.classList.add("is-hidden");
       showForm("login");

@@ -19,3 +19,5 @@ Follow-up: implemented My orders history, order detail snapshots, previous singl
 Order history now appears inside Account, also available to guests. Old orders.html links redirect to Account and preserve the selected order.
 
 Visual repair: consistent responsive navigation, labelled basket icon with count, offcanvas checkout, visible category controls, consistent forms and account links. Back-to-top is shown only after scrolling. User explicitly requested visual refinement and rejected the circular basket action.
+
+Order history visibility now requires the browser account to be signed in. Logout clears rendered order details immediately; sign-in restores saved history. Guest checkout remains available. This is a client-side demo visibility rule.

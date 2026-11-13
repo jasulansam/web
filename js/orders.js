@@ -33,10 +33,17 @@
 
   const list = document.querySelector("#orders-list");
   if (!list) return;
+  const section = document.querySelector("#orders");
   const status = document.querySelector("#orders-status");
   const empty = document.querySelector("#orders-empty");
   const render = () => {
+    section.classList.add("is-hidden");
+    list.replaceChildren();
     try {
+      const account = JSON.parse(localStorage.getItem("coffi-demo-account") || "null");
+      const session = sessionStorage.getItem("coffi-demo-session");
+      if (!account?.email || !account.salt || !account.passwordDigest || session !== account.email) return;
+      section.classList.remove("is-hidden");
       const orders = read();
       app.hideStatus(status);
       empty.classList.toggle("is-hidden", orders.length > 0);
@@ -73,9 +80,11 @@
       app.setStatus(status, "error", "Saved orders could not be read. Browser storage may be unavailable or damaged. Your stored history has not been changed.");
     }
   };
+  window.addEventListener("coffi-session-change", render);
+  window.addEventListener("pageshow", render);
   window.addEventListener("hashchange", render);
   window.addEventListener("storage", (event) => {
-    if (event.key === key || event.key === null) render();
+    if ([key, "coffi-demo-account", "coffi-demo-session", null].includes(event.key)) render();
   });
   render();
 })();

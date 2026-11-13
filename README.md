@@ -33,3 +33,5 @@ Do not apply the `final` tag yet: remaining teacher remarks and real-device vali
 My orders (`orders.html`) lists snapshots saved under `coffi-orders` in localStorage, including guest orders. These remain until browser site data is cleared and are shared by users of that browser profile. Previous `coffi-order-plan` data is shown when no newer history exists.
 
 Order history now appears inside Account, also available to guests. Old orders.html links redirect to Account and preserve the selected order.
+
+Order history visibility now requires the browser account to be signed in. Logout clears rendered order details immediately; sign-in restores saved history. Guest checkout remains available. This is a client-side demo visibility rule.
