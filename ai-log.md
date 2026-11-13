@@ -23,3 +23,5 @@ Visual repair: consistent responsive navigation, labelled basket icon with count
 Order history visibility now requires the browser account to be signed in. Logout clears rendered order details immediately; sign-in restores saved history. Guest checkout remains available. This is a client-side demo visibility rule.
 
 Navigation repair: consistent main top spacing, reserved scrollbar space, fixed basket action width, cached mobile navigation reset, and basket refresh on browser back/forward and cross-tab storage updates. Added tests navigating through actual page links at mobile and desktop widths.
+
+Order success now closes the basket and shows a dismissible persistent toast with a direct link to the saved order. Save failures remain in the basket.

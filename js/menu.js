@@ -141,7 +141,11 @@
   };
 
   const modalInstance = window.bootstrap.Offcanvas.getOrCreateInstance(modal);
-  openCart.addEventListener("click", () => { hideAddStatus(); modalInstance.show(); });
+  openCart.addEventListener("click", () => {
+    hideAddStatus();
+    bootstrap.Toast.getInstance(document.querySelector("#order-saved"))?.hide();
+    modalInstance.show();
+  });
   if (new URLSearchParams(location.search).get("basket") === "1") {
     modalInstance.show();
   }
@@ -231,10 +235,16 @@
       cart = [];
       const basketSaved = saveCart();
       renderCart();
-      app.setStatus(status, "success", basketSaved ? "Order saved. You can view it anytime in My orders." : "Order saved in My orders, but the empty basket could not be saved.");
-      const link = app.element("a", "d-block mt-2 fw-semibold", "View saved order →");
-      link.href = `account.html#order-${order.id}`;
-      status.append(link);
+      hideAddStatus();
+      document.querySelector("#order-saved-message").textContent = basketSaved
+        ? "You can view your order anytime in Account → My orders."
+        : "Your order is saved, but the empty basket could not be saved.";
+      document.querySelector("#order-saved-link").href = `account.html#order-${order.id}`;
+      modal.addEventListener("hidden.bs.offcanvas", () => {
+        openCart.focus();
+        bootstrap.Toast.getOrCreateInstance(document.querySelector("#order-saved")).show();
+      }, { once: true });
+      modalInstance.hide();
     } catch {
       app.setStatus(status, "error", "The request was prepared, but this browser did not allow it to be saved. Nothing was sent or paid for.");
     }
