@@ -30,3 +30,5 @@ Follow-up verification: login-first/register toggle and logout tested in Chromiu
 Order history: verified multiple orders, reload, direct detail link, guest access, text safety, small-screen layout and failed storage writes in Chromium and Firefox.
 
 Order history now appears inside Account, also available to guests. Old orders.html links redirect to Account and preserve the selected order.
+
+Visual verification: all five pages at 320/375/768/1024/1440px in Chromium and Firefox; mobile collapse and direct basket links; cart, form and history scenarios repeated after the offcanvas change.

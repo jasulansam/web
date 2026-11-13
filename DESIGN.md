@@ -3,7 +3,7 @@
 ## Source of truth
 
 - Status: Active
-- Last refreshed: 2026-10-24
+- Last refreshed: 2026-11-13
 - Primary product surfaces: Home, menu and order planning, table reservation, feedback
 - Evidence reviewed: current Coffi HTML pages, `css/bootstrap-custom.css`, Assignment 3 Bootstrap brief, `midterm_project.docx`, existing project photographs, and current 2GIS menu link
 
@@ -27,8 +27,8 @@
 
 ## Information architecture
 
-- Primary navigation: Home, Menu, Reservations, Feedback, Find us
-- Core routes/screens: `index.html`, `menu.html` with one basket-and-order modal, `booking.html`, `feedback.html`
+- Primary navigation: Home, Menu, Reservations, Feedback, Account (including saved orders); basket action in the header
+- Core routes/screens: `index.html`, `menu.html` with one basket-and-order side panel, `booking.html`, `feedback.html`
 - Content hierarchy: immediate action and practical facts first, menu and story second, supporting information last
 
 ## Design principles
@@ -50,7 +50,7 @@
 ## Components
 
 - Existing components to reuse: Bootstrap navbar, collapse, cards, forms, buttons, alert, modal and ratio image wrappers
-- New/changed components: practical action strip, category-filtered menu catalog, one basket-and-order modal, visit-details card, journey cards, confirmation and error containers
+- New/changed components: practical action strip, category-filtered menu catalog, one basket-and-order side panel, visit-details card, journey cards, confirmation and error containers
 - Variants and states: coordinated espresso-brown primary and outline buttons, pale latte selected states, disabled, error and success states
 - Token/component ownership: Bootstrap owns layout and component behavior; `bootstrap-custom.css` owns Coffi brand corrections only
 
@@ -65,7 +65,7 @@
 ## Responsive behavior
 
 - Supported breakpoints/devices: phone around 375px, tablet around 768px and desktop around 1440px
-- Layout adaptations: menu categories sit beside compact drink rows on desktop and become a horizontal scroll strip on phones; forms stack before `lg`
+- Layout adaptations: menu categories sit beside compact drink rows on desktop and wrap into visible category controls on phones; forms stack before `lg`
 - Touch/hover differences: consistent button states, comfortably tappable add controls and direct phone/map links; hover is supplementary
 
 ## Interaction states
@@ -95,3 +95,9 @@
 
 - [ ] Which real ordering channel will the cafe owner use: WhatsApp, a POS link or a backend endpoint? The current cart keeps a local draft and prepares the details for that future channel.
 - [ ] Which Instagram URL and current menu should be published after the owner confirms them?
+
+## Final visual repairs
+
+Keep the existing brand, Bootstrap structure and pages. Use one shared header with a basket action with icon, visible label and count, aligned beside the mobile menu. Preserve accessible labels and focus states. Use clear active navigation, readable mobile controls, visible category choices and consistent form spacing. Back-to-top appears only after scrolling. Account keeps login first with saved orders beneath it.
+
+The basket opens as a right-side Bootstrap offcanvas (full width on small phones), with separated items, total and contact details. Use a filled labelled basket button rather than a floating circle.

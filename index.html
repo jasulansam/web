@@ -18,57 +18,22 @@
   </head>
   <body id="top" class="home-page">
     <header class="site-header">
-      <!-- Fluid navigation uses the full screen width. -->
-      <nav
-        class="navbar navbar-expand-lg border-bottom py-3"
-        aria-label="Primary navigation"
-      >
-        <div class="container-fluid px-3 px-lg-5">
-          <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html"
-            >Coffi</a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#siteNav"
-            aria-controls="siteNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+      <nav class="navbar navbar-expand-lg" aria-label="Primary navigation">
+        <div class="container header-container">
+          <a class="navbar-brand brand-wordmark fw-bold" href="index.html">Coffi</a>
           <div class="collapse navbar-collapse" id="siteNav">
-            <ul class="navbar-nav mx-auto gap-lg-3 mb-3 mb-lg-0 mt-3 mt-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="index.html"
-                >
-                  Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="booking.html">Reservations</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="feedback.html">Feedback</a>
-              </li>
-            <li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
-
-            </ul>
-            <a
-              class="btn btn-outline-dark btn-sm rounded-pill px-4"
-              href="https://2gis.kz/astana/geo/70000001093393499"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Find us
+            <ul class="navbar-nav mx-auto"><li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+<li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
+<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+<li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
+</ul>
+          </div>
+          <div class="header-actions">
+            <a href="menu.html?basket=1" class="basket-button" aria-label="Open your basket" title="Your basket">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3h2l2.2 11h11.6l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="basket-label">Basket</span><span class="basket-count" data-basket-count aria-hidden="true">0</span>
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           </div>
         </div>
       </nav>

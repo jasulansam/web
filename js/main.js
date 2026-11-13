@@ -45,5 +45,27 @@
     node.textContent = "";
   };
 
+  const updateBasketBadge = () => {
+    let items = 0;
+    try {
+      const cart = JSON.parse(localStorage.getItem("coffi-cart") || "[]");
+      if (Array.isArray(cart)) items = cart.reduce((sum, item) =>
+        sum + (item && findDrink(item.id) && Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 8 ? item.quantity : 0), 0);
+    } catch { /* An unavailable basket is shown as empty until Menu is opened. */ }
+    document.querySelectorAll("[data-basket-count]").forEach((badge) => {
+      badge.textContent = items;
+      badge.closest("a, button").setAttribute("aria-label", `Open your basket, ${items} items`);
+    });
+  };
+  updateBasketBadge();
+  window.addEventListener("pageshow", updateBasketBadge);
+  window.addEventListener("storage", updateBasketBadge);
+  const backTop = document.querySelector(".back-top");
+  if (backTop) {
+    const updateBackTop = () => backTop.classList.toggle("is-visible", window.scrollY > 500);
+    window.addEventListener("scroll", updateBackTop, { passive: true });
+    updateBackTop();
+  }
+
   window.CoffiApp = Object.freeze({ drinks, element, money, reference, today, findDrink, setStatus, hideStatus });
 })();

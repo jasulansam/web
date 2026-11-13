@@ -7,7 +7,7 @@ const assert = require('node:assert/strict');
  await page.goto((process.env.BASE_URL || 'http://127.0.0.1:8765') + '/menu.html');
  await page.locator('[data-add-drink]').first().waitFor();
  for(let i=0;i<9;i++) await page.locator('[data-add-drink]').first().click();
- assert.match(await page.locator('#open-cart').innerText(), /Basket \(8\)/);
+ assert.equal(await page.locator('#open-cart [data-basket-count]').innerText(), '8');
  assert.match(await page.locator('#menu-status').innerText(), /maximum/);
  await page.locator('#open-cart').click();
  await page.locator('#order-name').fill('Әли Құдайберген');

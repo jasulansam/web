@@ -17,3 +17,5 @@ Follow-up requests: show login first with a small registration link; remove repe
 Follow-up: implemented My orders history, order detail snapshots, previous single-order compatibility, explicit browser-local persistence, and tests for reload and storage errors.
 
 Order history now appears inside Account, also available to guests. Old orders.html links redirect to Account and preserve the selected order.
+
+Visual repair: consistent responsive navigation, labelled basket icon with count, offcanvas checkout, visible category controls, consistent forms and account links. Back-to-top is shown only after scrolling. User explicitly requested visual refinement and rejected the circular basket action.

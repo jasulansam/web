@@ -123,7 +123,7 @@
     cartEmpty.classList.toggle("is-hidden", cart.length > 0);
     clearCart.disabled = cart.length === 0;
     submit.disabled = cart.length === 0;
-    openCart.textContent = `Basket (${items})`;
+    openCart.querySelector("[data-basket-count]").textContent = items;
     openCart.setAttribute("aria-label", `Open your basket, ${items} items, ${app.money(total())} tenge`);
   };
 
@@ -135,8 +135,11 @@
     renderMenu();
   };
 
-  const modalInstance = window.bootstrap.Modal.getOrCreateInstance(modal);
-  openCart.addEventListener("click", () => modalInstance.show());
+  const modalInstance = window.bootstrap.Offcanvas.getOrCreateInstance(modal);
+  openCart.addEventListener("click", () => { hideAddStatus(); modalInstance.show(); });
+  if (new URLSearchParams(location.search).get("basket") === "1") {
+    modalInstance.show();
+  }
   categoryNav.addEventListener("click", (event) => {
     if (event.target.closest("#reset-filters")) return resetFilters();
     const button = event.target.closest("[data-category]");
@@ -183,7 +186,7 @@
     const updatedLine = [...cartItems.children].find((node) => node.dataset.cartId === drinkId);
     const nextButton = updatedLine?.querySelector(`[data-cart-action="${action}"]:not(:disabled)`)
       || updatedLine?.querySelector("button:not(:disabled)")
-      || modal.querySelector('[data-bs-dismiss="modal"]');
+      || modal.querySelector('[data-bs-dismiss="offcanvas"]');
     nextButton.focus();
     if (!saved) showAddStatus("The basket changed on this page, but it could not be saved in this browser.", "error");
   });

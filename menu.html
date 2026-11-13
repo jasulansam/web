@@ -18,57 +18,22 @@
   </head>
   <body id="top" class="menu-page">
     <header class="site-header">
-      <!-- Fluid navigation uses the full screen width. -->
-      <nav
-        class="navbar navbar-expand-lg border-bottom py-3"
-        aria-label="Primary navigation"
-      >
-        <div class="container-fluid px-3 px-lg-5">
-          <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html"
-            >Coffi</a
-          >
-          <button id="open-cart" class="btn btn-primary rounded-pill ms-auto me-2 order-lg-last" type="button" aria-label="Open your basket" aria-haspopup="dialog">Basket (0)</button>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#siteNav"
-            aria-controls="siteNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+      <nav class="navbar navbar-expand-lg" aria-label="Primary navigation">
+        <div class="container header-container">
+          <a class="navbar-brand brand-wordmark fw-bold" href="index.html">Coffi</a>
           <div class="collapse navbar-collapse" id="siteNav">
-            <ul class="navbar-nav mx-auto gap-lg-3 mb-3 mb-lg-0 mt-3 mt-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="menu.html"
-                  >Menu</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="booking.html">Reservations</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="feedback.html">Feedback</a>
-              </li>
-            <li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
-
-            </ul>
-            <a
-              class="btn btn-outline-dark btn-sm rounded-pill px-4"
-              href="https://2gis.kz/astana/geo/70000001093393499"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Find us
-            </a>
+            <ul class="navbar-nav mx-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link active" aria-current="page" href="menu.html">Menu</a></li>
+<li class="nav-item"><a class="nav-link" href="booking.html">Reservations</a></li>
+<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+<li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
+</ul>
+          </div>
+          <div class="header-actions">
+            <button id="open-cart" type="button" aria-haspopup="dialog" class="basket-button" aria-label="Open your basket" title="Your basket">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3h2l2.2 11h11.6l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="basket-label">Basket</span><span class="basket-count" data-basket-count aria-hidden="true">0</span>
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           </div>
         </div>
       </nav>
@@ -149,14 +114,13 @@
           </div>
         </div>
       </template>
-      <div class="modal fade" id="coffi-cart-modal" tabindex="-1" aria-labelledby="coffi-cart-title" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-          <div class="modal-content bg-dark text-light">
-            <div class="modal-header">
-              <h2 class="modal-title h4" id="coffi-cart-title">Your basket and order details</h2>
-              <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close basket"></button>
+      <div class="offcanvas offcanvas-end basket-panel" id="coffi-cart-modal" tabindex="-1" aria-labelledby="coffi-cart-title" aria-hidden="true">
+
+            <div class="offcanvas-header">
+              <h2 class="offcanvas-title h3" id="coffi-cart-title">Your basket</h2>
+              <button class="btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close basket"></button>
             </div>
-            <div class="modal-body">
+            <div class="offcanvas-body">
               <div id="cart-items" class="d-grid gap-2 mb-3"></div>
               <p id="cart-empty" class="state-message p-3 rounded-3">Your basket is empty. Add drinks from the menu to start.</p>
               <div class="d-flex justify-content-between align-items-center border-top border-bottom py-3 mb-3">
@@ -164,12 +128,12 @@
                 <output id="cart-total" class="fs-4 fw-semibold" aria-live="polite">0 ₸</output>
               </div>
               <button id="clear-cart" class="btn btn-outline-light btn-sm rounded-pill mb-4" type="button">Clear basket</button>
-              <h3 class="h5 mt-4">Where should we prepare it?</h3>
+              <h3 class="h5 mt-4 mb-3">Your details</h3>
 
               <form id="order-form" class="row g-3" method="post" action="#order-status">
                 <div class="col-12 col-md-6">
                   <label class="form-label" for="order-service">Visit type</label>
-                  <select class="form-select bg-light text-dark border-secondary" id="order-service" name="order_service" required>
+                  <select class="form-select" id="order-service" name="order_service" required>
                     <option value="" disabled>Select a visit type</option>
                     <option value="takeaway" selected>Takeaway</option>
                     <option value="cafe">Eat and drink in the cafe</option>
@@ -177,16 +141,16 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <label class="form-label" for="order-name">Your name</label>
-                  <input class="form-control bg-light text-dark border-secondary" type="text" id="order-name" name="order_name" autocomplete="name" required />
+                  <input class="form-control" type="text" id="order-name" name="order_name" autocomplete="name" required />
                 </div>
                 <div class="col-12 col-md-6">
                   <label class="form-label" for="order-phone">Phone</label>
-                  <input class="form-control bg-light text-dark border-secondary" type="tel" id="order-phone" name="order_phone" autocomplete="tel" inputmode="tel" maxlength="24" required />
+                  <input class="form-control" type="tel" id="order-phone" name="order_phone" autocomplete="tel" inputmode="tel" maxlength="24" required />
                   <small class="form-text">11 digits starting with 7 or 8; +7 and formatted numbers are accepted.</small>
                 </div>
                 <div class="col-12">
                   <label class="form-label" for="order-notes">Notes or milk preference</label>
-                  <textarea class="form-control bg-light text-dark border-secondary" id="order-notes" name="order_notes" rows="2" placeholder="For example: oat milk, less sweet"></textarea>
+                  <textarea class="form-control" id="order-notes" name="order_notes" rows="2" placeholder="For example: oat milk, less sweet"></textarea>
                 </div>
                 <div class="col-12 d-flex flex-wrap align-items-center gap-3">
                   <button class="btn btn-primary btn-lg rounded-pill px-4" type="submit">Save order</button>
@@ -195,8 +159,6 @@
                 <div id="order-status" class="state-message is-hidden p-3 rounded-3" role="status" aria-live="polite"></div>
               </form>
             </div>
-          </div>
-        </div>
       </div>
     </main>
     <a
