@@ -1,10 +1,10 @@
 /* Coffi brand corrections; Bootstrap owns layout and component behavior. */
 :root {
-  --coffi-ink: #342820;
+  --coffi-ink: #36251f;
   --coffi-espresso: #8a624b;
-  --coffi-amber: #a87556;
+  --coffi-amber: #53664a;
   --coffi-latte: #efe3d9;
-  --coffi-paper: #faf8f5;
+  --coffi-paper: #fffdf8;
   --coffi-line: #e5d9cf;
   --coffi-surface: #ffffff;
   --bs-body-color: var(--coffi-ink);
@@ -15,7 +15,7 @@
   --bs-link-hover-color-rgb: 104, 70, 51;
 }
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   letter-spacing: 0.01em;
   background: var(--coffi-paper);
   color: var(--coffi-ink);
@@ -52,7 +52,7 @@ h2 {
   --bs-navbar-brand-hover-color: var(--coffi-amber);
 }
 .site-header .navbar-nav .nav-link {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -696,7 +696,7 @@ textarea.form-control { min-height: 96px; }
 
 /* Keep the navigation stable across short/long pages and control types. */
 html { scrollbar-gutter: stable; }
-.basket-button { box-sizing: border-box; width: 138px; flex-basis: 138px; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+.basket-button { box-sizing: border-box; width: 138px; flex-basis: 138px; font-family: "Segoe UI", Arial, sans-serif; line-height: 1.5; }
 @media (max-width: 375px) { .basket-button { width: 128px; flex-basis: 128px; } }
 
 .order-toast-container { position: fixed; right: 0; bottom: 0; z-index: 1090; max-width: 100%; }
@@ -776,3 +776,41 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
   .atmosphere-copy > p:not(.atmosphere-eyebrow) { font-size: 1rem; }
   .footer-brand { gap: 0.6rem 1rem; }
 }
+
+/* Familiar coffee palette with a lighter cream and restrained sage accents. */
+:root { --coffi-sage: #e5ebdd; --coffi-leaf: #53664a; }
+.site-header .navbar { background: #fffdf8; }
+.site-header .nav-link.active { background: var(--coffi-sage); color: #405238; }
+.btn-primary, .btn-warning { --bs-btn-hover-bg: #704f3d; --bs-btn-hover-border-color: #704f3d; --bs-btn-active-bg: #5f4132; --bs-btn-active-border-color: #5f4132; --bs-btn-focus-shadow-rgb: 138, 98, 75; }
+.basket-button:hover { background: #704f3d; border-color: #704f3d; }
+.btn-outline-dark, .btn-outline-secondary, .btn-outline-light { --bs-btn-active-bg: #704f3d; --bs-btn-active-border-color: #704f3d; --bs-btn-focus-shadow-rgb: 138, 98, 75; }
+.icon-badge, .review-avatar { background: var(--coffi-sage) !important; color: var(--coffi-leaf) !important; }
+.menu-page #price-table-section [data-category].btn-warning { background: var(--coffi-sage) !important; border-color: var(--coffi-leaf); color: #405238 !important; }
+.reviews-external { background: #f0f3e9; }
+.atmosphere-eyebrow, .section-eyebrow { color: var(--coffi-leaf); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.65rem; }
+.home-hero { position: relative; display: flex; align-items: center; min-height: 450px; padding: clamp(1.5rem, 4vw, 3.5rem); border-radius: 1.3rem; border: 1px solid var(--coffi-line); background-color: #f7ebdc; background-image: linear-gradient(90deg, #fcf4e9 0%, rgb(252 244 233 / 97%) 30%, rgb(252 244 233 / 82%) 48%, rgb(252 244 233 / 15%) 72%, transparent 100%), url('../images/home-coffee-background.webp'); background-size: 100% 100%, auto 100%; background-repeat: no-repeat; background-position: center, right center; }
+.hero-copy { max-width: 57%; }
+.home-hero h1 { font-size: clamp(2.15rem, 4vw, 3.7rem); line-height: 1.08; margin-bottom: 1.5rem; max-width: 18ch; }
+.home-hero .lead { font-size: 1.05rem; line-height: 1.65; max-width: 44ch; }
+.home-recommendations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.recommendation-card { min-width: 0; }
+.recommendation-card img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 1rem; display: block; margin-bottom: 1rem; }
+.recommendation-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.6rem; }
+.recommendation-heading > span { white-space: nowrap; color: var(--coffi-espresso); }
+.recommendation-card > p { font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 767.98px) {
+  .home-hero { min-height: 620px; align-items: flex-start; padding: 1.5rem !important; background-image: linear-gradient(180deg, #fcf4e9 0%, rgb(252 244 233 / 100%) 42%, rgb(252 244 233 / 80%) 52%, rgb(252 244 233 / 5%) 72%, transparent), url('../images/home-coffee-background.webp'); background-position: center, center bottom; background-size: 100% 100%, auto 310px; background-repeat: no-repeat; }
+  .hero-copy { max-width: 100%; }
+  .home-hero h1 { font-size: 2.25rem; max-width: 20ch; margin-bottom: 1rem; }
+  .home-hero .lead { font-size: 0.95rem; }
+  .home-recommendations { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .section-appearing { animation: section-appear 420ms ease-out both; }
+  @keyframes section-appear { from { opacity: 0.65; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .recommendation-card img { transition: box-shadow 180ms ease, transform 180ms ease; }
+  @media (hover: hover) { .recommendation-card:hover img { transform: translateY(-3px); box-shadow: 0 8px 24px rgb(54 37 31 / 12%); } }
+}
+
+body { line-height: 1.6; letter-spacing: 0.005em; }
+h1, h2, h3 { text-wrap: balance; }

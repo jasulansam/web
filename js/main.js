@@ -5,13 +5,13 @@
     { id: "americano", name: "Americano", category: "Coffee", description: "Espresso with hot water.", price: 990, image: "images/menu-americano.jpg" },
     { id: "cappuccino", name: "Cappuccino", category: "Coffee", description: "Coffee with steamed milk and foam.", price: 1290, image: "images/menu-cappuccino.jpg" },
     { id: "latte", name: "Latte", category: "Coffee", description: "A milk-forward coffee classic.", price: 1290, image: "images/menu-latte.jpg" },
-    { id: "flat-white", name: "Flat white", category: "Coffee", description: "A smooth, coffee-forward milk drink.", price: 1290, image: "images/coffee-flatwhite-generated.png" },
+    { id: "flat-white", name: "Flat white", category: "Coffee", description: "A smooth, coffee-forward milk drink.", price: 1290, image: "images/coffee-flatwhite-generated-optimized.webp" },
     { id: "mocha", name: "Mocha", category: "Coffee", description: "Coffee with a chocolate note.", price: 1490, image: "images/menu-mocha.jpg" },
     { id: "raf", name: "Raf", category: "Coffee", description: "A creamy coffee option.", price: 1790, image: "images/menu-raf.jpg" },
-    { id: "bumble", name: "Bumble coffee", category: "Cold coffee", description: "An orange-and-coffee combination over ice.", price: 1790, image: "images/coffee-bumble-generated.png" },
+    { id: "bumble", name: "Bumble coffee", category: "Cold coffee", description: "An orange-and-coffee combination over ice.", price: 1790, image: "images/coffee-bumble-generated-optimized.webp" },
     { id: "iced-americano", name: "Iced Americano", category: "Cold coffee", description: "A chilled black coffee.", price: 1490, image: "images/menu-iced-americano.jpg" },
     { id: "iced-latte", name: "Iced latte", category: "Cold coffee", description: "Coffee and milk served cold.", price: 1590, image: "images/menu-iced-latte.jpg" },
-    { id: "espresso-tonic", name: "Espresso tonic", category: "Cold coffee", description: "A sparkling, bittersweet coffee option.", price: 1790, image: "images/coffee-cappuccino-generated.png" },
+    { id: "espresso-tonic", name: "Espresso tonic", category: "Cold coffee", description: "A sparkling, bittersweet coffee option.", price: 1790, image: "images/coffee-cappuccino-generated-optimized.webp" },
     { id: "sea-buckthorn-tea", name: "Sea buckthorn tea", category: "Tea & chocolate", description: "A fruity tea option.", price: 1590, image: "images/menu-sea-buckthorn-tea.jpg" },
     { id: "ginger-tea", name: "Ginger tea", category: "Tea & chocolate", description: "A warming ginger option.", price: 1590, image: "images/menu-matcha.jpg" },
     { id: "moroccan-tea", name: "Moroccan tea", category: "Tea & chocolate", description: "One of the published hot tea choices.", price: 1590, image: "images/menu-moroccan-tea.jpg" },
@@ -21,7 +21,7 @@
     { id: "apple-cinnamon-raf", name: "Apple & cinnamon raf", category: "Fresh & specials", description: "A signature flavoured raf.", price: 1890, image: "images/menu-cinnamon-drink.jpg" },
     { id: "orange-juice", name: "Orange juice", category: "Fresh & specials", description: "Fresh juice from the published menu.", price: 2800, image: "images/menu-bumble.jpg" },
     { id: "green-smoothie", name: "Green smoothie", category: "Fresh & specials", description: "Ask the barista about the ingredients.", price: 2800, image: "images/menu-green-smoothie.jpg" },
-    { id: "berry-lemonade", name: "Berry lemonade", category: "Fresh & specials", description: "A fruity cold drink.", price: 1590, image: "images/coffee-berry-lemonade-generated.png" },
+    { id: "berry-lemonade", name: "Berry lemonade", category: "Fresh & specials", description: "A fruity cold drink.", price: 1590, image: "images/coffee-berry-lemonade-generated-optimized.webp" },
   ];
 
   const element = (tag, className = "", text = "") => {
@@ -77,6 +77,36 @@
     window.addEventListener("pageshow", updateHeaderShadow);
     updateHeaderHeight();
     updateHeaderShadow();
+  }
+
+  const recommendations = document.querySelector("#home-recommendations");
+  if (recommendations) {
+    ["cappuccino", "bumble", "flat-white"].forEach((id) => {
+      const drink = findDrink(id);
+      const card = element("article", "recommendation-card");
+      const image = element("img");
+      image.src = drink.image;
+      image.alt = drink.name;
+      image.width = 600; image.height = 450; image.loading = "lazy";
+      const heading = element("div", "recommendation-heading");
+      heading.append(element("h3", "h4 mb-0", drink.name), element("span", "fw-semibold", `${money(drink.price)} ₸`));
+      card.append(image, heading, element("p", "text-body-secondary mb-0", drink.description));
+      recommendations.append(card);
+    });
+  }
+  const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
+  if (!motionPreference.matches && "IntersectionObserver" in window) {
+    const reveal = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("section-appearing");
+        reveal.unobserve(entry.target);
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll(".home-page main > section, .home-page main > article, .home-page main > aside").forEach((section) => reveal.observe(section));
+    motionPreference.addEventListener("change", () => {
+      if (motionPreference.matches) reveal.disconnect();
+    });
   }
 
   window.CoffiApp = Object.freeze({ drinks, element, money, reference, today, findDrink, setStatus, hideStatus });
