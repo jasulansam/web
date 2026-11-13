@@ -29,6 +29,8 @@
   let query = "";
   let cart = [];
   let addStatusTimeout;
+  const requestedDrink = app.findDrink(new URLSearchParams(location.search).get("drink"));
+  if (requestedDrink) category = "All drinks";
 
   const hideAddStatus = () => {
     window.clearTimeout(addStatusTimeout);
@@ -75,6 +77,9 @@
 
   const renderDrink = (drink) => {
     const card = drinkTemplate.content.firstElementChild.cloneNode(true);
+    card.id = `drink-${drink.id}`;
+    card.dataset.drinkId = drink.id;
+    if (requestedDrink?.id === drink.id) card.classList.add("requested-drink");
     card.querySelector("[data-drink-category]").textContent = drink.category;
     card.querySelector("[data-drink-name]").textContent = drink.name;
     card.querySelector("[data-drink-description]").textContent = drink.description;
@@ -271,4 +276,7 @@
   });
   renderMenu();
   renderCart();
+  if (requestedDrink) requestAnimationFrame(() => {
+    document.querySelector(`#drink-${CSS.escape(requestedDrink.id)}`)?.scrollIntoView({ block: "center" });
+  });
 })();
