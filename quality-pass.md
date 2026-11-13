@@ -38,3 +38,5 @@ Order history visibility now requires the browser account to be signed in. Logou
 Navigation repair: consistent main top spacing, reserved scrollbar space, fixed basket action width, cached mobile navigation reset, and basket refresh on browser back/forward and cross-tab storage updates. Added tests navigating through actual page links at mobile and desktop widths.
 
 Order success now closes the basket and shows a dismissible persistent toast with a direct link to the saved order. Save failures remain in the basket.
+
+Feedback: three explicitly labelled illustrative sample reviews, star cards and local user-review persistence. One external 2GIS link opens public feedback; there is no automatic import or publication. Chromium/Firefox checks cover samples, submission, reload, text safety and responsive layout.

@@ -698,10 +698,19 @@ textarea.form-control { min-height: 96px; }
 
 /* Keep the navigation stable across short/long pages and control types. */
 html { scrollbar-gutter: stable; }
-.basket-button { box-sizing: border-box; width: 124px; flex-basis: 124px; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
-@media (max-width: 375px) { .basket-button { width: 116px; flex-basis: 116px; } }
+.basket-button { box-sizing: border-box; width: 138px; flex-basis: 138px; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+@media (max-width: 375px) { .basket-button { width: 128px; flex-basis: 128px; } }
 
 .order-toast-container { position: fixed; right: 0; bottom: 0; z-index: 1090; max-width: 100%; }
 #order-saved { width: 360px; max-width: 100%; border: 1px solid var(--coffi-line); border-radius: 1rem; background: var(--coffi-surface); box-shadow: 0 0.75rem 2rem rgb(52 40 32 / 16%); }
 #order-saved .toast-header { padding: 1rem 1.1rem 0.75rem; border-radius: 1rem 1rem 0 0; background: transparent; color: var(--coffi-ink); }
 #order-saved .toast-body { padding: 0.9rem 1.1rem 1.1rem; line-height: 1.6; }
+
+.review-card { overflow-wrap: anywhere; }
+.review-avatar { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; border-radius: 50%; background: var(--coffi-latte); color: var(--coffi-espresso); font-weight: 700; }
+.review-source { color: var(--bs-secondary-color); font-size: 0.7rem; white-space: nowrap; }
+.review-stars { color: #95612f; letter-spacing: 0.13em; font-size: 1.15rem; }
+.reviews-external { border: 1px solid var(--coffi-line); background: var(--coffi-latte); }
+#review-list { scroll-margin-top: 1rem; }
+
+.basket-button svg { flex: 0 0 20px; }

@@ -38,7 +38,7 @@ const assert = require('node:assert/strict');
  await page.locator('#rating-score').selectOption('5');
  await page.locator('#review-comments').fill('Nice coffee and a quiet place.');
  await page.locator('#feedback-form [type=submit]').click();
- assert.equal(await page.locator('#review-list article').count(),1);
+ assert.equal(await page.locator('#review-list article').count(),4);
  await page.setViewportSize({width:375,height:812});
  await page.goto((process.env.BASE_URL || 'http://127.0.0.1:8765') + '/menu.html');
  assert.equal(await page.locator('#open-cart').isVisible(),true);
