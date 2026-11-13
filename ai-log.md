@@ -41,3 +41,5 @@ Refined review motion with directional 8px movement and a 260ms opacity/height t
 Sticky header trial: navigation remains at the top with a subtle scrolled shadow; Back to top removed. ResizeObserver keeps anchor scroll offset aligned to actual header height. Mobile navigation remains scrollable on short screens, with drawer/backdrop layers above the header.
 
 Approved partial Home update: replaced the old story/quote with the selected concept photo and exact Stay for a little while text. Photo extracted from generated mockup exec-3c5eccd3; conceptual, not an actual Coffi interior. Added a compact dark footer across all five pages without repeated navigation/contact buttons.
+
+Replaced the conceptual atmosphere image with user-selected photo 04 downloaded from the Coffi 2GIS gallery. Asset: images/coffi-interior-2gis.jpg (656x340), original URL https://i8.photo.2gis.com/photo-gallery/65be8a43-22e8-4696-9784-bed7eb4282aa_656x340.jpg . Text and layout preserved.
