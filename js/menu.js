@@ -41,20 +41,25 @@
     addStatusTimeout = window.setTimeout(hideAddStatus, 3000);
   };
 
-  try {
-    const saved = JSON.parse(localStorage.getItem(cartKey) || "[]");
-    if (Array.isArray(saved)) {
-      saved.forEach((item) => {
-        if (!app.findDrink(item.id) || !Number.isInteger(item.quantity) || item.quantity < 1 || item.quantity > 8) return;
-        const existing = cart.find((entry) => entry.id === item.id);
-        if (existing) existing.quantity = Math.min(8, existing.quantity + item.quantity);
-        else cart.push({ id: item.id, quantity: item.quantity });
-      });
-    }
-  } catch {
+  const loadCart = () => {
     cart = [];
-    app.setStatus(addStatus, "error", "The saved basket could not be read. You can still use a new basket on this page.");
-  }
+    try {
+      const saved = JSON.parse(localStorage.getItem(cartKey) || "[]");
+      if (Array.isArray(saved)) {
+        saved.forEach((item) => {
+          if (!app.findDrink(item.id) || !Number.isInteger(item.quantity) || item.quantity < 1 || item.quantity > 8) return;
+          const existing = cart.find((entry) => entry.id === item.id);
+          if (existing) existing.quantity = Math.min(8, existing.quantity + item.quantity);
+          else cart.push({ id: item.id, quantity: item.quantity });
+        });
+      }
+    } catch {
+      cart = [];
+      app.setStatus(addStatus, "error", "The saved basket could not be read. You can still use a new basket on this page.");
+    }
+
+  };
+  loadCart();
 
   const total = () => cart.reduce((sum, item) => sum + app.findDrink(item.id).price * item.quantity, 0);
   const quantity = () => cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -241,6 +246,19 @@
     app.hideStatus(status);
   }));
 
+  window.addEventListener("pageshow", (event) => {
+    if (!event.persisted) return;
+    loadCart();
+    renderCart();
+    modalInstance.hide();
+    hideAddStatus();
+  });
+  window.addEventListener("storage", (event) => {
+    if (event.key !== cartKey && event.key !== null) return;
+    loadCart();
+    renderCart();
+    app.hideStatus(status);
+  });
   renderMenu();
   renderCart();
 })();

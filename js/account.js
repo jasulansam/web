@@ -195,5 +195,6 @@
     }
   });
 
+  window.addEventListener("pageshow", updateSessionPanel);
   updateSessionPanel();
 })();

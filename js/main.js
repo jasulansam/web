@@ -60,6 +60,12 @@
   updateBasketBadge();
   window.addEventListener("pageshow", updateBasketBadge);
   window.addEventListener("storage", updateBasketBadge);
+  // Restore a clean navigation state when returning from the browser's page cache.
+  window.addEventListener("pageshow", (event) => {
+    if (!event.persisted) return;
+    const navigation = document.querySelector("#siteNav");
+    if (navigation && window.bootstrap) bootstrap.Collapse.getInstance(navigation)?.hide();
+  });
   const backTop = document.querySelector(".back-top");
   if (backTop) {
     const updateBackTop = () => backTop.classList.toggle("is-visible", window.scrollY > 500);
