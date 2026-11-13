@@ -814,3 +814,10 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 
 body { line-height: 1.6; letter-spacing: 0.005em; }
 h1, h2, h3 { text-wrap: balance; }
+
+/* Blend the photograph itself, so its left edge cannot form a visible seam. */
+.home-hero { overflow: hidden; background: #fcf4e9; isolation: isolate; }
+.home-hero::before { content: ""; position: absolute; inset: 0 0 0 auto; width: 66%; z-index: -1; background: url('../images/home-coffee-background.webp') center center / cover no-repeat; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 18%) 15%, rgb(0 0 0 / 65%) 33%, #000 52%); mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 18%) 15%, rgb(0 0 0 / 65%) 33%, #000 52%); }
+@media (max-width: 767.98px) {
+  .home-hero::before { inset: auto 0 0; width: 100%; height: 330px; background-position: center bottom; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgb(0 0 0 / 35%) 20%, #000 48%); mask-image: linear-gradient(to bottom, transparent 0%, rgb(0 0 0 / 35%) 20%, #000 48%); }
+}
