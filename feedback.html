@@ -58,6 +58,7 @@
                   Feedback
                 </a>
               </li>
+            <li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
             </ul>
             <a
               class="btn btn-outline-dark btn-sm rounded-pill px-4"
@@ -75,19 +76,12 @@
     <main class="site-main container py-5">
       <section class="visit-card p-4 p-md-5 mb-5">
         <p class="small text-uppercase text-body-secondary mb-2">Your feedback</p>
-        <h2 class="display-6">How was your visit?</h2>
+        <h1 class="display-6">How was your visit?</h1>
         <p class="lead text-body-secondary mb-4">
-          Read customer reviews on 2GIS, or add a short demo review to this page.
+          Read customer reviews on 2GIS, or add a short review to this page.
         </p>
         <div class="d-flex flex-wrap gap-2">
-          <a
-            class="btn btn-primary rounded-pill px-4"
-            href="https://2gis.kz/astana/firm/70000001093393499"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read reviews on 2GIS
-          </a>
+
           <button
             class="btn btn-outline-dark rounded-pill px-4"
             type="button"
@@ -104,6 +98,7 @@
         <div class="action-card p-4 p-md-5">
           <p class="small text-uppercase text-body-secondary mb-2">Share your experience</p>
           <h2 class="h3 mb-2">Leave a short review</h2>
+
           <form id="feedback-form" class="row g-3" method="post" action="#feedback-status">
             <div class="form-field col-12 col-md-6 mb-0">
               <label class="form-label" for="rating-score">Your rating</label>
@@ -141,8 +136,8 @@
               </select>
             </div>
             <div class="col-12 d-flex flex-wrap align-items-center gap-3 pt-2">
-              <button class="btn btn-primary rounded-pill px-4" type="submit" aria-describedby="feedback-demo">
-                Add demo review
+              <button class="btn btn-primary rounded-pill px-4" type="submit">
+                Add review
               </button>
             </div>
             <div id="feedback-status" class="state-message is-hidden p-3 rounded-3" role="status" aria-live="polite"></div>
@@ -151,7 +146,7 @@
       </section>
       <section class="content-section mb-5" aria-labelledby="preview-title">
         <div class="d-flex flex-wrap align-items-baseline justify-content-between gap-2 mb-3">
-          <h2 id="preview-title" class="h3 mb-0">Demo reviews in this session</h2>
+          <h2 id="preview-title" class="h3 mb-0">Your reviews</h2>
           <p id="review-count" class="small text-body-secondary mb-0">No reviews added yet</p>
         </div>
         <p id="review-empty" class="state-message p-3 rounded-3">
@@ -176,6 +171,6 @@
     </a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="js/main.js" defer></script>
-    <script src="js/feedback.js?v=20261026-2" defer></script>
+    <script src="js/feedback.js?v=20261113" defer></script>
   </body>
 </html>

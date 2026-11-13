@@ -51,14 +51,14 @@
         app.element("h3", "h5 mb-0", review.name || "Guest"),
         app.element("span", "badge text-bg-light", `${review.rating}/5`)
       );
-      card.append(heading, app.element("p", "small text-body-secondary mb-2", "Demo preview"));
+      card.append(heading, app.element("p", "small text-body-secondary mb-2", "Review preview"));
       if (review.drink) card.append(app.element("p", "small mb-2", `Drink: ${review.drink}`));
       card.append(app.element("p", "mb-0", review.comment));
       column.append(card);
       return column;
     }));
     empty.classList.toggle("is-hidden", reviews.length > 0);
-    count.textContent = reviews.length ? `${reviews.length} demo review(s)` : "No reviews added yet";
+    count.textContent = reviews.length ? `${reviews.length} review(s)` : "No reviews added yet";
   };
 
   comments.addEventListener("input", () => {
@@ -89,7 +89,7 @@
       comment: comments.value.trim(),
     });
     renderReviews();
-    app.setStatus(status, "success", "Demo preview added below. It is visible only until you reload this page; it was not sent, published, or saved.");
+    app.setStatus(status, "success", "Review preview added below. It is visible only until you reload this page; it was not sent, published, or saved.");
     form.reset();
     counter.textContent = "0 / 240 characters";
   });

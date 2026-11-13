@@ -35,9 +35,9 @@
     addStatusTimeout = null;
     app.hideStatus(addStatus);
   };
-  const showAddStatus = (message) => {
+  const showAddStatus = (message, kind = "success") => {
     window.clearTimeout(addStatusTimeout);
-    app.setStatus(addStatus, "success", message);
+    app.setStatus(addStatus, kind, message);
     addStatusTimeout = window.setTimeout(hideAddStatus, 3000);
   };
 
@@ -53,11 +53,19 @@
     }
   } catch {
     cart = [];
+    app.setStatus(addStatus, "error", "The saved basket could not be read. You can still use a new basket on this page.");
   }
 
   const total = () => cart.reduce((sum, item) => sum + app.findDrink(item.id).price * item.quantity, 0);
   const quantity = () => cart.reduce((sum, item) => sum + item.quantity, 0);
-  const saveCart = () => localStorage.setItem(cartKey, JSON.stringify(cart));
+  const saveCart = () => {
+    try {
+      localStorage.setItem(cartKey, JSON.stringify(cart));
+      return true;
+    } catch {
+      return false;
+    }
+  };
 
   const renderDrink = (drink) => {
     const card = drinkTemplate.content.firstElementChild.cloneNode(true);
@@ -104,6 +112,7 @@
       line.querySelector("[data-cart-quantity]").textContent = item.quantity;
       line.querySelectorAll("[data-cart-action]").forEach((button) => {
         button.setAttribute("aria-label", `${button.textContent.trim()} ${drink.name}`);
+        if (button.dataset.cartAction === "increase") button.disabled = item.quantity >= 8;
       });
       return line;
     }));
@@ -145,11 +154,18 @@
     if (!button) return;
     const drink = app.findDrink(button.dataset.addDrink);
     const item = cart.find((entry) => entry.id === drink.id);
-    if (item) item.quantity = Math.min(8, item.quantity + 1);
+    if (item?.quantity === 8) {
+      showAddStatus(`${drink.name} already has the maximum quantity of 8.`, "error");
+      return;
+    }
+    if (item) item.quantity += 1;
     else cart.push({ id: drink.id, quantity: 1 });
-    saveCart();
+    const saved = saveCart();
     renderCart();
-    showAddStatus(`Added to basket: ${drink.name}.`);
+    showAddStatus(
+      saved ? `Added to basket: ${drink.name}.` : `Added ${drink.name} for this page, but the basket could not be saved in this browser.`,
+      saved ? "success" : "error"
+    );
   });
   modal.addEventListener("click", (event) => {
     const button = event.target.closest("[data-cart-action]");
@@ -159,42 +175,58 @@
     if (button.dataset.cartAction === "increase") item.quantity = Math.min(8, item.quantity + 1);
     if (button.dataset.cartAction === "decrease") item.quantity -= 1;
     if (button.dataset.cartAction === "remove" || item.quantity < 1) cart.splice(cart.indexOf(item), 1);
-    saveCart();
+    const action = button.dataset.cartAction;
+    const drinkId = item.id;
+    const saved = saveCart();
     renderCart();
+    const updatedLine = [...cartItems.children].find((node) => node.dataset.cartId === drinkId);
+    const nextButton = updatedLine?.querySelector(`[data-cart-action="${action}"]:not(:disabled)`)
+      || updatedLine?.querySelector("button:not(:disabled)")
+      || modal.querySelector('[data-bs-dismiss="modal"]');
+    nextButton.focus();
+    if (!saved) showAddStatus("The basket changed on this page, but it could not be saved in this browser.", "error");
   });
   clearCart.addEventListener("click", () => {
     cart = [];
-    saveCart();
+    const saved = saveCart();
     renderCart();
+    if (!saved) showAddStatus("The basket was cleared on this page, but the change could not be saved in this browser.", "error");
   });
 
   const name = document.querySelector("#order-name");
   const phone = document.querySelector("#order-phone");
-
-  name.addEventListener("input", () => {
-    name.value = name.value.replace(/[^A-Za-zА-Яа-яЁё\s'-]/g, "");
-  });
-
-  phone.addEventListener("input", () => {
-    phone.value = phone.value.replace(/[^0-9]/g, "");
-  });
+  const validName = (value) => /^(?=(?:.*\p{L}){2})[\p{L}\s'-]+$/u.test(value.trim());
+  const normalizePhone = (value) => {
+    const digits = value.replace(/\D/g, "");
+    return digits.length === 11 && digits.startsWith("8") ? `7${digits.slice(1)}` : digits;
+  };
+  const validPhone = (value) => /^\+?[\d\s()-]+$/.test(value.trim()) && /^7\d{10}$/.test(normalizePhone(value));
   [name, phone].forEach((field) => field.addEventListener("input", () => field.setCustomValidity("")));
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     app.hideStatus(status);
-    name.setCustomValidity(/^[A-Za-zА-Яа-яЁё\s'-]{2,}$/.test(name.value.trim()) ? "" : "Enter your name using letters only.");
-    phone.setCustomValidity(/^7\d{10}$/.test(phone.value) ? "" : "Phone number must start with 7.");
+    name.setCustomValidity(validName(name.value) ? "" : "Enter at least two letters. Spaces, apostrophes, and hyphens are allowed.");
+    phone.setCustomValidity(validPhone(phone.value) ? "" : "Enter 11 digits starting with +7, 7, or 8.");
     if (!cart.length) app.setStatus(status, "error", "Add at least one drink before preparing the request.");
     if (!cart.length || !form.reportValidity()) return;
+    phone.value = normalizePhone(phone.value);
     const order = {
       ...Object.fromEntries(new FormData(form)),
       items: cart.map((item) => ({ ...item, name: app.findDrink(item.id).name, price: app.findDrink(item.id).price })),
       total: total(),
     };
-    localStorage.setItem("coffi-order-plan", JSON.stringify(order));
-    app.setStatus(status, "success", `Thank you! Your ${app.reference("ORDER")} has been successfully placed and payment is confirmed.`);
+    try {
+      localStorage.setItem("coffi-order-plan", JSON.stringify(order));
+      app.setStatus(status, "success", `Request ${app.reference("ORDER")} saved on this browser. Contact Coffi to place the order.`);
+    } catch {
+      app.setStatus(status, "error", "The request was prepared, but this browser did not allow it to be saved. Nothing was sent or paid for.");
+    }
   });
-  form.addEventListener("reset", () => window.setTimeout(() => app.hideStatus(status)));
+  form.addEventListener("reset", () => window.setTimeout(() => {
+    name.setCustomValidity("");
+    phone.setCustomValidity("");
+    app.hideStatus(status);
+  }));
 
   renderMenu();
   renderCart();

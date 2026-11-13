@@ -27,6 +27,7 @@
           <a class="navbar-brand brand-wordmark fw-bold fs-3" href="index.html"
             >Coffi</a
           >
+          <button id="open-cart" class="btn btn-primary rounded-pill ms-auto me-2 order-lg-last" type="button" aria-label="Open your basket" aria-haspopup="dialog">Basket (0)</button>
           <button
             class="navbar-toggler"
             type="button"
@@ -57,6 +58,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="feedback.html">Feedback</a>
               </li>
+            <li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
             </ul>
             <a
               class="btn btn-outline-dark btn-sm rounded-pill px-4"
@@ -85,9 +87,8 @@
           </div>
           <div class="col-lg-7 p-4 p-md-5 d-flex flex-column justify-content-center">
             <p class="small text-uppercase text-body-secondary mb-2">COFFI · ASTANA</p>
-            <h2 class="display-6 mb-3">A good cup, without the guesswork.</h2>
+            <h1 class="display-6 mb-3">A good cup, without the guesswork.</h1>
             <p class="lead text-body-secondary">Browse the drinks, add a few favourites, then prepare one simple order request.</p>
-            <button id="open-cart" class="btn btn-warning rounded-pill px-4" type="button" aria-label="Open your basket">Basket (0)</button>
           </div>
         </div>
         <div class="row g-3 align-items-center mb-4">
@@ -163,6 +164,7 @@
               </div>
               <button id="clear-cart" class="btn btn-outline-light btn-sm rounded-pill mb-4" type="button">Clear basket</button>
               <h3 class="h5 mt-4">Where should we prepare it?</h3>
+
               <form id="order-form" class="row g-3" method="post" action="#order-status">
                 <div class="col-12 col-md-6">
                   <label class="form-label" for="order-service">Visit type</label>
@@ -178,14 +180,15 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <label class="form-label" for="order-phone">Phone</label>
-                  <input class="form-control bg-light text-dark border-secondary" type="tel" id="order-phone" name="order_phone" autocomplete="tel" inputmode="numeric" pattern="[0-9]*" required />
+                  <input class="form-control bg-light text-dark border-secondary" type="tel" id="order-phone" name="order_phone" autocomplete="tel" inputmode="tel" maxlength="24" required />
+                  <small class="form-text">11 digits starting with 7 or 8; +7 and formatted numbers are accepted.</small>
                 </div>
                 <div class="col-12">
                   <label class="form-label" for="order-notes">Notes or milk preference</label>
                   <textarea class="form-control bg-light text-dark border-secondary" id="order-notes" name="order_notes" rows="2" placeholder="For example: oat milk, less sweet"></textarea>
                 </div>
                 <div class="col-12 d-flex flex-wrap align-items-center gap-3">
-                  <button class="btn btn-primary btn-lg rounded-pill px-4" type="submit" aria-describedby="order-demo">Prepare request</button>
+                  <button class="btn btn-primary btn-lg rounded-pill px-4" type="submit">Prepare request</button>
                   <button class="btn btn-outline-light btn-sm rounded-pill px-3" type="reset">Clear details</button>
                 </div>
                 <div id="order-status" class="state-message is-hidden p-3 rounded-3" role="status" aria-live="polite"></div>

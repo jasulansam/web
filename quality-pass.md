@@ -1,32 +1,28 @@
-# Assignment 4–5 quality pass
+# Final project verification — 2026-11-13
 
-Checked on 24 October 2026 after the JavaScript scope was reset to the accepted `midterm` interface.
+## Completed
 
-## Current checks
+- Syntax checks for all five JavaScript files.
+- Chromium: basket limit, local order result, invalid and formatted phone numbers, Kazakh name, booking summary, feedback preview, mobile basket visibility.
+- Chromium and Firefox: demo registration, reload persistence, logout, incorrect password, keyboard login, and account widths 375/768/1440.
+- Password not present as plaintext in stored account.
 
-- HTML pages keep the midterm structure and only add deferred script links.
-- The correction stylesheet is unchanged from the midterm baseline.
-- Menu items are rendered from eight real project objects; search, category, sort, reset and no-results states are available.
-- The basket supports add, increase, decrease, remove, clear, quantity totals and KZT totals, then copies a summary into the existing order plan.
-- Booking validates contact fields, date, party size, purpose and agreement with field-level errors and a local demo reference.
-- Feedback validates visit date, rating and comment length, shows a character counter and renders sample/new review cards with one function.
-- No server, account, payment, delivery, real reservation or language switcher is claimed.
+## Repairs
 
-## Verification commands
+- Basket moved from the menu hero into the top navigation, visible outside mobile collapse.
+- Redundant body links to 2GIS removed; home retains header and address directions links.
+- Broken `order-builder` anchor corrected.
+- Missing form explanation references restored; main page headings corrected.
+- Phone accepts formatted +7/7/8 with exactly 11 digits; names support Kazakh letters.
+- Payment/order claim replaced with an explicit local-demo result.
+- Cart limit feedback and storage errors handled; keyboard focus retained after cart changes.
+- Demo account added at the student's reported teacher request.
 
-- `node --check js/main.js`
-- `node --check js/menu.js`
-- `node --check js/booking.js`
-- `node --check js/feedback.js`
-- Nu Html Checker for all six pages
-- `git diff --check`
+## Still required before final submission
 
-## Manual browser pass
+- Test on a physical phone; emulation is not a substitute.
+- Run current W3C validation and review image sizes; this change does not certify those requirements.
+- Confirm remaining endterm remarks, review code line by line, and update earlier AI-log entries.
+- Review Git authorship and individual contributions; tag final only after acceptance.
 
-Open Menu, search for `latte`, change category and sort, reset the controls, add two sizes, change quantity, clear the basket and copy the summary into the order plan. Submit an invalid and a valid booking. Submit an invalid and a valid review and confirm the character counter and review card. Repeat at approximately 375px, 768px and 1440px widths.
-
-## Before submission
-
-1. Re-read each JavaScript file and practise explaining its main functions.
-2. Confirm the owner will replace demo contacts, prices, images and local-only actions before a real launch.
-3. Keep `midterm` unchanged and use the Assignment 4–5 commit as the current submission state.
+Follow-up verification: login-first/register toggle and logout tested in Chromium and Firefox; all five pages checked at 320/375/768/1440 widths with no runtime errors or failed loaded resources. Breakfast offer text no longer mimics links.

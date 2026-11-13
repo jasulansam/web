@@ -1,0 +1,15 @@
+# AI assistance log
+
+## 2026-11-13 — final project repairs and demo account
+
+Tool: OpenAI Codex. The student reported updated teacher permission for AI-written code and requested collaborative implementation. This entry records assistance, not an independently written student contribution.
+
+Requests discussed: explain the final criteria; inspect the repository; move the basket to the top; reduce repeated 2GIS links; avoid dead controls; accept Kazakhstan phone formats beginning with 7 or 8; add a browser-only registration/login/logout demonstration.
+
+AI-assisted changes: header basket, corrected internal anchor, reduced duplicate directions links, missing form descriptions, phone/name validation, honest demo order feedback, storage failure feedback, basket limit behavior and keyboard focus, account page and script, and verification scripts.
+
+Account boundary: one account in this browser, no server and no verified identity. Passwords are not stored as plaintext; a random salt and PBKDF2 digest are saved locally. This is still a demonstration, not production authentication. The student must understand and defend the implementation.
+
+Verification performed: JavaScript syntax; browser scenarios in Chromium and Firefox; emulated viewport checks. A physical phone and live teacher defense have not been verified. Earlier AI use is not reconstructed by this entry and must be added by the students from their records.
+
+Follow-up requests: show login first with a small registration link; remove repeated demo explanations; remove misleading link-like styling from the breakfast offer. Checkout remains available without signing in. Concise local-storage and confirmation wording remains where relevant.

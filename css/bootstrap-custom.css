@@ -76,7 +76,7 @@ h2 {
   background: linear-gradient(135deg, #f0e2d7, #fbf8f5);
   color: var(--coffi-ink);
 }
-.hero-panel h2 {
+.hero-panel h1 {
   max-width: 24ch;
   line-height: 1.08;
 }
@@ -150,12 +150,9 @@ h2 {
   color: var(--coffi-ink);
 }
 .special-offer-item {
-  color: var(--coffi-espresso);
-  font-weight: 700;
-  text-decoration: underline;
-  text-decoration-color: var(--coffi-amber);
-  text-decoration-thickness: 0.12em;
-  text-underline-offset: 0.18em;
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
 }
 .order-panel {
   background: var(--coffi-surface);
@@ -327,7 +324,7 @@ mark {
 .menu-page #price-table-section > .feature-card.row.g-0 > div:last-child > p:first-child {
   margin: 0;
 }
-.menu-page #price-table-section > .feature-card.row.g-0 h2 {
+.menu-page #price-table-section > .feature-card.row.g-0 h1 {
   margin: 0.15rem 0 0;
   font-size: 1.35rem;
 }
@@ -548,7 +545,7 @@ mark {
   .menu-page #price-table-section > .feature-card.row.g-0 > div:last-child {
     width: 100%;
   }
-  .menu-page #price-table-section > .feature-card.row.g-0 h2 {
+  .menu-page #price-table-section > .feature-card.row.g-0 h1 {
     font-size: 1.05rem;
   }
   .menu-page #price-table-section > .feature-card.row.g-0 p.lead {
@@ -609,4 +606,9 @@ mark {
   #menu-status.is-success {
     animation: none;
   }
+}
+
+/* Keep the basket reachable while the mobile navigation is collapsed. */
+@media (min-width: 992px) {
+  .menu-page #siteNav { flex-basis: 0; }
 }
