@@ -26,3 +26,5 @@
 - Review Git authorship and individual contributions; tag final only after acceptance.
 
 Follow-up verification: login-first/register toggle and logout tested in Chromium and Firefox; all five pages checked at 320/375/768/1440 widths with no runtime errors or failed loaded resources. Breakfast offer text no longer mimics links.
+
+Order history: verified multiple orders, reload, direct detail link, guest access, text safety, small-screen layout and failed storage writes in Chromium and Firefox.

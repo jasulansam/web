@@ -13,3 +13,5 @@ Account boundary: one account in this browser, no server and no verified identit
 Verification performed: JavaScript syntax; browser scenarios in Chromium and Firefox; emulated viewport checks. A physical phone and live teacher defense have not been verified. Earlier AI use is not reconstructed by this entry and must be added by the students from their records.
 
 Follow-up requests: show login first with a small registration link; remove repeated demo explanations; remove misleading link-like styling from the breakfast offer. Checkout remains available without signing in. Concise local-storage and confirmation wording remains where relevant.
+
+Follow-up: implemented My orders history, order detail snapshots, previous single-order compatibility, explicit browser-local persistence, and tests for reload and storage errors.

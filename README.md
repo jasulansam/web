@@ -29,3 +29,5 @@ Phones accept 11 digits beginning with 7 or 8, including `+7 (701) 123-45-67`; 8
 See `quality-pass.md` for completed checks and remaining manual checks. Browser regressions are in `tests/`; use an existing Playwright installation through `PLAYWRIGHT_MODULE` if it is not on the Node module path. No package dependency was added.
 
 Do not apply the `final` tag yet: remaining teacher remarks and real-device validation must be completed first.
+
+My orders (`orders.html`) lists snapshots saved under `coffi-orders` in localStorage, including guest orders. These remain until browser site data is cleared and are shared by users of that browser profile. Previous `coffi-order-plan` data is shown when no newer history exists.

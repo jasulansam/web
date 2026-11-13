@@ -59,6 +59,7 @@
   const total = () => cart.reduce((sum, item) => sum + app.findDrink(item.id).price * item.quantity, 0);
   const quantity = () => cart.reduce((sum, item) => sum + item.quantity, 0);
   const saveCart = () => {
+    app.hideStatus(status);
     try {
       localStorage.setItem(cartKey, JSON.stringify(cart));
       return true;
@@ -122,7 +123,7 @@
     cartEmpty.classList.toggle("is-hidden", cart.length > 0);
     clearCart.disabled = cart.length === 0;
     submit.disabled = cart.length === 0;
-    openCart.textContent = `Basket (${items}) · ${app.money(total())} ₸`;
+    openCart.textContent = `Basket (${items})`;
     openCart.setAttribute("aria-label", `Open your basket, ${items} items, ${app.money(total())} tenge`);
   };
 
@@ -212,16 +213,25 @@
     phone.value = normalizePhone(phone.value);
     const order = {
       ...Object.fromEntries(new FormData(form)),
+      id: crypto.randomUUID(),
+      createdAt: new Date().toISOString(),
       items: cart.map((item) => ({ ...item, name: app.findDrink(item.id).name, price: app.findDrink(item.id).price })),
       total: total(),
     };
     try {
-      localStorage.setItem("coffi-order-plan", JSON.stringify(order));
-      app.setStatus(status, "success", `Request ${app.reference("ORDER")} saved on this browser. Contact Coffi to place the order.`);
+      window.CoffiOrders.save(order);
+      cart = [];
+      const basketSaved = saveCart();
+      renderCart();
+      app.setStatus(status, "success", basketSaved ? "Order saved. You can view it anytime in My orders." : "Order saved in My orders, but the empty basket could not be saved.");
+      const link = app.element("a", "d-block mt-2 fw-semibold", "View saved order →");
+      link.href = `orders.html#order-${order.id}`;
+      status.append(link);
     } catch {
       app.setStatus(status, "error", "The request was prepared, but this browser did not allow it to be saved. Nothing was sent or paid for.");
     }
   });
+  form.addEventListener("input", () => app.hideStatus(status));
   form.addEventListener("reset", () => window.setTimeout(() => {
     name.setCustomValidity("");
     phone.setCustomValidity("");

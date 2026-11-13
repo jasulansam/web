@@ -13,7 +13,7 @@ const assert = require('node:assert/strict');
  await page.locator('#order-name').fill('Әли Құдайберген');
  await page.locator('#order-phone').fill('87011234567');
  await page.locator('#order-form [type=submit]').click();
- assert.match(await page.locator('#order-status').innerText(), /Contact Coffi/);
+ assert.match(await page.locator('#order-status').innerText(), /Order saved/);
  await page.goto((process.env.BASE_URL || 'http://127.0.0.1:8765') + '/booking.html');
  await page.locator('#booking-toggle').click();
  await page.locator('#book-date').fill('2027-12-01');
