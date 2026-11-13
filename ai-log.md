@@ -33,3 +33,5 @@ Reviews use a manually controlled circular carousel (3/2/1 cards at desktop/tabl
 Added a WhatsApp contact button beside directions on Home, using the direct wa.me/77018804104 destination from the user-provided link. Opens a chat only; no automated messages.
 
 Added jQuery 3.7.1 (full build) on Feedback at the student request. Carousel clicks use .on(); .stop(true, true) avoids animation queues and .animate({ opacity: 1 }, 240) softly reveals the next cards. Native click fallback keeps reviews usable if the CDN is unavailable. Reduced-motion skips effects. Button press/hover and order notification use small CSS transitions.
+
+Replaced font-dependent review arrow glyphs with centered SVG chevrons to repair misalignment.
