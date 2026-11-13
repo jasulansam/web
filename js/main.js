@@ -109,7 +109,7 @@
 
   const recommendations = document.querySelector("#home-recommendations");
   if (recommendations) {
-    ["cappuccino", "bumble", "flat-white"].forEach((id) => {
+    ["cappuccino", "bumble", "flat-white", "berry-lemonade"].forEach((id) => {
       const drink = findDrink(id);
       const card = element("article", "recommendation-card");
       const image = element("img");
@@ -121,6 +121,35 @@
       card.append(image, heading, element("p", "text-body-secondary mb-0", drink.description));
       recommendations.append(card);
     });
+    document.querySelector('.home-suggestions .text-body-secondary').textContent = 'Four different tastes. Where will you start?';
+    const cards = [...recommendations.children];
+    const desktop = matchMedia('(min-width: 1200px)');
+    const tablet = matchMedia('(min-width: 768px)');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    let first = 0;
+    let animation;
+    const render = (direction = 0) => {
+      animation?.cancel();
+      const count = desktop.matches ? 3 : tablet.matches ? 2 : 1;
+      cards.forEach((card, index) => {
+        const order = (index - first + cards.length) % cards.length;
+        card.hidden = order >= count;
+        card.style.order = order;
+      });
+      document.querySelector('#drinks-position').textContent = `${first + 1} / ${cards.length}`;
+      if (direction && !reduced.matches) animation = recommendations.animate([
+        { opacity: 0.3, transform: `translateX(${direction * 12}px)` },
+        { opacity: 1, transform: 'translateX(0)' }
+      ], { duration: 280, easing: 'ease-out' });
+    };
+    [-1, 1].forEach(direction => document.querySelector(direction < 0 ? '#drinks-prev' : '#drinks-next').addEventListener('click', () => {
+      first = (first + direction + cards.length) % cards.length;
+      render(direction);
+    }));
+    desktop.addEventListener('change', () => render());
+    tablet.addEventListener('change', () => render());
+    reduced.addEventListener('change', () => render());
+    render();
   }
   const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
   if (!motionPreference.matches && "IntersectionObserver" in window) {
@@ -131,7 +160,7 @@
         reveal.unobserve(entry.target);
       });
     }, { threshold: 0.08 });
-    document.querySelectorAll(".home-page main > section, .home-page main > article, .home-page main > aside").forEach((section) => reveal.observe(section));
+    document.querySelectorAll(".home-page main > section:not(.home-suggestions), .home-page main > article, .home-page main > aside").forEach((section) => reveal.observe(section));
     motionPreference.addEventListener("change", () => {
       if (motionPreference.matches) reveal.disconnect();
     });
