@@ -109,7 +109,7 @@
 
   const recommendations = document.querySelector("#home-recommendations");
   if (recommendations) {
-    ["cappuccino", "bumble", "flat-white", "berry-lemonade"].forEach((id) => {
+    ["berry-lemonade", "cappuccino", "bumble", "flat-white"].forEach((id) => {
       const drink = findDrink(id);
       const card = element("article", "recommendation-card");
       const image = element("img");
