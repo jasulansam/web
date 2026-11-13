@@ -3,10 +3,10 @@
   --coffi-ink: #36251f;
   --coffi-espresso: #8a624b;
   --coffi-amber: #53664a;
-  --coffi-latte: #efe3d9;
-  --coffi-paper: #fffdf8;
-  --coffi-line: #e5d9cf;
-  --coffi-surface: #ffffff;
+  --coffi-latte: #f1e6dc;
+  --coffi-paper: #fcfaf5;
+  --coffi-line: #e3d8ce;
+  --coffi-surface: #fffefa;
   --bs-body-color: var(--coffi-ink);
   --bs-body-bg: var(--coffi-paper);
   --bs-secondary-color: #6b6058;
@@ -17,7 +17,9 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   letter-spacing: 0.01em;
-  background: var(--coffi-paper);
+  background:
+    radial-gradient(circle at 8% 2%, rgb(229 235 221 / 42%), transparent 21rem),
+    linear-gradient(180deg, #fffdf8 0%, var(--coffi-paper) 38rem);
   color: var(--coffi-ink);
 }
 h1,
@@ -76,7 +78,7 @@ h2 {
   min-height: 60vh;
 }
 .hero-panel {
-  background: linear-gradient(135deg, #f0e2d7, #fbf8f5);
+  background: linear-gradient(135deg, #f5e7dc 0%, #fffaf3 62%, #eef2e7 100%);
   color: var(--coffi-ink);
 }
 .hero-panel h1 {
@@ -106,6 +108,15 @@ h2 {
   transition:
     transform 180ms ease,
     box-shadow 180ms ease;
+}
+.site-main > .visit-card:first-child,
+.menu-page #price-table-section > .feature-card.row.g-0 {
+  border-color: #ddd1c5;
+  background: linear-gradient(135deg, #fffaf4 0%, #fffefa 62%, #f1f4ea 100%);
+}
+.account-page #login-panel .action-card,
+.account-page #register-panel .action-card {
+  background: linear-gradient(145deg, #fffefa 0%, #fbf6ef 100%);
 }
 .visit-details {
   display: grid;
@@ -640,7 +651,8 @@ mark {
 .account-page #orders article { overflow-wrap: anywhere; }
 #orders details summary { cursor: pointer; padding: 0.65rem 0; color: var(--coffi-espresso); }
 #orders article h2 { margin-bottom: 0.65rem; }
-.form-control, .form-select { min-height: 46px; border-color: var(--coffi-line); border-radius: 0.65rem; }
+.form-control, .form-select { min-height: 46px; border-color: var(--coffi-line); border-radius: 0.65rem; background-color: #fffefa; }
+.form-control:focus, .form-select:focus { background-color: #ffffff; }
 .form-label { font-size: 0.9rem; font-weight: 600; }
 .form-text { display: block; margin-top: 0.5rem; font-size: 0.8rem; line-height: 1.5; }
 textarea.form-control { min-height: 96px; }
