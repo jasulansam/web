@@ -43,7 +43,7 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="account.html">Account</a>
               </li>
-            <li class="nav-item"><a class="nav-link" href="orders.html">My orders</a></li>
+
             </ul>
           </div>
         </div>
@@ -195,6 +195,16 @@
         </section>
       </div>
       <p class="small text-body-secondary text-center mt-4">Saved on this browser only. Use a password you do not use elsewhere.</p>
+      <section id="orders" class="mt-5 border-top pt-4" aria-labelledby="orders-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+        <h2 id="orders-title" class="h3 mb-0">My orders</h2>
+        <a class="btn btn-primary rounded-pill" href="menu.html">Browse menu</a>
+      </div>
+      <p class="text-body-secondary">Orders saved on this browser. Contact Coffi to confirm your order.</p>
+      <p id="orders-status" class="state-message is-hidden p-3 rounded-3" role="status"></p>
+      <p id="orders-empty" class="state-message p-3 rounded-3">No saved orders yet. Choose drinks from the menu to get started.</p>
+      <div id="orders-list" class="d-grid gap-3"></div>
+      </section>
     </main>
 
     <a
@@ -205,6 +215,7 @@
     </a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/orders.js" defer></script>
     <script src="js/account.js" defer></script>
   </body>
 </html>

@@ -73,6 +73,7 @@
       app.setStatus(status, "error", "Saved orders could not be read. Browser storage may be unavailable or damaged. Your stored history has not been changed.");
     }
   };
+  window.addEventListener("hashchange", render);
   window.addEventListener("storage", (event) => {
     if (event.key === key || event.key === null) render();
   });

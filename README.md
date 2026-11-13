@@ -31,3 +31,5 @@ See `quality-pass.md` for completed checks and remaining manual checks. Browser 
 Do not apply the `final` tag yet: remaining teacher remarks and real-device validation must be completed first.
 
 My orders (`orders.html`) lists snapshots saved under `coffi-orders` in localStorage, including guest orders. These remain until browser site data is cleared and are shared by users of that browser profile. Previous `coffi-order-plan` data is shown when no newer history exists.
+
+Order history now appears inside Account, also available to guests. Old orders.html links redirect to Account and preserve the selected order.

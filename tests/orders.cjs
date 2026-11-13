@@ -6,7 +6,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8766';
   const browser = await engine.launch();
   const page = await browser.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(base+'/orders.html');
+  await page.goto(base+'/account.html#orders');
   assert.equal(await page.locator('#orders-empty').isVisible(),true);
   for (let i=0;i<2;i++) {
    await page.goto(base+'/menu.html');
@@ -19,7 +19,9 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8766';
    await page.locator('#order-status a').waitFor();
    assert.equal(await page.locator('#cart-items > div').count(),0);
    await page.locator('#order-status a').click();
+   await page.locator('#orders-list article').nth(i).waitFor();
    assert.equal(await page.locator('#orders-list article').count(),i+1);
+   await page.locator('details[open]').waitFor();
    assert.equal(await page.locator('details[open]').count(),1);
    assert.match(await page.locator('details[open]').innerText(),/Әли Құдайберген/);
    assert.equal(await page.locator('#orders-list script').count(),0);
@@ -34,7 +36,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8766';
   await page.evaluate(()=>{Storage.prototype.setItem=function(){throw new Error('blocked')};});
   await page.locator('#order-form [type=submit]').click();
   assert.equal(await page.locator('#order-status.is-error').count(),1);assert.equal(await page.locator('#cart-items > div').count(),1);
-  await page.goto(base+'/orders.html');
+  await page.goto(base+'/account.html#orders');
   await page.evaluate(()=>{
    const old=JSON.parse(localStorage.getItem('coffi-orders'))[0];
    localStorage.setItem('coffi-order-plan',JSON.stringify(old));localStorage.removeItem('coffi-orders');

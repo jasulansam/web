@@ -225,7 +225,7 @@
       renderCart();
       app.setStatus(status, "success", basketSaved ? "Order saved. You can view it anytime in My orders." : "Order saved in My orders, but the empty basket could not be saved.");
       const link = app.element("a", "d-block mt-2 fw-semibold", "View saved order →");
-      link.href = `orders.html#order-${order.id}`;
+      link.href = `account.html#order-${order.id}`;
       status.append(link);
     } catch {
       app.setStatus(status, "error", "The request was prepared, but this browser did not allow it to be saved. Nothing was sent or paid for.");
