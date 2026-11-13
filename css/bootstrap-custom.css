@@ -870,3 +870,26 @@ h1, h2, h3 { text-wrap: balance; }
   @keyframes page-arrive { from { opacity: 0; } to { opacity: 1; } }
 }
 @media (prefers-reduced-motion: reduce) { .site-header .nav-link { transition: none; } }
+
+/* Compact controls and consistent spacing on phones. */
+@media (max-width: 767.98px) {
+  .site-header .header-container { padding-inline: 1rem; gap: 0.75rem; }
+  .site-header .navbar { padding-block: 0.65rem; }
+  .site-header .navbar-brand { font-size: 1.9rem; }
+  .header-actions { gap: 0.5rem; }
+  .basket-button { width: auto; flex-basis: auto; min-width: 72px; height: 44px; padding-inline: 0.7rem; gap: 0.5rem; }
+  .basket-label { display: none; }
+  .site-header .navbar-toggler { width: 44px; }
+  .home-page .site-main { padding-inline: 1rem; }
+  .home-hero { padding-top: 1.5rem !important; }
+  .home-hero h1 { font-size: clamp(1.9rem, 6.5vw, 2.4rem); line-height: 1.12; }
+  .hero-copy > .small { font-size: 0.68rem; letter-spacing: 0.035em; line-height: 1.5; }
+  .home-hero .lead { font-size: 0.95rem; line-height: 1.6; }
+  .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; margin-top: 1.25rem; }
+  .hero-actions .btn { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 0.7rem 0.4rem; font-size: 0.85rem; line-height: 1.3; font-weight: 600; white-space: nowrap; border-radius: 0.7rem; }
+  .hero-hours { font-size: 0.8rem; margin-top: 1rem; margin-bottom: 0.25rem !important; }
+  .home-page #visiting-hours .btn-lg { min-height: 46px; padding: 0.7rem 1rem; font-size: 0.95rem; }
+}
+@media (max-width: 359.98px) {
+  .hero-actions { grid-template-columns: minmax(0, 1fr); }
+}
