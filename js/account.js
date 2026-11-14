@@ -9,6 +9,8 @@
 
   const accountKey = "coffi-demo-account";
   const sessionKey = "coffi-demo-session";
+  const pendingOrderKey = "coffi-pending-order";
+  const savedOrderNoticeKey = "coffi-order-saved-notice";
   const registerStatus = document.querySelector("#register-status");
   const loginStatus = document.querySelector("#login-status");
   const registerName = document.querySelector("#register-name");
@@ -24,6 +26,7 @@
 
   const loginPanel = document.querySelector("#login-panel");
   const registerPanel = document.querySelector("#register-panel");
+  loginForm.noValidate = true;
   const showForm = (mode, focus = true) => {
     loginPanel.classList.toggle("is-hidden", mode !== "login");
     registerPanel.classList.toggle("is-hidden", mode !== "register");
@@ -35,12 +38,7 @@
   const bytesToBase64 = (bytes) => btoa(String.fromCharCode(...bytes));
   const base64ToBytes = (value) => Uint8Array.from(atob(value), (character) => character.charCodeAt(0));
   const normalizeEmail = (value) => value.trim().toLowerCase();
-  const normalizePhone = (value) => {
-    if (!/^\+?[0-9\s()-]+$/.test(value.trim())) return null;
-    const digits = value.replace(/\D/g, "");
-    if (!/^[78]\d{10}$/.test(digits)) return null;
-    return digits.startsWith("8") ? `7${digits.slice(1)}` : digits;
-  };
+  const normalizePhone = app.normalizeKzPhone;
   const validName = (value) => {
     const trimmed = value.trim();
     const letters = trimmed.match(/\p{L}/gu) || [];
@@ -91,13 +89,36 @@
     }
   };
 
+  const finishPendingOrder = () => {
+    try {
+      const pending = sessionStorage.getItem(pendingOrderKey);
+      if (!pending) return;
+      const account = readAccount();
+      if (!account || sessionStorage.getItem(sessionKey) !== account.email) return;
+      const order = JSON.parse(pending);
+      const existingOrders = window.CoffiOrders.read();
+      if (!existingOrders.some((saved) => saved.id === order.id)) {
+        window.CoffiOrders.save(order);
+      }
+      sessionStorage.setItem(savedOrderNoticeKey, order.id);
+      sessionStorage.removeItem(pendingOrderKey);
+      window.location.replace("menu.html");
+    } catch {
+      app.setStatus(loginStatus, "error", "You are signed in, but this order could not be saved. It is still on this tab; try again after checking browser storage.");
+    }
+  };
+
   const clearValidity = (field) => field.setCustomValidity("");
   [registerName, registerEmail, registerPhone, registerPassword, registerConfirm].forEach((field) => {
     field.addEventListener("input", () => clearValidity(field));
   });
+  app.bindKzPhoneInput(registerPhone);
   registerPassword.addEventListener("input", () => clearValidity(registerConfirm));
   [loginEmail, loginPassword].forEach((field) => {
-    field.addEventListener("input", () => clearValidity(field));
+    field.addEventListener("input", () => {
+      clearValidity(field);
+      app.hideStatus(loginStatus);
+    });
   });
 
   registerForm.addEventListener("submit", async (event) => {
@@ -108,7 +129,7 @@
     const email = normalizeEmail(registerEmail.value);
     const phone = normalizePhone(registerPhone.value);
     registerName.setCustomValidity(validName(name) ? "" : "Use letters, spaces, apostrophes or hyphens, with at least two characters.");
-    registerPhone.setCustomValidity(phone ? "" : "Enter 11 digits beginning with +7, 7 or 8.");
+    registerPhone.setCustomValidity(phone ? "" : "Enter a complete Kazakhstan phone number.");
     registerPassword.setCustomValidity(registerPassword.value.length >= 6 ? "" : "Use at least 6 characters.");
     registerConfirm.setCustomValidity(registerConfirm.value === registerPassword.value ? "" : "The passwords do not match.");
     if (!registerForm.reportValidity()) return;
@@ -145,6 +166,7 @@
       loginEmail.value = email;
       app.setStatus(registerStatus, "success", "Account created. You are signed in on this tab.");
       updateSessionPanel();
+      finishPendingOrder();
     } catch {
       app.setStatus(registerStatus, "error", "The account could not be saved. Check that browser storage is enabled and try again.");
     } finally {
@@ -155,7 +177,16 @@
   loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     app.hideStatus(loginStatus);
-    if (!loginForm.reportValidity()) return;
+    if (!loginEmail.value.trim() || !loginPassword.value) {
+      app.setStatus(loginStatus, "error", "Enter your email and password to sign in.");
+      (loginEmail.value.trim() ? loginPassword : loginEmail).focus();
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(loginEmail.value.trim())) {
+      app.setStatus(loginStatus, "error", "Enter a valid email address.");
+      loginEmail.focus();
+      return;
+    }
 
     loginSubmit.disabled = true;
     try {
@@ -175,6 +206,7 @@
       loginPassword.value = "";
       app.setStatus(loginStatus, "success", "Signed in successfully on this tab.");
       updateSessionPanel();
+      finishPendingOrder();
     } catch {
       app.setStatus(loginStatus, "error", "The account could not be read. Check browser storage and try again.");
     } finally {
@@ -195,6 +227,9 @@
     }
   });
 
-  window.addEventListener("pageshow", updateSessionPanel);
+  window.addEventListener("pageshow", () => {
+    updateSessionPanel();
+    finishPendingOrder();
+  });
   updateSessionPanel();
 })();

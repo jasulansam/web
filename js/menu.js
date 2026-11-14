@@ -25,10 +25,13 @@
   const submit = form.querySelector('[type="submit"]');
   const status = document.querySelector("#order-status");
   const cartKey = "coffi-cart";
+  const pendingOrderKey = "coffi-pending-order";
+  const savedOrderNoticeKey = "coffi-order-saved-notice";
   let category = "Popular";
   let query = "";
   let cart = [];
   let addStatusTimeout;
+  let menuRevealObserver;
   const requestedDrink = app.findDrink(new URLSearchParams(location.search).get("drink"));
   if (requestedDrink) category = "All drinks";
 
@@ -77,6 +80,7 @@
 
   const renderDrink = (drink) => {
     const card = drinkTemplate.content.firstElementChild.cloneNode(true);
+    card.querySelector("article").classList.add("menu-reveal");
     card.id = `drink-${drink.id}`;
     card.dataset.drinkId = drink.id;
     if (requestedDrink?.id === drink.id) card.classList.add("requested-drink");
@@ -103,6 +107,23 @@
       return inCategory && `${drink.name} ${drink.description}`.toLowerCase().includes(query);
     });
     list.replaceChildren(...matches.map(renderDrink));
+    menuRevealObserver?.disconnect();
+    const revealCards = [...list.querySelectorAll("article.menu-reveal")];
+    if ("IntersectionObserver" in window) {
+      menuRevealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+      revealCards.forEach((card, index) => {
+        card.style.setProperty("--menu-reveal-delay", `${Math.min(index * 45, 180)}ms`);
+        menuRevealObserver.observe(card);
+      });
+    } else {
+      revealCards.forEach((card) => card.classList.add("is-visible"));
+    }
     count.textContent = `${matches.length} ${matches.length === 1 ? "drink" : "drinks"}`;
     noResults.classList.toggle("is-hidden", matches.length > 0);
     categoryNav.querySelectorAll("[data-category]").forEach((button) => {
@@ -214,17 +235,22 @@
   const name = document.querySelector("#order-name");
   const phone = document.querySelector("#order-phone");
   const validName = (value) => /^(?=(?:.*\p{L}){2})[\p{L}\s'-]+$/u.test(value.trim());
-  const normalizePhone = (value) => {
-    const digits = value.replace(/\D/g, "");
-    return digits.length === 11 && digits.startsWith("8") ? `7${digits.slice(1)}` : digits;
+  const normalizePhone = app.normalizeKzPhone;
+  const validPhone = (value) => Boolean(normalizePhone(value));
+  const showSavedOrder = (order, basketSaved) => {
+    document.querySelector("#order-saved-message").textContent = basketSaved
+      ? "You can view your order anytime in Account → My orders."
+      : "Your order is saved, but the empty basket could not be saved.";
+    document.querySelector("#order-saved-link").href = `account.html#order-${order.id}`;
+    bootstrap.Toast.getOrCreateInstance(document.querySelector("#order-saved")).show();
   };
-  const validPhone = (value) => /^\+?[\d\s()-]+$/.test(value.trim()) && /^7\d{10}$/.test(normalizePhone(value));
+  app.bindKzPhoneInput(phone);
   [name, phone].forEach((field) => field.addEventListener("input", () => field.setCustomValidity("")));
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     app.hideStatus(status);
     name.setCustomValidity(validName(name.value) ? "" : "Enter at least two letters. Spaces, apostrophes, and hyphens are allowed.");
-    phone.setCustomValidity(validPhone(phone.value) ? "" : "Enter 11 digits starting with +7, 7, or 8.");
+    phone.setCustomValidity(validPhone(phone.value) ? "" : "Enter a complete Kazakhstan phone number.");
     if (!cart.length) app.setStatus(status, "error", "Add at least one drink before preparing the request.");
     if (!cart.length || !form.reportValidity()) return;
     phone.value = normalizePhone(phone.value);
@@ -235,19 +261,33 @@
       items: cart.map((item) => ({ ...item, name: app.findDrink(item.id).name, price: app.findDrink(item.id).price })),
       total: total(),
     };
+    let signedIn;
+    try {
+      const account = JSON.parse(localStorage.getItem("coffi-demo-account") || "null");
+      signedIn = Boolean(account?.email && sessionStorage.getItem("coffi-demo-session") === account.email);
+    } catch {
+      app.setStatus(status, "error", "The account could not be checked. Sign in before saving this order.");
+      return;
+    }
+    if (!signedIn) {
+      try {
+        sessionStorage.setItem(pendingOrderKey, JSON.stringify(order));
+      } catch {
+        app.setStatus(status, "error", "Sign-in is required to save this order, but this browser could not keep it for sign-in. Nothing was saved.");
+        return;
+      }
+      location.assign("account.html#login");
+      return;
+    }
     try {
       window.CoffiOrders.save(order);
       cart = [];
       const basketSaved = saveCart();
       renderCart();
       hideAddStatus();
-      document.querySelector("#order-saved-message").textContent = basketSaved
-        ? "You can view your order anytime in Account → My orders."
-        : "Your order is saved, but the empty basket could not be saved.";
-      document.querySelector("#order-saved-link").href = `account.html#order-${order.id}`;
       modal.addEventListener("hidden.bs.offcanvas", () => {
         openCart.focus();
-        bootstrap.Toast.getOrCreateInstance(document.querySelector("#order-saved")).show();
+        showSavedOrder(order, basketSaved);
       }, { once: true });
       modalInstance.hide();
     } catch {
@@ -276,6 +316,20 @@
   });
   renderMenu();
   renderCart();
+  const savedOrderId = sessionStorage.getItem(savedOrderNoticeKey);
+  if (savedOrderId) {
+    try {
+      const order = window.CoffiOrders.read().find((saved) => saved.id === savedOrderId);
+      if (!order) throw new Error("The saved order could not be found.");
+      cart = [];
+      const basketSaved = saveCart();
+      renderCart();
+      sessionStorage.removeItem(savedOrderNoticeKey);
+      showSavedOrder(order, basketSaved);
+    } catch {
+      app.setStatus(status, "error", "Your order was saved, but the confirmation could not be shown. You can find it in Account → My orders.");
+    }
+  }
   if (requestedDrink) requestAnimationFrame(() => requestAnimationFrame(() => {
     document.querySelector(`#drink-${CSS.escape(requestedDrink.id)}`)?.scrollIntoView({
       behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",

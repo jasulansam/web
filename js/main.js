@@ -30,6 +30,34 @@
     if (text) node.textContent = text;
     return node;
   };
+
+  const formatKzPhone = (value) => {
+    let digits = String(value).replace(/\D/g, "");
+    if (digits.startsWith("8")) digits = `7${digits.slice(1)}`;
+    if (!digits.startsWith("7")) return digits;
+
+    const local = digits.slice(1);
+    let formatted = "+7";
+    if (local.length) formatted += ` (${local.slice(0, 3)}`;
+    if (local.length >= 3) formatted += ")";
+    if (local.length > 3) formatted += ` ${local.slice(3, 6)}`;
+    if (local.length > 6) formatted += `-${local.slice(6, 8)}`;
+    if (local.length > 8) formatted += `-${local.slice(8)}`;
+    return formatted;
+  };
+
+  const normalizeKzPhone = (value) => {
+    const digits = String(value).replace(/\D/g, "");
+    const normalized = digits.startsWith("8") ? `7${digits.slice(1)}` : digits;
+    return /^7\d{10}$/.test(normalized) ? formatKzPhone(normalized) : null;
+  };
+
+  const bindKzPhoneInput = (field) => {
+    if (!field) return;
+    field.addEventListener("input", () => {
+      field.value = formatKzPhone(field.value);
+    });
+  };
   const money = (value) => new Intl.NumberFormat("kk-KZ").format(value);
   const reference = (prefix) => `${prefix}-${Math.floor(Math.random() * 9000) + 1000}`;
   const today = () => new Date().toISOString().slice(0, 10);
@@ -180,5 +208,8 @@
     });
   }
 
-  window.CoffiApp = Object.freeze({ drinks, element, money, reference, today, findDrink, setStatus, hideStatus });
+  window.CoffiApp = Object.freeze({
+    drinks, element, money, reference, today, findDrink, setStatus, hideStatus,
+    formatKzPhone, normalizeKzPhone, bindKzPhoneInput,
+  });
 })();

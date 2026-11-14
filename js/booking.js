@@ -15,12 +15,10 @@
   const zone = document.querySelector("#book-zone");
   const notes = document.querySelector("#book-notes");
   const validName = (value) => /^(?=(?:.*\p{L}){2})[\p{L}\s'-]+$/u.test(value.trim());
-  const normalizePhone = (value) => {
-    const digits = value.replace(/\D/g, "");
-    return digits.length === 11 && digits.startsWith("8") ? `7${digits.slice(1)}` : digits;
-  };
-  const validPhone = (value) => /^\+?[\d\s()-]+$/.test(value.trim()) && /^7\d{10}$/.test(normalizePhone(value));
-  const phoneError = "Enter 11 digits starting with +7, 7, or 8.";
+  const normalizePhone = app.normalizeKzPhone;
+  const validPhone = (value) => Boolean(normalizePhone(value));
+  const phoneError = "Enter a complete Kazakhstan phone number.";
+  app.bindKzPhoneInput(phone);
   const today = new Date();
   today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
   date.min = today.toISOString().slice(0, 10);

@@ -6,6 +6,8 @@ const assert=require('node:assert/strict');
  await page.goto((process.env.BASE_URL || 'http://127.0.0.1:8765') + '/account.html');
  assert.equal(await page.locator('#login-panel').isVisible(),true);
  assert.equal(await page.locator('#register-panel').isVisible(),false);
+ const loginUrl=page.url();await page.locator('#login-form [type=submit]').click();await page.waitForFunction(()=>document.querySelector('#login-status').textContent.includes('Enter your email and password'));assert.equal(page.url(),loginUrl);assert.equal(await page.locator('#login-panel').isVisible(),true);
+ await page.locator('#login-email').fill('not-an-email');await page.locator('#login-password').fill('sample-pass');await page.locator('#login-form [type=submit]').click();await page.waitForFunction(()=>document.querySelector('#login-status').textContent.includes('valid email'));assert.equal(page.url(),loginUrl);
  await page.locator('#show-register').click();
  await page.locator('#register-name').fill('Әли Құдайберген');await page.locator('#register-email').fill('demo@example.test');await page.locator('#register-phone').fill('+7 (701) 123-45-67');await page.locator('#register-password').fill('sample-pass');await page.locator('#register-confirm').fill('sample-pass');
  await page.locator('#register-form [type=submit]').click();await page.locator('#account-session').waitFor({state:'visible'});

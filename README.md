@@ -30,11 +30,11 @@ See `quality-pass.md` for completed checks and remaining manual checks. Browser 
 
 Do not apply the `final` tag yet: remaining teacher remarks and real-device validation must be completed first.
 
-My orders (`orders.html`) lists snapshots saved under `coffi-orders` in localStorage, including guest orders. These remain until browser site data is cleared and are shared by users of that browser profile. Previous `coffi-order-plan` data is shown when no newer history exists.
+My orders (`orders.html`) lists snapshots saved under `coffi-orders` in localStorage. Saving an order requires signing in to the browser demo account; guests are sent to Account and returned to the menu with a confirmation after sign-in. Orders remain until browser site data is cleared and are shared by users of that browser profile. Previous `coffi-order-plan` data is shown when no newer history exists.
 
-Order history now appears inside Account, also available to guests. Old orders.html links redirect to Account and preserve the selected order.
+Order history appears inside Account and is available only while signed in. Old orders.html links redirect to Account and preserve the selected order.
 
-Order history visibility now requires the browser account to be signed in. Logout clears rendered order details immediately; sign-in restores saved history. Guest checkout remains available. This is a client-side demo visibility rule.
+Logout clears rendered order details immediately; sign-in restores saved history. The sign-in requirement is a client-side demo rule, not real authentication.
 
 Feedback: three explicitly labelled illustrative sample reviews, star cards and local user-review persistence. One external 2GIS link opens public feedback; there is no automatic import or publication. Chromium/Firefox checks cover samples, submission, reload, text safety and responsive layout.
 

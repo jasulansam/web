@@ -440,6 +440,28 @@ mark {
   border-radius: 1rem;
   box-shadow: 0 0.2rem 0.75rem rgb(67 45 31 / 5%);
 }
+@media (prefers-reduced-motion: no-preference) {
+  .menu-page #menu-items article.menu-reveal {
+    opacity: 0;
+    transform: translateY(0.65rem);
+    transition:
+      opacity 420ms ease var(--menu-reveal-delay, 0ms),
+      transform 420ms ease var(--menu-reveal-delay, 0ms),
+      background-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+  .menu-page #menu-items article.menu-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .menu-page #menu-items article.feature-card:hover {
+    transform: translateY(-3px);
+    background-color: #f3f1ee;
+    box-shadow: 0 0.6rem 1.35rem rgb(67 45 31 / 11%);
+  }
+}
 .menu-page #menu-items article.feature-card > .ratio {
   width: 4rem;
   height: 4rem;
@@ -902,6 +924,47 @@ h1, h2, h3 { text-wrap: balance; }
   .hero-hours { font-size: 0.8rem; margin-top: 1rem; margin-bottom: 0.25rem !important; }
   .home-page #visiting-hours .btn-lg { min-height: 46px; padding: 0.7rem 1rem; font-size: 0.95rem; }
 }
+@media (max-width: 767.98px) {
+  .home-hero {
+    min-height: 0;
+    align-items: center;
+    padding: 1.15rem !important;
+  }
+  .home-hero::before {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    background-size: auto 140%;
+    background-position: 40% center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 60%, rgb(0 0 0 / 35%) 74%, #000 90%);
+    mask-image: linear-gradient(to right, transparent 0%, transparent 60%, rgb(0 0 0 / 35%) 74%, #000 90%);
+  }
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 82%;
+  }
+  .home-hero .hero-copy > .small { margin-bottom: 0.55rem !important; }
+  .home-hero h1 {
+    max-width: none;
+    margin-bottom: 0.7rem;
+    font-size: clamp(1.7rem, 6.3vw, 2rem);
+    line-height: 1.08;
+  }
+  .home-hero .lead { font-size: 0.95rem; line-height: 1.5; }
+  .home-hero .hero-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+  }
+  .home-hero .hero-actions .btn { min-height: 42px; }
+  .home-hero .hero-hours { margin-top: 0.65rem; }
+}
 @media (max-width: 359.98px) {
-  .hero-actions { grid-template-columns: minmax(0, 1fr); }
+  .home-hero { padding: 1rem !important; }
+  .hero-copy { max-width: 86%; }
+  .home-hero h1 { font-size: 1.45rem; }
 }

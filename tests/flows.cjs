@@ -13,8 +13,37 @@ const assert = require('node:assert/strict');
  await page.locator('#order-name').fill('Әли Құдайберген');
  await page.locator('#order-phone').fill('87011234567');
  await page.locator('#order-form [type=submit]').click();
+ await page.waitForURL(/account\.html#login$/);
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('coffi-orders')||'[]').length),0);
+ assert.equal(await page.locator('#order-saved.show').count(),0);
+ await page.locator('#show-register').click();
+ await page.locator('#register-name').fill('Әли Құдайберген');
+ await page.locator('#register-email').fill('order@example.test');
+ await page.locator('#register-phone').fill('87011234567');
+ await page.locator('#register-password').fill('sample-pass');
+ await page.locator('#register-confirm').fill('sample-pass');
+ await page.locator('#register-form [type=submit]').click();
+ await page.waitForURL(/menu\.html$/);
  await page.locator('#order-saved.show').waitFor();
  assert.match(await page.locator('#order-saved').innerText(), /Order saved/);
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('coffi-orders')||'[]').length),1);
+ await page.locator('#order-saved [data-bs-dismiss=toast]').click();
+ await page.locator('#order-saved').waitFor({state:'hidden'});
+ await page.goto((process.env.BASE_URL || 'http://127.0.0.1:8765') + '/account.html');
+ await page.locator('#account-logout').click();
+ await page.goto((process.env.BASE_URL || 'http://127.0.0.1:8765') + '/menu.html');
+ await page.locator('[data-add-drink]').first().click();
+ await page.locator('#open-cart').click();
+ await page.locator('#order-name').fill('Әли Құдайберген');
+ await page.locator('#order-phone').fill('87011234567');
+ await page.locator('#order-form [type=submit]').click();
+ await page.waitForURL(/account\.html#login$/);
+ await page.locator('#login-email').fill('order@example.test');
+ await page.locator('#login-password').fill('sample-pass');
+ await page.locator('#login-form [type=submit]').click();
+ await page.waitForURL(/menu\.html$/);
+ await page.locator('#order-saved.show').waitFor();
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('coffi-orders')||'[]').length),2);
  await page.locator('#order-saved [data-bs-dismiss=toast]').click();
  await page.locator('#order-saved').waitFor({state:'hidden'});
  await page.goto((process.env.BASE_URL || 'http://127.0.0.1:8765') + '/booking.html');
@@ -23,11 +52,13 @@ const assert = require('node:assert/strict');
  await page.locator('#book-time').fill('12:30');
  await page.locator('#book-guests').fill('2');
  await page.locator('#book-name').fill('Әли Құдайберген');
- for(const phone of ['7701123','770112345678','a77011234567','67011234567']) {
+  for(const phone of ['7701123','770112345678','67011234567']) {
   await page.locator('#book-phone').fill(phone);
   await page.locator('#booking-form [type=submit]').click();
   assert.equal(await page.locator('#book-phone').getAttribute('aria-invalid'),'true');
  }
+  await page.locator('#book-phone').fill('a87011234567');
+  assert.equal(await page.locator('#book-phone').inputValue(),'+7 (701) 123-45-67');
  for(const phone of ['+7 (701) 123-45-67','87011234567']) {
   await page.locator('#book-phone').fill(phone);
   await page.locator('#booking-form [type=submit]').click();
@@ -48,4 +79,3 @@ const assert = require('node:assert/strict');
  console.log('PASS: menu limit, order, booking phone cases, Kazakh name, feedback, mobile basket, no JS exceptions');
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
-
