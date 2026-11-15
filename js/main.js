@@ -54,6 +54,20 @@
 
   const bindKzPhoneInput = (field) => {
     if (!field) return;
+    field.addEventListener("keydown", (event) => {
+      if (event.key !== "Backspace" || field.selectionStart !== field.selectionEnd) return;
+      const caret = field.selectionStart;
+      if (!caret || /\d/.test(field.value[caret - 1])) return;
+
+      const digits = field.value.replace(/\D/g, "").split("");
+      const digitIndex = field.value.slice(0, caret).replace(/\D/g, "").length - 1;
+      if (digitIndex < 1) return;
+      event.preventDefault();
+      digits.splice(digitIndex, 1);
+      field.value = formatKzPhone(digits.join(""));
+      field.setSelectionRange(field.value.length, field.value.length);
+      field.dispatchEvent(new Event("input", { bubbles: true }));
+    });
     field.addEventListener("input", () => {
       field.value = formatKzPhone(field.value);
     });
