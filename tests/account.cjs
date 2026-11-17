@@ -9,6 +9,8 @@ const assert=require('node:assert/strict');
  const loginUrl=page.url();await page.locator('#login-form [type=submit]').click();await page.waitForFunction(()=>document.querySelector('#login-status').textContent.includes('Enter your email and password'));assert.equal(page.url(),loginUrl);assert.equal(await page.locator('#login-panel').isVisible(),true);
  await page.locator('#login-email').fill('not-an-email');await page.locator('#login-password').fill('sample-pass');await page.locator('#login-form [type=submit]').click();await page.waitForFunction(()=>document.querySelector('#login-status').textContent.includes('valid email'));assert.equal(page.url(),loginUrl);
  await page.locator('#show-register').click();
+ await page.locator('#register-phone').fill('1234');
+ assert.equal(await page.locator('#register-phone').inputValue(), '+7 (234)');
  await page.locator('#register-phone').fill('7555');
  await page.locator('#register-phone').press('Backspace');
  assert.equal(await page.locator('#register-phone').inputValue(), '+7 (55');

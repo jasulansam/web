@@ -33,8 +33,8 @@
 
   const formatKzPhone = (value) => {
     let digits = String(value).replace(/\D/g, "");
-    if (digits.startsWith("8")) digits = `7${digits.slice(1)}`;
-    if (!digits.startsWith("7")) return digits;
+    if (digits && !digits.startsWith("7")) digits = `7${digits.slice(1)}`;
+    if (!digits) return "";
 
     const local = digits.slice(1);
     let formatted = "+7";
@@ -48,7 +48,7 @@
 
   const normalizeKzPhone = (value) => {
     const digits = String(value).replace(/\D/g, "");
-    const normalized = digits.startsWith("8") ? `7${digits.slice(1)}` : digits;
+    const normalized = digits && !digits.startsWith("7") ? `7${digits.slice(1)}` : digits;
     return /^7\d{10}$/.test(normalized) ? formatKzPhone(normalized) : null;
   };
 

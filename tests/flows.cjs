@@ -52,7 +52,7 @@ const assert = require('node:assert/strict');
  await page.locator('#book-time').fill('12:30');
  await page.locator('#book-guests').fill('2');
  await page.locator('#book-name').fill('Әли Құдайберген');
-  for(const phone of ['7701123','770112345678','67011234567']) {
+  for(const phone of ['7701123','770112345678']) {
   await page.locator('#book-phone').fill(phone);
   await page.locator('#booking-form [type=submit]').click();
   assert.equal(await page.locator('#book-phone').getAttribute('aria-invalid'),'true');
