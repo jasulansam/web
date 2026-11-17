@@ -39,6 +39,7 @@
   const base64ToBytes = (value) => Uint8Array.from(atob(value), (character) => character.charCodeAt(0));
   const normalizeEmail = (value) => value.trim().toLowerCase();
   const normalizePhone = app.normalizeKzPhone;
+  const validPassword = (value) => value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /[0-9]/.test(value);
   const validName = (value) => {
     const trimmed = value.trim();
     const letters = trimmed.match(/\p{L}/gu) || [];
@@ -130,7 +131,7 @@
     const phone = normalizePhone(registerPhone.value);
     registerName.setCustomValidity(validName(name) ? "" : "Use letters, spaces, apostrophes or hyphens, with at least two characters.");
     registerPhone.setCustomValidity(phone ? "" : "Enter a complete Kazakhstan phone number.");
-    registerPassword.setCustomValidity(registerPassword.value.length >= 6 ? "" : "Use at least 6 characters.");
+    registerPassword.setCustomValidity(validPassword(registerPassword.value) ? "" : "Use at least 8 characters with uppercase and lowercase English letters and a number.");
     registerConfirm.setCustomValidity(registerConfirm.value === registerPassword.value ? "" : "The passwords do not match.");
     if (!registerForm.reportValidity()) return;
 
